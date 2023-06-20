@@ -19,6 +19,8 @@ declare module 'vue' {
     ContentSide: typeof import('./src/components/Content/ContentSide.vue')['default']
     Editor: typeof import('./src/components/Editor.vue')['default']
     FormMapDraw: typeof import('./src/components/Form/FormMapDraw.vue')['default']
+    Layout: typeof import('./src/components/Layout.vue')['default']
+    MapLayout: typeof import('./src/components/Map/MapLayout.vue')['default']
     MapLogo: typeof import('./src/components/Map/MapLogo.vue')['default']
     ModalAbout: typeof import('./src/components/Modal/ModalAbout.vue')['default']
     ModalDataMultipleMarker: typeof import('./src/components/Modal/ModalDataMultipleMarker.vue')['default']

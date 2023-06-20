@@ -478,42 +478,18 @@ declare module 'vue' {
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly globalAboutModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalAboutModalVisible']>
-    readonly globalAllSessions: UnwrapRef<typeof import('./src/composables/store')['globalAllSessions']>
-    readonly globalComputedFilterMapFeatures: UnwrapRef<typeof import('./src/composables/store')['globalComputedFilterMapFeatures']>
-    readonly globalCurrentProperties: UnwrapRef<typeof import('./src/composables/global')['globalCurrentProperties']>
-    readonly globalDrawEdit: UnwrapRef<typeof import('./src/composables/global')['globalDrawEdit']>
-    readonly globalDrawMode: UnwrapRef<typeof import('./src/composables/global')['globalDrawMode']>
-    readonly globalDrawMove: UnwrapRef<typeof import('./src/composables/global')['globalDrawMove']>
-    readonly globalGeojson: UnwrapRef<typeof import('./src/composables/store')['globalGeojson']>
-    readonly globalGeojsonExecute: UnwrapRef<typeof import('./src/composables/store')['globalGeojsonExecute']>
-    readonly globalGeojsonFeatures: UnwrapRef<typeof import('./src/composables/store')['globalGeojsonFeatures']>
     readonly globalIsMapboxLoad: UnwrapRef<typeof import('./src/composables/global')['globalIsMapboxLoad']>
     readonly globalJoinUsModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalJoinUsModalVisible']>
     readonly globalMapCenter: UnwrapRef<typeof import('./src/composables/global')['globalMapCenter']>
-    readonly globalMapDataExecute: UnwrapRef<typeof import('./src/composables/store')['globalMapDataExecute']>
-    readonly globalMapDataGeojsonUrl: UnwrapRef<typeof import('./src/composables/store')['globalMapDataGeojsonUrl']>
-    readonly globalMapDataValueUrl: UnwrapRef<typeof import('./src/composables/store')['globalMapDataValueUrl']>
-    readonly globalMapDrawFeatureModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawFeatureModalVisible']>
-    readonly globalMapPointUrl: UnwrapRef<typeof import('./src/composables/store')['globalMapPointUrl']>
-    readonly globalModalDataMultipleMarkerVisible: UnwrapRef<typeof import('./src/composables/global')['globalModalDataMultipleMarkerVisible']>
-    readonly globalModalDrawDataUploadVisible: UnwrapRef<typeof import('./src/composables/global')['globalModalDrawDataUploadVisible']>
-    readonly globalSessionId: UnwrapRef<typeof import('./src/composables/store')['globalSessionId']>
     readonly globalSettingModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalSettingModalVisible']>
-    readonly globalTempRouteMapCoordinates: UnwrapRef<typeof import('./src/composables/store')['globalTempRouteMapCoordinates']>
-    readonly globalVideoId: UnwrapRef<typeof import('./src/composables/store')['globalVideoId']>
     readonly globalWeixinMiniAppModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalWeixinMiniAppModalVisible']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly handleComputeDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleComputeDistance']>
     readonly handleComputeDistanceInEdit: UnwrapRef<typeof import('./src/composables/fetch')['handleComputeDistanceInEdit']>
-    readonly handleContentSideCollapsed: UnwrapRef<typeof import('./src/composables/store')['handleContentSideCollapsed']>
     readonly handleExportComputeDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleExportComputeDistance']>
-    readonly handleMapDrawEdit: UnwrapRef<typeof import('./src/composables/global')['handleMapDrawEdit']>
-    readonly handleMapDrawMove: UnwrapRef<typeof import('./src/composables/global')['handleMapDrawMove']>
-    readonly handleMapExitDrawEdit: UnwrapRef<typeof import('./src/composables/global')['handleMapExitDrawEdit']>
     readonly handleMultipleMarker: UnwrapRef<typeof import('./src/composables/fetch')['handleMultipleMarker']>
     readonly handlePushViewFlightChildren: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightChildren']>
     readonly handlePushViewFlightList: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightList']>
-    readonly handleSelectGlobalDrawMode: UnwrapRef<typeof import('./src/composables/global')['handleSelectGlobalDrawMode']>
     readonly handleSendIssueUseEmail: UnwrapRef<typeof import('./src/composables/fetch')['handleSendIssueUseEmail']>
     readonly handleShowDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleShowDistance']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
@@ -575,14 +551,7 @@ declare module 'vue' {
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
-    readonly storeContentSideCollapseActiveKey: UnwrapRef<typeof import('./src/composables/store')['storeContentSideCollapseActiveKey']>
-    readonly storeContentSideCollapsed: UnwrapRef<typeof import('./src/composables/store')['storeContentSideCollapsed']>
-    readonly storeMapDataValue: UnwrapRef<typeof import('./src/composables/store')['storeMapDataValue']>
-    readonly storeMapDrawFeatures: UnwrapRef<typeof import('./src/composables/store')['storeMapDrawFeatures']>
-    readonly storeMapDrawLayerCheckedKeys: UnwrapRef<typeof import('./src/composables/store')['storeMapDrawLayerCheckedKeys']>
-    readonly storeMapImportLayerCheckedKeys: UnwrapRef<typeof import('./src/composables/store')['storeMapImportLayerCheckedKeys']>
     readonly storeMapStyle: UnwrapRef<typeof import('./src/composables/store')['storeMapStyle']>
-    readonly storeMapTypeValue: UnwrapRef<typeof import('./src/composables/store')['storeMapTypeValue']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>
     readonly syncRefs: UnwrapRef<typeof import('@vueuse/core')['syncRefs']>
     readonly templateRef: UnwrapRef<typeof import('@vueuse/core')['templateRef']>
@@ -866,42 +835,18 @@ declare module '@vue/runtime-core' {
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly globalAboutModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalAboutModalVisible']>
-    readonly globalAllSessions: UnwrapRef<typeof import('./src/composables/store')['globalAllSessions']>
-    readonly globalComputedFilterMapFeatures: UnwrapRef<typeof import('./src/composables/store')['globalComputedFilterMapFeatures']>
-    readonly globalCurrentProperties: UnwrapRef<typeof import('./src/composables/global')['globalCurrentProperties']>
-    readonly globalDrawEdit: UnwrapRef<typeof import('./src/composables/global')['globalDrawEdit']>
-    readonly globalDrawMode: UnwrapRef<typeof import('./src/composables/global')['globalDrawMode']>
-    readonly globalDrawMove: UnwrapRef<typeof import('./src/composables/global')['globalDrawMove']>
-    readonly globalGeojson: UnwrapRef<typeof import('./src/composables/store')['globalGeojson']>
-    readonly globalGeojsonExecute: UnwrapRef<typeof import('./src/composables/store')['globalGeojsonExecute']>
-    readonly globalGeojsonFeatures: UnwrapRef<typeof import('./src/composables/store')['globalGeojsonFeatures']>
     readonly globalIsMapboxLoad: UnwrapRef<typeof import('./src/composables/global')['globalIsMapboxLoad']>
     readonly globalJoinUsModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalJoinUsModalVisible']>
     readonly globalMapCenter: UnwrapRef<typeof import('./src/composables/global')['globalMapCenter']>
-    readonly globalMapDataExecute: UnwrapRef<typeof import('./src/composables/store')['globalMapDataExecute']>
-    readonly globalMapDataGeojsonUrl: UnwrapRef<typeof import('./src/composables/store')['globalMapDataGeojsonUrl']>
-    readonly globalMapDataValueUrl: UnwrapRef<typeof import('./src/composables/store')['globalMapDataValueUrl']>
-    readonly globalMapDrawFeatureModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawFeatureModalVisible']>
-    readonly globalMapPointUrl: UnwrapRef<typeof import('./src/composables/store')['globalMapPointUrl']>
-    readonly globalModalDataMultipleMarkerVisible: UnwrapRef<typeof import('./src/composables/global')['globalModalDataMultipleMarkerVisible']>
-    readonly globalModalDrawDataUploadVisible: UnwrapRef<typeof import('./src/composables/global')['globalModalDrawDataUploadVisible']>
-    readonly globalSessionId: UnwrapRef<typeof import('./src/composables/store')['globalSessionId']>
     readonly globalSettingModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalSettingModalVisible']>
-    readonly globalTempRouteMapCoordinates: UnwrapRef<typeof import('./src/composables/store')['globalTempRouteMapCoordinates']>
-    readonly globalVideoId: UnwrapRef<typeof import('./src/composables/store')['globalVideoId']>
     readonly globalWeixinMiniAppModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalWeixinMiniAppModalVisible']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly handleComputeDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleComputeDistance']>
     readonly handleComputeDistanceInEdit: UnwrapRef<typeof import('./src/composables/fetch')['handleComputeDistanceInEdit']>
-    readonly handleContentSideCollapsed: UnwrapRef<typeof import('./src/composables/store')['handleContentSideCollapsed']>
     readonly handleExportComputeDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleExportComputeDistance']>
-    readonly handleMapDrawEdit: UnwrapRef<typeof import('./src/composables/global')['handleMapDrawEdit']>
-    readonly handleMapDrawMove: UnwrapRef<typeof import('./src/composables/global')['handleMapDrawMove']>
-    readonly handleMapExitDrawEdit: UnwrapRef<typeof import('./src/composables/global')['handleMapExitDrawEdit']>
     readonly handleMultipleMarker: UnwrapRef<typeof import('./src/composables/fetch')['handleMultipleMarker']>
     readonly handlePushViewFlightChildren: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightChildren']>
     readonly handlePushViewFlightList: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightList']>
-    readonly handleSelectGlobalDrawMode: UnwrapRef<typeof import('./src/composables/global')['handleSelectGlobalDrawMode']>
     readonly handleSendIssueUseEmail: UnwrapRef<typeof import('./src/composables/fetch')['handleSendIssueUseEmail']>
     readonly handleShowDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleShowDistance']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
@@ -963,14 +908,7 @@ declare module '@vue/runtime-core' {
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
-    readonly storeContentSideCollapseActiveKey: UnwrapRef<typeof import('./src/composables/store')['storeContentSideCollapseActiveKey']>
-    readonly storeContentSideCollapsed: UnwrapRef<typeof import('./src/composables/store')['storeContentSideCollapsed']>
-    readonly storeMapDataValue: UnwrapRef<typeof import('./src/composables/store')['storeMapDataValue']>
-    readonly storeMapDrawFeatures: UnwrapRef<typeof import('./src/composables/store')['storeMapDrawFeatures']>
-    readonly storeMapDrawLayerCheckedKeys: UnwrapRef<typeof import('./src/composables/store')['storeMapDrawLayerCheckedKeys']>
-    readonly storeMapImportLayerCheckedKeys: UnwrapRef<typeof import('./src/composables/store')['storeMapImportLayerCheckedKeys']>
     readonly storeMapStyle: UnwrapRef<typeof import('./src/composables/store')['storeMapStyle']>
-    readonly storeMapTypeValue: UnwrapRef<typeof import('./src/composables/store')['storeMapTypeValue']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>
     readonly syncRefs: UnwrapRef<typeof import('@vueuse/core')['syncRefs']>
     readonly templateRef: UnwrapRef<typeof import('@vueuse/core')['templateRef']>
