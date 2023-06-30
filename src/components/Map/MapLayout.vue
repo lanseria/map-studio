@@ -3,6 +3,9 @@ import type { LngLatLike } from 'mapbox-gl'
 import mapboxgl from 'mapbox-gl'
 import MapboxLanguage from '@mapbox/mapbox-gl-language'
 import 'mapbox-gl/dist/mapbox-gl.css'
+import ZoomControl from '~/composables/mapControl/ZoomControl/ZoomControl'
+import StylesControl from '~/composables/mapControl/StylesControl/StylesControl'
+import CompassControl from '~/composables/mapControl/CompassControl/CompassControl'
 
 mapboxgl.accessToken = MAPBOX_TOKEN
 let map: mapboxgl.Map | null = null
@@ -24,7 +27,15 @@ onMounted(() => {
   map.addControl(new MapboxLanguage({ defaultLanguage: 'zh-Hans' }))
   window.map = map
 
-  map.addControl(new mapboxgl.NavigationControl())
+  // map.addControl(new mapboxgl.NavigationControl())
+
+  /* Zoom */
+  map.addControl(new ZoomControl(), 'top-right')
+  /* Compass */
+  map.addControl(new CompassControl(), 'top-right')
+  /* Style */
+  map.addControl(new StylesControl({
+  }), 'bottom-right')
   map.on('load', () => {
     setTimeout(() => {
       globalIsMapboxLoad.value = true
@@ -90,6 +101,42 @@ function toggleLeftSidebar() {
 </template>
 
 <style lang="css" scoped>
+:global(.mapbox-control button) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+:global(.mapbox-control button svg) {
+  width: 20px;
+  height: 20px;
+  fill: #505050;
+}
+:global(.mapbox-control button.-active) {
+  background: rgba(0, 0, 0, 0.03);
+}
+:global(.mapbox-control button.-active svg) {
+  fill: #4264fb;
+}
+:global(.mapbox-control button[disabled]) {
+  pointer-events: none;
+}
+:global(.mapbox-control button[disabled] svg) {
+  fill: rgba(0, 0, 0, 0.2);
+}
+:global(.mapbox-control-styles) {
+  display: flex;
+  overflow: hidden;
+}
+:global(.mapbox-control-styles button) {
+  width: auto;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+}
+:global(.mapbox-control-styles button + button) {
+  border: none;
+}
+
 .sidebar-btn {
   @apply absolute w-32px h-32px overflow-visible flex justify-center items-center bg-white text-gray-5 rounded-lg shadow-lg text-size-14px font-bold;
 }
