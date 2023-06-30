@@ -8,3 +8,5 @@ export const globalWeixinMiniAppModalVisible = ref(false)
 export const globalJoinUsModalVisible = ref(false)
 
 export const globalMapCenter = ref(INIT_POINT)
+
+export const globalMapRulerCoordinates = ref([])

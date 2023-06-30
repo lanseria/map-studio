@@ -101,6 +101,7 @@ declare global {
   const globalMapDataValueUrl: typeof import('./src/composables/store')['globalMapDataValueUrl']
   const globalMapDrawFeatureModalVisible: typeof import('./src/composables/global')['globalMapDrawFeatureModalVisible']
   const globalMapPointUrl: typeof import('./src/composables/store')['globalMapPointUrl']
+  const globalMapRulerCoordinates: typeof import('./src/composables/global')['globalMapRulerCoordinates']
   const globalModalDataMultipleMarkerVisible: typeof import('./src/composables/global')['globalModalDataMultipleMarkerVisible']
   const globalModalDrawDataUploadVisible: typeof import('./src/composables/global')['globalModalDrawDataUploadVisible']
   const globalSessionId: typeof import('./src/composables/store')['globalSessionId']
@@ -187,6 +188,8 @@ declare global {
   const storeMapDrawFeatures: typeof import('./src/composables/store')['storeMapDrawFeatures']
   const storeMapDrawLayerCheckedKeys: typeof import('./src/composables/store')['storeMapDrawLayerCheckedKeys']
   const storeMapImportLayerCheckedKeys: typeof import('./src/composables/store')['storeMapImportLayerCheckedKeys']
+  const storeMapLeftCollapsed: typeof import('./src/composables/store')['storeMapLeftCollapsed']
+  const storeMapRulerRouteLineString: typeof import('./src/composables/store')['storeMapRulerRouteLineString']
   const storeMapStyle: typeof import('./src/composables/store')['storeMapStyle']
   const storeMapTypeValue: typeof import('./src/composables/store')['storeMapTypeValue']
   const syncRef: typeof import('@vueuse/core')['syncRef']
@@ -481,6 +484,7 @@ declare module 'vue' {
     readonly globalIsMapboxLoad: UnwrapRef<typeof import('./src/composables/global')['globalIsMapboxLoad']>
     readonly globalJoinUsModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalJoinUsModalVisible']>
     readonly globalMapCenter: UnwrapRef<typeof import('./src/composables/global')['globalMapCenter']>
+    readonly globalMapRulerCoordinates: UnwrapRef<typeof import('./src/composables/global')['globalMapRulerCoordinates']>
     readonly globalSettingModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalSettingModalVisible']>
     readonly globalWeixinMiniAppModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalWeixinMiniAppModalVisible']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
@@ -551,6 +555,8 @@ declare module 'vue' {
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
+    readonly storeMapLeftCollapsed: UnwrapRef<typeof import('./src/composables/store')['storeMapLeftCollapsed']>
+    readonly storeMapRulerRouteLineString: UnwrapRef<typeof import('./src/composables/store')['storeMapRulerRouteLineString']>
     readonly storeMapStyle: UnwrapRef<typeof import('./src/composables/store')['storeMapStyle']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>
     readonly syncRefs: UnwrapRef<typeof import('@vueuse/core')['syncRefs']>
@@ -838,6 +844,7 @@ declare module '@vue/runtime-core' {
     readonly globalIsMapboxLoad: UnwrapRef<typeof import('./src/composables/global')['globalIsMapboxLoad']>
     readonly globalJoinUsModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalJoinUsModalVisible']>
     readonly globalMapCenter: UnwrapRef<typeof import('./src/composables/global')['globalMapCenter']>
+    readonly globalMapRulerCoordinates: UnwrapRef<typeof import('./src/composables/global')['globalMapRulerCoordinates']>
     readonly globalSettingModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalSettingModalVisible']>
     readonly globalWeixinMiniAppModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalWeixinMiniAppModalVisible']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
@@ -908,6 +915,8 @@ declare module '@vue/runtime-core' {
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
+    readonly storeMapLeftCollapsed: UnwrapRef<typeof import('./src/composables/store')['storeMapLeftCollapsed']>
+    readonly storeMapRulerRouteLineString: UnwrapRef<typeof import('./src/composables/store')['storeMapRulerRouteLineString']>
     readonly storeMapStyle: UnwrapRef<typeof import('./src/composables/store')['storeMapStyle']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>
     readonly syncRefs: UnwrapRef<typeof import('@vueuse/core')['syncRefs']>

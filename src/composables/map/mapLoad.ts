@@ -1,3 +1,5 @@
+import { handleFetchDistance } from '../fetch'
+
 function loadImg(name: string, url: string, sdf = false) {
   const map = window.map
   if (map.hasImage(name))
@@ -19,6 +21,27 @@ export function setMapPointImg(url: string) {
 }
 
 export function mapLoad() {
+  const map = window.map
+  map.on('ruler.on', () => {
+    globalMapRulerCoordinates.value = []
+  })
+  map.on('ruler.off', () => {
+    handleFetchDistance(globalMapRulerCoordinates.value)
+  })
+  map.on('ruler.change', (params) => {
+    globalMapRulerCoordinates.value = params.coordinates
+  })
+  watchEffect(() => {
+    map.easeTo({
+      padding: {
+        left: storeMapLeftCollapsed.value ? 0 : 300,
+        bottom: 0,
+        right: 0,
+        top: 0,
+      },
+      duration: 500, // In ms. This matches the CSS transition duration property.
+    })
+  })
   // loadImg('DrawLineArrow', drawLineArrow, true)
   // loadImg('DrawLineArrow', '/draw-line-arrow.png', true)
   // mapLoadImages()

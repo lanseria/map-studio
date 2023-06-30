@@ -6,11 +6,11 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import ZoomControl from '~/composables/mapControl/ZoomControl/ZoomControl'
 import StylesControl from '~/composables/mapControl/StylesControl/StylesControl'
 import CompassControl from '~/composables/mapControl/CompassControl/CompassControl'
+import RulerControl from '~/composables/mapControl/RulerControl/RulerControl'
 
 mapboxgl.accessToken = MAPBOX_TOKEN
 let map: mapboxgl.Map | null = null
 const mapContainer = shallowRef()
-const collapsed = ref(true)
 
 onMounted(() => {
   globalIsMapboxLoad.value = false
@@ -22,10 +22,10 @@ onMounted(() => {
     zoom: INIT_ZOOM,
     hash: true,
   })
+  window.map = map
   // map.scrollZoom.setWheelZoomRate(1)
   // map.scrollZoom.setZoomRate(1)
   map.addControl(new MapboxLanguage({ defaultLanguage: 'zh-Hans' }))
-  window.map = map
 
   // map.addControl(new mapboxgl.NavigationControl())
 
@@ -34,8 +34,10 @@ onMounted(() => {
   /* Compass */
   map.addControl(new CompassControl(), 'top-right')
   /* Style */
-  map.addControl(new StylesControl({
-  }), 'bottom-right')
+  map.addControl(new StylesControl({ }), 'bottom-right')
+  /* Ruler */
+  map.addControl(new RulerControl(), 'top-right')
+
   map.on('load', () => {
     setTimeout(() => {
       globalIsMapboxLoad.value = true
@@ -45,21 +47,10 @@ onMounted(() => {
   map.on('style.load', () => {
     console.warn('style.load')
     mapLoad()
-    watchEffect(() => {
-      window.map.easeTo({
-        padding: {
-          left: collapsed.value ? 0 : 300,
-          bottom: 0,
-          right: 0,
-          top: 0,
-        },
-        duration: 500, // In ms. This matches the CSS transition duration property.
-      })
-    })
   })
 })
 function toggleLeftSidebar() {
-  collapsed.value = !collapsed.value
+  storeMapLeftCollapsed.value = !storeMapLeftCollapsed.value
 }
 </script>
 
@@ -83,16 +74,16 @@ function toggleLeftSidebar() {
           <div class="ml-8px">
             About
           </div>
-          <div class="text-pink ml-8px">
+          <div class="text-pink ml-8px font-bold">
             Donate 💗
           </div>
         </div>
       </div>
-      <div class="bg-light-50 bg-opacity-30 transition-transform duration-500 z-1 w-300px h-full absolute flex justify-center items-center left-0" :class="`${collapsed ? 'collapsed' : ''}`">
+      <div class="bg-light-50 bg-opacity-30 transition-transform duration-500 z-1 w-300px h-full absolute flex justify-center items-center left-0" :class="`${storeMapLeftCollapsed ? 'collapsed' : ''}`">
         <div class="w-[calc(100%-12px)] h-[calc(100%-12px)] bg-transparent rounded-lg absolute flex">
           <slot />
           <div class="sidebar-btn left" @click="toggleLeftSidebar()">
-            <div :class="`${collapsed ? 'i-carbon-chevron-right' : 'i-carbon-chevron-left'}`" />
+            <div :class="`${storeMapLeftCollapsed ? 'i-carbon-chevron-right' : 'i-carbon-chevron-left'}`" />
           </div>
         </div>
       </div>
