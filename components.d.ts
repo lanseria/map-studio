@@ -7,19 +7,6 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    CollapeData: typeof import('./src/components/Collapse/CollapeData.vue')['default']
-    CollapeFilter: typeof import('./src/components/Collapse/CollapeFilter.vue')['default']
-    CollapseCommonLayer: typeof import('./src/components/Collapse/CollapseCommonLayer.vue')['default']
-    CollapseDrawLayer: typeof import('./src/components/Collapse/CollapseDrawLayer.vue')['default']
-    CollapseImportLayer: typeof import('./src/components/Collapse/CollapseImportLayer.vue')['default']
-    CollapseStyleLayer: typeof import('./src/components/Collapse/CollapseStyleLayer.vue')['default']
-    CollapseViewFlight: typeof import('./src/components/Collapse/CollapseViewFlight.vue')['default']
-    CollapseViewFlightHistory: typeof import('./src/components/Collapse/CollapseViewFlightHistory.vue')['default']
-    ContentMap: typeof import('./src/components/Content/ContentMap.vue')['default']
-    ContentSide: typeof import('./src/components/Content/ContentSide.vue')['default']
-    Editor: typeof import('./src/components/Editor.vue')['default']
-    FormMapDraw: typeof import('./src/components/Form/FormMapDraw.vue')['default']
-    Layout: typeof import('./src/components/Layout.vue')['default']
     MapLayout: typeof import('./src/components/Map/MapLayout.vue')['default']
     MapLogo: typeof import('./src/components/Map/MapLogo.vue')['default']
     ModalAbout: typeof import('./src/components/Modal/ModalAbout.vue')['default']
@@ -30,8 +17,6 @@ declare module 'vue' {
     ModalWeixinMiniApp: typeof import('./src/components/Modal/ModalWeixinMiniApp.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    TabPanelIconBtn: typeof import('./src/components/TabPanel/TabPanelIconBtn.vue')['default']
-    TabPanelMenu: typeof import('./src/components/TabPanel/TabPanelMenu.vue')['default']
     ViewFlightItem: typeof import('./src/components/ViewFlight/ViewFlightItem.vue')['default']
     ViewFlightPointCard: typeof import('./src/components/ViewFlight/ViewFlightPointCard.vue')['default']
   }

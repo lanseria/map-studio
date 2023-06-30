@@ -114,6 +114,7 @@ declare global {
   const handleComputeDistanceInEdit: typeof import('./src/composables/fetch')['handleComputeDistanceInEdit']
   const handleContentSideCollapsed: typeof import('./src/composables/store')['handleContentSideCollapsed']
   const handleExportComputeDistance: typeof import('./src/composables/fetch')['handleExportComputeDistance']
+  const handleFetchDistance: typeof import('./src/composables/fetch')['handleFetchDistance']
   const handleMapDrawEdit: typeof import('./src/composables/global')['handleMapDrawEdit']
   const handleMapDrawMove: typeof import('./src/composables/global')['handleMapDrawMove']
   const handleMapExitDrawEdit: typeof import('./src/composables/global')['handleMapExitDrawEdit']
@@ -488,14 +489,9 @@ declare module 'vue' {
     readonly globalSettingModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalSettingModalVisible']>
     readonly globalWeixinMiniAppModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalWeixinMiniAppModalVisible']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
-    readonly handleComputeDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleComputeDistance']>
-    readonly handleComputeDistanceInEdit: UnwrapRef<typeof import('./src/composables/fetch')['handleComputeDistanceInEdit']>
-    readonly handleExportComputeDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleExportComputeDistance']>
-    readonly handleMultipleMarker: UnwrapRef<typeof import('./src/composables/fetch')['handleMultipleMarker']>
+    readonly handleFetchDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchDistance']>
     readonly handlePushViewFlightChildren: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightChildren']>
     readonly handlePushViewFlightList: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightList']>
-    readonly handleSendIssueUseEmail: UnwrapRef<typeof import('./src/composables/fetch')['handleSendIssueUseEmail']>
-    readonly handleShowDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleShowDistance']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly initViewFlightForm: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['initViewFlightForm']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
@@ -848,14 +844,9 @@ declare module '@vue/runtime-core' {
     readonly globalSettingModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalSettingModalVisible']>
     readonly globalWeixinMiniAppModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalWeixinMiniAppModalVisible']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
-    readonly handleComputeDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleComputeDistance']>
-    readonly handleComputeDistanceInEdit: UnwrapRef<typeof import('./src/composables/fetch')['handleComputeDistanceInEdit']>
-    readonly handleExportComputeDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleExportComputeDistance']>
-    readonly handleMultipleMarker: UnwrapRef<typeof import('./src/composables/fetch')['handleMultipleMarker']>
+    readonly handleFetchDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchDistance']>
     readonly handlePushViewFlightChildren: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightChildren']>
     readonly handlePushViewFlightList: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightList']>
-    readonly handleSendIssueUseEmail: UnwrapRef<typeof import('./src/composables/fetch')['handleSendIssueUseEmail']>
-    readonly handleShowDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleShowDistance']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly initViewFlightForm: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['initViewFlightForm']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>

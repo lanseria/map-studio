@@ -4,7 +4,6 @@ import routes from 'virtual:generated-pages'
 import ArcoVue from '@arco-design/web-vue'
 import ArcoVueIcon from '@arco-design/web-vue/es/icon'
 import App from './App.vue'
-import './worker'
 
 import '@arco-design/web-vue/dist/arco.css'
 import '@unocss/reset/tailwind.css'

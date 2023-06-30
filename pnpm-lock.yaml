@@ -38,9 +38,6 @@ dependencies:
   mapbox-gl:
     specifier: 2.15.0
     version: 2.15.0
-  monaco-editor:
-    specifier: ^0.39.0
-    version: 0.39.0
   nanoid:
     specifier: ^4.0.2
     version: 4.0.2
@@ -5226,10 +5223,6 @@ packages:
       pkg-types: 1.0.3
       ufo: 1.1.2
     dev: true
-
-  /monaco-editor@0.39.0:
-    resolution: {integrity: sha512-zhbZ2Nx93tLR8aJmL2zI1mhJpsl87HMebNBM6R8z4pLfs8pj604pIVIVwyF1TivcfNtIPpMXL+nb3DsBmE/x6Q==}
-    dev: false
 
   /mrmime@1.0.1:
     resolution: {integrity: sha512-hzzEagAgDyoU1Q6yg5uI+AorQgdvMCur3FcKf7NhMKWsaYg+RnbTyHRa/9IlLF9rf455MOCtcqqrQQ83pPP7Uw==}
