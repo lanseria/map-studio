@@ -48,7 +48,13 @@ export function mapLoad() {
     source: {
       type: 'raster',
       // tiles: ['https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=874718354841f0e0250b4b06a05a971e'],
-      tiles: ['https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=90f909b02bd0b42203c536dd57bbf1dc'],
+      // tiles: ['https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=90f909b02bd0b42203c536dd57bbf1dc'],
+      // tiles: ['https://maps.openweathermap.org/maps/2.0/weather/TA2/{z}/{x}/{y}?appid=874718354841f0e0250b4b06a05a971e'],
+      // tiles: ['https://c.sat.owm.io/vane/2.0/weather/CL/{z}/{x}/{y}?appid=874718354841f0e0250b4b06a05a971e'],//cloud
+      // tiles: ['https://a.sat.owm.io/vane/2.0/weather/APM/{z}/{x}/{y}?appid=874718354841f0e0250b4b06a05a971e'], // pressure
+      // tiles: ['https://c.sat.owm.io/vane/2.0/weather/TA2/{z}/{x}/{y}?appid=874718354841f0e0250b4b06a05a971e'], // TA2
+      // tiles: ['https://c.sat.owm.io/vane/2.0/weather/WS10/{z}/{x}/{y}?appid=874718354841f0e0250b4b06a05a971e'], // WS10
+      tiles: ['https://b.sat.owm.io/maps/2.0/radar/{z}/{x}/{y}?appid=874718354841f0e0250b4b06a05a971e&day=2023-07-04T05:00'], // radar
       tileSize: 256,
     },
     minzoom: 0,
