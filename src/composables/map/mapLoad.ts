@@ -42,6 +42,14 @@ export function mapLoad() {
       duration: 500, // In ms. This matches the CSS transition duration property.
     })
   })
+  const now = new Date()
+  const utcYear = now.getUTCFullYear()
+  const utcMonth = (now.getUTCMonth() + 1).toString().padStart(2, '0')
+  const utcDate = now.getUTCDate().toString().padStart(2, '0')
+  const utcHours = now.getUTCHours().toString().padStart(2, '0')
+  // 转换为指定格式
+  const utcDateString = `${utcYear}-${utcMonth}-${utcDate}T${utcHours}:00`
+
   map.addLayer({
     id: 'simple-tiles',
     type: 'raster',
@@ -54,7 +62,7 @@ export function mapLoad() {
       // tiles: ['https://a.sat.owm.io/vane/2.0/weather/APM/{z}/{x}/{y}?appid=874718354841f0e0250b4b06a05a971e'], // pressure
       // tiles: ['https://c.sat.owm.io/vane/2.0/weather/TA2/{z}/{x}/{y}?appid=874718354841f0e0250b4b06a05a971e'], // TA2
       // tiles: ['https://c.sat.owm.io/vane/2.0/weather/WS10/{z}/{x}/{y}?appid=874718354841f0e0250b4b06a05a971e'], // WS10
-      tiles: ['https://b.sat.owm.io/maps/2.0/radar/{z}/{x}/{y}?appid=874718354841f0e0250b4b06a05a971e&day=2023-07-04T05:00'], // radar
+      tiles: [`https://b.sat.owm.io/maps/2.0/radar/{z}/{x}/{y}?appid=874718354841f0e0250b4b06a05a971e&day=${utcDateString}`], // radar
       tileSize: 256,
     },
     minzoom: 0,
