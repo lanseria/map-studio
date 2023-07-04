@@ -42,32 +42,32 @@ export function mapLoad() {
       duration: 500, // In ms. This matches the CSS transition duration property.
     })
   })
-  const now = new Date()
-  const utcYear = now.getUTCFullYear()
-  const utcMonth = (now.getUTCMonth() + 1).toString().padStart(2, '0')
-  const utcDate = now.getUTCDate().toString().padStart(2, '0')
-  const utcHours = now.getUTCHours().toString().padStart(2, '0')
-  // 转换为指定格式
-  const utcDateString = `${utcYear}-${utcMonth}-${utcDate}T${utcHours}:00`
-
-  map.addLayer({
-    id: 'simple-tiles',
-    type: 'raster',
-    source: {
+  WEATHER_LIST.forEach((item) => {
+    const visibility = storeMapWeatherLayerEnable.value.includes(item.value) ? 'visible' : 'none'
+    map.addLayer({
+      id: `${item.value}-tiles`,
       type: 'raster',
-      // tiles: ['https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=874718354841f0e0250b4b06a05a971e'],
-      // tiles: ['https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=90f909b02bd0b42203c536dd57bbf1dc'],
-      // tiles: ['https://maps.openweathermap.org/maps/2.0/weather/TA2/{z}/{x}/{y}?appid=874718354841f0e0250b4b06a05a971e'],
-      // tiles: ['https://c.sat.owm.io/vane/2.0/weather/CL/{z}/{x}/{y}?appid=874718354841f0e0250b4b06a05a971e'],//cloud
-      // tiles: ['https://a.sat.owm.io/vane/2.0/weather/APM/{z}/{x}/{y}?appid=874718354841f0e0250b4b06a05a971e'], // pressure
-      // tiles: ['https://c.sat.owm.io/vane/2.0/weather/TA2/{z}/{x}/{y}?appid=874718354841f0e0250b4b06a05a971e'], // TA2
-      // tiles: ['https://c.sat.owm.io/vane/2.0/weather/WS10/{z}/{x}/{y}?appid=874718354841f0e0250b4b06a05a971e'], // WS10
-      tiles: [`https://b.sat.owm.io/maps/2.0/radar/{z}/{x}/{y}?appid=874718354841f0e0250b4b06a05a971e&day=${utcDateString}`], // radar
-      tileSize: 256,
-    },
-    minzoom: 0,
-    maxzoom: 22,
+      source: {
+        type: 'raster',
+        tiles: [item.tiles],
+        tileSize: 256,
+      },
+      layout: {
+        visibility,
+      },
+    })
   })
+  // map.addLayer({
+  //   id: 'radar-tiles',
+  //   type: 'raster',
+  //   source: {
+  //     type: 'raster',
+  //     tiles: [`https://b.sat.owm.io/maps/2.0/radar/{z}/{x}/{y}?appid=874718354841f0e0250b4b06a05a971e&day=${formattedDate}`], // radar
+  //     tileSize: 256,
+  //   },
+  //   minzoom: 0,
+  //   maxzoom: 22,
+  // })
   // loadImg('DrawLineArrow', drawLineArrow, true)
   // loadImg('DrawLineArrow', '/draw-line-arrow.png', true)
   // mapLoadImages()

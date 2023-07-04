@@ -57,27 +57,27 @@ export default class StylesControl extends Base {
     return [
       {
         label: '街道地图',
-        styleName: '中文街道地图',
+        styleName: 'Streets',
         styleUrl: 'mapbox://styles/lanseria/clhluh3n100kq01r87c9deet0',
       },
       {
         label: '简洁白底',
-        styleName: '中文简洁白底',
+        styleName: 'Monochrome',
         styleUrl: 'mapbox://styles/lanseria/cldwdod87000e01pcn2ezak1n',
       },
       {
         label: '卫星地图',
-        styleName: '中文卫星地图',
+        styleName: 'Satellite Streets',
         styleUrl: 'mapbox://styles/lanseria/cldecwoux001t01pk90yx1jj3',
       },
       {
         label: '户外地图',
-        styleName: '中文户外地图',
+        styleName: 'Outdoors',
         styleUrl: 'mapbox://styles/lanseria/cljhxduex000701p74upy4dge',
       },
       {
         label: '黑夜导航',
-        styleName: '中文黑夜导航',
+        styleName: 'Navigation',
         styleUrl: 'mapbox://styles/lanseria/cljno22rw00g401qwgerpdhb7',
       },
     ]

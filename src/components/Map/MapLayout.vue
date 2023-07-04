@@ -7,6 +7,7 @@ import ZoomControl from '~/composables/mapControl/ZoomControl/ZoomControl'
 import StylesControl from '~/composables/mapControl/StylesControl/StylesControl'
 import CompassControl from '~/composables/mapControl/CompassControl/CompassControl'
 import RulerControl from '~/composables/mapControl/RulerControl/RulerControl'
+import LayersControl from '~/composables/mapControl/LayersControl/LayersControl'
 
 mapboxgl.accessToken = MAPBOX_TOKEN
 let map: mapboxgl.Map | null = null
@@ -37,6 +38,8 @@ onMounted(() => {
   map.addControl(new StylesControl({ }), 'bottom-right')
   /* Ruler */
   map.addControl(new RulerControl(), 'top-right')
+  /* Weather */
+  map.addControl(new LayersControl({ }), 'bottom-right')
 
   map.on('load', () => {
     setTimeout(() => {
@@ -103,7 +106,7 @@ function toggleLeftSidebar() {
   fill: #505050;
 }
 :global(.mapbox-control button.-active) {
-  background: rgba(0, 0, 0, 0.03);
+  background: rgba(0, 0, 0, 0.2);
 }
 :global(.mapbox-control button.-active svg) {
   fill: #4264fb;

@@ -1,3 +1,5 @@
+import dayjs from 'dayjs'
+
 export const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN
 
 console.warn('renderer constant: ', MAPBOX_TOKEN)
@@ -22,6 +24,7 @@ export const MAPBOX_STYLE_LIST = [
 
 export const INIT_POINT = [108.84, 31.06]
 export const INIT_ZOOM = 3.5
+export const WEATHER_TOKEN = '874718354841f0e0250b4b06a05a971e'
 
 export enum PointTypeEnum {
   点 = 'InitPoint',
@@ -101,5 +104,37 @@ export const MAP_DATA_LIST = [
     label: '十三要和拳头',
     value: '/shisanyaoshitou-data',
     issue: 'incoming+data1355712-shisanyaoshitou-data-116130-d4uz7cegv0krtvsns2ipla067-issue@mg.jihulab.com',
+  },
+]
+
+const now = new Date()
+const utcDate = new Date(now.getTime() + now.getTimezoneOffset() * 60000)
+const formattedDate = dayjs(utcDate).subtract(1, 'hour').format('YYYY-MM-DDTHH:00')
+
+export const WEATHER_LIST = [
+  {
+    name: '云层',
+    value: 'cloud',
+    tiles: `https://c.sat.owm.io/vane/2.0/weather/CL/{z}/{x}/{y}?appid=${WEATHER_TOKEN}`,
+  },
+  {
+    name: '气压',
+    value: 'pressure',
+    tiles: `https://a.sat.owm.io/vane/2.0/weather/APM/{z}/{x}/{y}?appid=${WEATHER_TOKEN}`,
+  },
+  {
+    name: '温度',
+    value: 'TA2',
+    tiles: `https://c.sat.owm.io/vane/2.0/weather/TA2/{z}/{x}/{y}?appid=${WEATHER_TOKEN}`,
+  },
+  {
+    name: '风速',
+    value: 'WS10',
+    tiles: `https://c.sat.owm.io/vane/2.0/weather/WS10/{z}/{x}/{y}?appid=${WEATHER_TOKEN}`,
+  },
+  {
+    name: '雷达',
+    value: 'radar',
+    tiles: `https://b.sat.owm.io/maps/2.0/radar/{z}/{x}/{y}?appid=${WEATHER_TOKEN}&day=${formattedDate}`,
   },
 ]

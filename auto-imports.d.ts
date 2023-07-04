@@ -50,6 +50,8 @@ declare global {
   const SETTING_SYMBOL_MAXSIZE: typeof import('./src/composables/constant')['SETTING_SYMBOL_MAXSIZE']
   const SETTING_TEXT_MAXSIZE: typeof import('./src/composables/constant')['SETTING_TEXT_MAXSIZE']
   const SYMBOL_PREFIX: typeof import('./src/composables/constant')['SYMBOL_PREFIX']
+  const WEATHER_LIST: typeof import('./src/composables/constant')['WEATHER_LIST']
+  const WEATHER_TOKEN: typeof import('./src/composables/constant')['WEATHER_TOKEN']
   const addSource: typeof import('./src/composables/map/mapLayer')['addSource']
   const asyncComputed: typeof import('@vueuse/core')['asyncComputed']
   const autoResetRef: typeof import('@vueuse/core')['autoResetRef']
@@ -193,6 +195,7 @@ declare global {
   const storeMapRulerRouteLineString: typeof import('./src/composables/store')['storeMapRulerRouteLineString']
   const storeMapStyle: typeof import('./src/composables/store')['storeMapStyle']
   const storeMapTypeValue: typeof import('./src/composables/store')['storeMapTypeValue']
+  const storeMapWeatherLayerEnable: typeof import('./src/composables/store')['storeMapWeatherLayerEnable']
   const syncRef: typeof import('@vueuse/core')['syncRef']
   const syncRefs: typeof import('@vueuse/core')['syncRefs']
   const templateRef: typeof import('@vueuse/core')['templateRef']
@@ -448,6 +451,8 @@ declare module 'vue' {
     readonly SETTING_SYMBOL_MAXSIZE: UnwrapRef<typeof import('./src/composables/constant')['SETTING_SYMBOL_MAXSIZE']>
     readonly SETTING_TEXT_MAXSIZE: UnwrapRef<typeof import('./src/composables/constant')['SETTING_TEXT_MAXSIZE']>
     readonly SYMBOL_PREFIX: UnwrapRef<typeof import('./src/composables/constant')['SYMBOL_PREFIX']>
+    readonly WEATHER_LIST: UnwrapRef<typeof import('./src/composables/constant')['WEATHER_LIST']>
+    readonly WEATHER_TOKEN: UnwrapRef<typeof import('./src/composables/constant')['WEATHER_TOKEN']>
     readonly addSource: UnwrapRef<typeof import('./src/composables/map/mapLayer')['addSource']>
     readonly asyncComputed: UnwrapRef<typeof import('@vueuse/core')['asyncComputed']>
     readonly autoResetRef: UnwrapRef<typeof import('@vueuse/core')['autoResetRef']>
@@ -554,6 +559,7 @@ declare module 'vue' {
     readonly storeMapLeftCollapsed: UnwrapRef<typeof import('./src/composables/store')['storeMapLeftCollapsed']>
     readonly storeMapRulerRouteLineString: UnwrapRef<typeof import('./src/composables/store')['storeMapRulerRouteLineString']>
     readonly storeMapStyle: UnwrapRef<typeof import('./src/composables/store')['storeMapStyle']>
+    readonly storeMapWeatherLayerEnable: UnwrapRef<typeof import('./src/composables/store')['storeMapWeatherLayerEnable']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>
     readonly syncRefs: UnwrapRef<typeof import('@vueuse/core')['syncRefs']>
     readonly templateRef: UnwrapRef<typeof import('@vueuse/core')['templateRef']>
@@ -803,6 +809,8 @@ declare module '@vue/runtime-core' {
     readonly SETTING_SYMBOL_MAXSIZE: UnwrapRef<typeof import('./src/composables/constant')['SETTING_SYMBOL_MAXSIZE']>
     readonly SETTING_TEXT_MAXSIZE: UnwrapRef<typeof import('./src/composables/constant')['SETTING_TEXT_MAXSIZE']>
     readonly SYMBOL_PREFIX: UnwrapRef<typeof import('./src/composables/constant')['SYMBOL_PREFIX']>
+    readonly WEATHER_LIST: UnwrapRef<typeof import('./src/composables/constant')['WEATHER_LIST']>
+    readonly WEATHER_TOKEN: UnwrapRef<typeof import('./src/composables/constant')['WEATHER_TOKEN']>
     readonly addSource: UnwrapRef<typeof import('./src/composables/map/mapLayer')['addSource']>
     readonly asyncComputed: UnwrapRef<typeof import('@vueuse/core')['asyncComputed']>
     readonly autoResetRef: UnwrapRef<typeof import('@vueuse/core')['autoResetRef']>
@@ -909,6 +917,7 @@ declare module '@vue/runtime-core' {
     readonly storeMapLeftCollapsed: UnwrapRef<typeof import('./src/composables/store')['storeMapLeftCollapsed']>
     readonly storeMapRulerRouteLineString: UnwrapRef<typeof import('./src/composables/store')['storeMapRulerRouteLineString']>
     readonly storeMapStyle: UnwrapRef<typeof import('./src/composables/store')['storeMapStyle']>
+    readonly storeMapWeatherLayerEnable: UnwrapRef<typeof import('./src/composables/store')['storeMapWeatherLayerEnable']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>
     readonly syncRefs: UnwrapRef<typeof import('@vueuse/core')['syncRefs']>
     readonly templateRef: UnwrapRef<typeof import('@vueuse/core')['templateRef']>
