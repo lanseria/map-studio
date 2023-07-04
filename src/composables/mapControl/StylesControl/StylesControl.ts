@@ -75,6 +75,11 @@ export default class StylesControl extends Base {
         styleName: '中文户外地图',
         styleUrl: 'mapbox://styles/lanseria/cljhxduex000701p74upy4dge',
       },
+      {
+        label: '黑夜导航',
+        styleName: '中文黑夜导航',
+        styleUrl: 'mapbox://styles/lanseria/cljno22rw00g401qwgerpdhb7',
+      },
     ]
   }
 

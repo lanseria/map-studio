@@ -42,6 +42,18 @@ export function mapLoad() {
       duration: 500, // In ms. This matches the CSS transition duration property.
     })
   })
+  map.addLayer({
+    id: 'simple-tiles',
+    type: 'raster',
+    source: {
+      type: 'raster',
+      // tiles: ['https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=874718354841f0e0250b4b06a05a971e'],
+      tiles: ['https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=90f909b02bd0b42203c536dd57bbf1dc'],
+      tileSize: 256,
+    },
+    minzoom: 0,
+    maxzoom: 22,
+  })
   // loadImg('DrawLineArrow', drawLineArrow, true)
   // loadImg('DrawLineArrow', '/draw-line-arrow.png', true)
   // mapLoadImages()
