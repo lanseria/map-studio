@@ -10,7 +10,7 @@ export function handleFetchDistance(coordinates: [number, number][]) {
     content: '获取路线中',
     duration: -1,
   })
-  const { data, onFetchResponse } = useFetch(`http://router.project-osrm.org/route/v1/driving/${pointsStr}?overview=full&geometries=geojson`).get().json()
+  const { data, onFetchResponse } = useFetch(`https://router.project-osrm.org/route/v1/driving/${pointsStr}?overview=full&geometries=geojson`).get().json()
   onFetchResponse(() => {
     updateDistanceSourceLayer(data.value.routes[0].geometry.coordinates)
     storeMapRulerRouteLineString.value = data.value.routes[0].geometry.coordinates
