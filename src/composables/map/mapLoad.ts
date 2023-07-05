@@ -52,6 +52,9 @@ export function mapLoad() {
         tiles: [item.tiles],
         tileSize: 256,
       },
+      paint: {
+        'raster-fade-duration': 0,
+      },
       layout: {
         visibility,
       },
