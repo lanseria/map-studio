@@ -8,17 +8,34 @@ export const DEFAULT_ICONFONT_CN_URL = '//at.alicdn.com/t/c/font_3827842_wufq09b
 
 export const MAPBOX_STYLE_LIST = [
   {
-    name: '街道地图',
-    style: 'mapbox://styles/lanseria/clhluh3n100kq01r87c9deet0',
+    label: '街道地图',
+    styleName: 'Streets',
+    styleUrl: 'mapbox://styles/lanseria/clhluh3n100kq01r87c9deet0',
   },
   {
-    name: '简洁白底',
-    style: 'mapbox://styles/lanseria/cldwdod87000e01pcn2ezak1n',
+    label: '简洁白底',
+    styleName: 'Monochrome',
+    styleUrl: 'mapbox://styles/lanseria/cldwdod87000e01pcn2ezak1n',
   },
   {
-    name: '卫星地图',
-    value: '3',
-    style: 'mapbox://styles/lanseria/cldecwoux001t01pk90yx1jj3',
+    label: '卫星地图',
+    styleName: 'Satellite Streets',
+    styleUrl: 'mapbox://styles/lanseria/cldecwoux001t01pk90yx1jj3',
+  },
+  {
+    label: '户外地图',
+    styleName: 'Outdoors',
+    styleUrl: 'mapbox://styles/lanseria/cljhxduex000701p74upy4dge',
+  },
+  {
+    label: '黑夜导航',
+    styleName: 'Navigation',
+    styleUrl: 'mapbox://styles/lanseria/cljno22rw00g401qwgerpdhb7',
+  },
+  {
+    label: '天气专用',
+    styleName: 'Weather',
+    styleUrl: 'mapbox://styles/lanseria/cljpa0eny00qx01pm0cxka7xo',
   },
 ]
 

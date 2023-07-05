@@ -1,4 +1,4 @@
-export const storeMapStyle = useStorage('storeMapStyle', '街道地图')
+export const storeMapStyle = useStorage('storeMapStyle', 'Streets')
 
 export const storeMapLeftCollapsed = useStorage('storeMapLeftCollapsed', true)
 

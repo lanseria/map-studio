@@ -15,10 +15,10 @@ const mapContainer = shallowRef()
 
 onMounted(() => {
   globalIsMapboxLoad.value = false
-  const style = MAPBOX_STYLE_LIST.find(it => it.name === storeMapStyle.value)
+  const style = MAPBOX_STYLE_LIST.find(it => it.styleName === storeMapStyle.value)
   map = new mapboxgl.Map({
     container: mapContainer.value,
-    style: style?.style,
+    style: style?.styleUrl,
     center: globalMapCenter.value as LngLatLike,
     zoom: INIT_ZOOM,
     hash: true,
