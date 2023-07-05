@@ -55,6 +55,9 @@ onMounted(() => {
 function toggleLeftSidebar() {
   storeMapLeftCollapsed.value = !storeMapLeftCollapsed.value
 }
+function gotoDonate() {
+  open('https://afdian.net/a/lanseria')
+}
 </script>
 
 <template>
@@ -77,7 +80,7 @@ function toggleLeftSidebar() {
           <div class="ml-8px">
             About
           </div>
-          <div class="text-pink ml-8px font-bold">
+          <div class="text-pink ml-8px font-bold cursor-pointer hover:text-pink-3" @click="gotoDonate">
             Donate 💗
           </div>
         </div>
