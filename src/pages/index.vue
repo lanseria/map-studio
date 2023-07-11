@@ -102,30 +102,55 @@ watch(() => locatedAt.value, () => {
       </div>
 
       <div class="text-size-12px bg-gray-100 rounded-8px py-8px mt-8px px-8px">
-        <pre lang="json">{{
-    JSON.stringify(
-      {
-        coords: {
-          accuracy: coords.accuracy,
-          latitude: coords.latitude,
-          longitude: coords.longitude,
-          altitude: coords.altitude,
-          altitudeAccuracy: coords.altitudeAccuracy,
-          heading: coords.heading,
-          speed: coords.speed,
-        },
-        locatedAt,
-        error: error ? error.message : error,
-      },
-      null,
-      2,
-    )
-      }}</pre>
-        <div class="flex justify-around">
-          <AButton type="primary" status="warning" @click="pause">
+        <div class="grid grid-cols-3 gap-4px">
+          <div class="col-span-1">
+            纬度
+          </div>
+          <div class="col-span-2">
+            {{ coords.latitude ?? '/' }}
+          </div>
+          <div class="col-span-1">
+            经度
+          </div>
+          <div class="col-span-2">
+            {{ coords.longitude ?? '/' }}
+          </div>
+          <div class="col-span-1">
+            高度(米)
+          </div>
+          <div class="col-span-2">
+            {{ coords.altitude ?? '/' }}
+          </div>
+          <div class="col-span-1">
+            speed
+          </div>
+          <div class="col-span-2">
+            {{ coords.speed ?? '/' }}
+          </div>
+          <div class="col-span-1">
+            heading
+          </div>
+          <div class="col-span-2">
+            {{ coords.heading ?? '/' }}
+          </div>
+          <div class="col-span-1">
+            精度(位置)
+          </div>
+          <div class="col-span-2">
+            {{ coords.accuracy ?? '/' }}
+          </div>
+          <div class="col-span-1">
+            精度(高度)
+          </div>
+          <div class="col-span-2">
+            {{ coords.altitudeAccuracy ?? '/' }}
+          </div>
+        </div>
+        <div class="mt-10px flex justify-around">
+          <AButton type="primary" status="warning" size="mini" @click="pause">
             Pause trail
           </AButton>
-          <AButton type="primary" status="success" @click="resume">
+          <AButton type="primary" status="success" size="mini" @click="resume">
             Resume trail
           </AButton>
         </div>
