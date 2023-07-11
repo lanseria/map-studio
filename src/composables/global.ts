@@ -32,7 +32,9 @@ export function globalHandleSaveTrailGpx() {
   if (globalTrailGpxStatus.value === '3') {
     //
     globalMapTrailGPXGeoJson.value = convertToGeoJSON(storeMapTrailGPXPoints.value, globalMapTrailGPXGeoJsonProperties.value)
+    storeMapTrailGPXLines.value.push(globalMapTrailGPXGeoJson.value)
     globalTrailGpxStatus.value = '1'
+    updateTrailGpxSourceLayer()
   }
 }
 

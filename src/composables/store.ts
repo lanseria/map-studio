@@ -7,3 +7,9 @@ export const storeMapRulerRouteLineString = useStorage('storeMapRulerRouteLineSt
 export const storeMapWeatherLayerEnable = useStorage<string[]>('storeMapWeatherLayerEnable', [])
 
 export const storeMapTrailGPXPoints = useStorage<any[]>('storeMapTrailGPXPoints', [])
+
+export const storeMapTrailGPXLines = useStorage<any[]>('storeMapTrailGPXLines', [])
+
+export function deleteTrailGPXLine(idx: number) {
+  storeMapTrailGPXLines.value.splice(idx, 1)
+}

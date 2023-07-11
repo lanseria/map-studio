@@ -4,7 +4,7 @@ import { globalMapTrailGPXGeoJsonProperties } from '~/composables'
 const ModalVisible = ref(false)
 
 function handleOk() {
-  //
+  globalHandleSaveTrailGpx()
 }
 function gotoDonate() {
   open('https://afdian.net/a/lanseria')
@@ -68,7 +68,7 @@ function handleBeforeSubmit() {
         <a-input v-model="globalMapTrailGPXGeoJsonProperties.desc" placeholder="描述" />
       </a-form-item>
       <a-form-item field="type" label="类型">
-        <a-input v-model="globalMapTrailGPXGeoJsonProperties.desc" placeholder="类型" />
+        <a-input v-model="globalMapTrailGPXGeoJsonProperties.type" placeholder="类型" />
       </a-form-item>
       <a-form-item field="link" label="链接">
         <a-input v-model="globalMapTrailGPXGeoJsonProperties.link" placeholder="链接" />

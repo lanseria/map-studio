@@ -80,6 +80,7 @@ declare global {
   const debouncedWatch: typeof import('@vueuse/core')['debouncedWatch']
   const defineAsyncComponent: typeof import('vue')['defineAsyncComponent']
   const defineComponent: typeof import('vue')['defineComponent']
+  const deleteTrailGPXLine: typeof import('./src/composables/store')['deleteTrailGPXLine']
   const drawPoint: typeof import('./src/composables/map/mapLayer')['drawPoint']
   const eagerComputed: typeof import('@vueuse/core')['eagerComputed']
   const effectScope: typeof import('vue')['effectScope']
@@ -204,6 +205,7 @@ declare global {
   const storeMapLeftCollapsed: typeof import('./src/composables/store')['storeMapLeftCollapsed']
   const storeMapRulerRouteLineString: typeof import('./src/composables/store')['storeMapRulerRouteLineString']
   const storeMapStyle: typeof import('./src/composables/store')['storeMapStyle']
+  const storeMapTrailGPXLines: typeof import('./src/composables/store')['storeMapTrailGPXLines']
   const storeMapTrailGPXPoints: typeof import('./src/composables/store')['storeMapTrailGPXPoints']
   const storeMapTypeValue: typeof import('./src/composables/store')['storeMapTypeValue']
   const storeMapWeatherLayerEnable: typeof import('./src/composables/store')['storeMapWeatherLayerEnable']
@@ -230,6 +232,7 @@ declare global {
   const until: typeof import('@vueuse/core')['until']
   const updateDistanceSourceLayer: typeof import('./src/composables/map/mapLayer')['updateDistanceSourceLayer']
   const updateLineLayer: typeof import('./src/composables/map/mapLayer')['updateLineLayer']
+  const updateTrailGpxSourceLayer: typeof import('./src/composables/map/mapLayer')['updateTrailGpxSourceLayer']
   const useActiveElement: typeof import('@vueuse/core')['useActiveElement']
   const useAnimate: typeof import('@vueuse/core')['useAnimate']
   const useArrayDifference: typeof import('@vueuse/core')['useArrayDifference']
@@ -491,6 +494,7 @@ declare module 'vue' {
     readonly debouncedWatch: UnwrapRef<typeof import('@vueuse/core')['debouncedWatch']>
     readonly defineAsyncComponent: UnwrapRef<typeof import('vue')['defineAsyncComponent']>
     readonly defineComponent: UnwrapRef<typeof import('vue')['defineComponent']>
+    readonly deleteTrailGPXLine: UnwrapRef<typeof import('./src/composables/store')['deleteTrailGPXLine']>
     readonly drawPoint: UnwrapRef<typeof import('./src/composables/map/mapLayer')['drawPoint']>
     readonly eagerComputed: UnwrapRef<typeof import('@vueuse/core')['eagerComputed']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
@@ -579,6 +583,7 @@ declare module 'vue' {
     readonly storeMapLeftCollapsed: UnwrapRef<typeof import('./src/composables/store')['storeMapLeftCollapsed']>
     readonly storeMapRulerRouteLineString: UnwrapRef<typeof import('./src/composables/store')['storeMapRulerRouteLineString']>
     readonly storeMapStyle: UnwrapRef<typeof import('./src/composables/store')['storeMapStyle']>
+    readonly storeMapTrailGPXLines: UnwrapRef<typeof import('./src/composables/store')['storeMapTrailGPXLines']>
     readonly storeMapTrailGPXPoints: UnwrapRef<typeof import('./src/composables/store')['storeMapTrailGPXPoints']>
     readonly storeMapWeatherLayerEnable: UnwrapRef<typeof import('./src/composables/store')['storeMapWeatherLayerEnable']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>
@@ -604,6 +609,7 @@ declare module 'vue' {
     readonly until: UnwrapRef<typeof import('@vueuse/core')['until']>
     readonly updateDistanceSourceLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['updateDistanceSourceLayer']>
     readonly updateLineLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['updateLineLayer']>
+    readonly updateTrailGpxSourceLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['updateTrailGpxSourceLayer']>
     readonly useActiveElement: UnwrapRef<typeof import('@vueuse/core')['useActiveElement']>
     readonly useAnimate: UnwrapRef<typeof import('@vueuse/core')['useAnimate']>
     readonly useArrayDifference: UnwrapRef<typeof import('@vueuse/core')['useArrayDifference']>
@@ -859,6 +865,7 @@ declare module '@vue/runtime-core' {
     readonly debouncedWatch: UnwrapRef<typeof import('@vueuse/core')['debouncedWatch']>
     readonly defineAsyncComponent: UnwrapRef<typeof import('vue')['defineAsyncComponent']>
     readonly defineComponent: UnwrapRef<typeof import('vue')['defineComponent']>
+    readonly deleteTrailGPXLine: UnwrapRef<typeof import('./src/composables/store')['deleteTrailGPXLine']>
     readonly drawPoint: UnwrapRef<typeof import('./src/composables/map/mapLayer')['drawPoint']>
     readonly eagerComputed: UnwrapRef<typeof import('@vueuse/core')['eagerComputed']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
@@ -947,6 +954,7 @@ declare module '@vue/runtime-core' {
     readonly storeMapLeftCollapsed: UnwrapRef<typeof import('./src/composables/store')['storeMapLeftCollapsed']>
     readonly storeMapRulerRouteLineString: UnwrapRef<typeof import('./src/composables/store')['storeMapRulerRouteLineString']>
     readonly storeMapStyle: UnwrapRef<typeof import('./src/composables/store')['storeMapStyle']>
+    readonly storeMapTrailGPXLines: UnwrapRef<typeof import('./src/composables/store')['storeMapTrailGPXLines']>
     readonly storeMapTrailGPXPoints: UnwrapRef<typeof import('./src/composables/store')['storeMapTrailGPXPoints']>
     readonly storeMapWeatherLayerEnable: UnwrapRef<typeof import('./src/composables/store')['storeMapWeatherLayerEnable']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>
@@ -972,6 +980,7 @@ declare module '@vue/runtime-core' {
     readonly until: UnwrapRef<typeof import('@vueuse/core')['until']>
     readonly updateDistanceSourceLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['updateDistanceSourceLayer']>
     readonly updateLineLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['updateLineLayer']>
+    readonly updateTrailGpxSourceLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['updateTrailGpxSourceLayer']>
     readonly useActiveElement: UnwrapRef<typeof import('@vueuse/core')['useActiveElement']>
     readonly useAnimate: UnwrapRef<typeof import('@vueuse/core')['useAnimate']>
     readonly useArrayDifference: UnwrapRef<typeof import('@vueuse/core')['useArrayDifference']>
