@@ -8,37 +8,37 @@ export const DEFAULT_ICONFONT_CN_URL = '//at.alicdn.com/t/c/font_3827842_wufq09b
 
 export const MAPBOX_STYLE_LIST = [
   {
-    label: '街道地图',
+    label: '街道',
     styleName: 'Streets',
     styleUrl: 'mapbox://styles/lanseria/clhluh3n100kq01r87c9deet0',
   },
   {
-    label: '简洁白底',
+    label: '简白',
     styleName: 'Monochrome',
     styleUrl: 'mapbox://styles/lanseria/cldwdod87000e01pcn2ezak1n',
   },
   {
-    label: '卫星地图',
+    label: '卫星',
     styleName: 'Satellite Streets',
     styleUrl: 'mapbox://styles/lanseria/cldecwoux001t01pk90yx1jj3',
   },
   {
-    label: '户外地图',
+    label: '户外',
     styleName: 'Outdoors',
     styleUrl: 'mapbox://styles/lanseria/cljhxduex000701p74upy4dge',
   },
   {
-    label: '黑夜导航',
+    label: '黑夜',
     styleName: 'Navigation',
     styleUrl: 'mapbox://styles/lanseria/cljno22rw00g401qwgerpdhb7',
   },
   {
-    label: '天气专用',
+    label: '天气',
     styleName: 'Weather',
     styleUrl: 'mapbox://styles/lanseria/cljpa0eny00qx01pm0cxka7xo',
   },
   {
-    label: '羊皮纸',
+    label: '羊皮',
     styleName: 'Ypz',
     styleUrl: {
       name: 'Ypz',

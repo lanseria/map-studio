@@ -18,7 +18,7 @@ onMounted(() => {
   const style = MAPBOX_STYLE_LIST.find(it => it.styleName === storeMapStyle.value)
   map = new mapboxgl.Map({
     container: mapContainer.value,
-    style: style?.styleUrl,
+    style: style?.styleUrl as any,
     center: globalMapCenter.value as LngLatLike,
     zoom: INIT_ZOOM,
     hash: true,
@@ -63,7 +63,7 @@ function gotoDonate() {
 <template>
   <div class="w-full h-screen relative">
     <div ref="mapContainer" class="w-full h-full relative">
-      <div class="h-32px w-450px bg-white absolute top-12px left-1/2 -translate-x-1/2 z-1 rounded-lg shadow-md flex items-center justify-between">
+      <div class="h-32px w-300px bg-white absolute top-12px left-1/2 -translate-x-1/2 z-1 rounded-lg shadow-md flex items-center justify-between">
         <div class="flex items-center ml-8px">
           <img class="w-24px h-24px" src="/512.png" alt="logo">
           <div class="ml-8px font-bold">
@@ -72,7 +72,7 @@ function gotoDonate() {
         </div>
         <div class="flex items-center mr-8px">
           <div class="ml-8px">
-            Wiki
+            Trail
           </div>
           <div class="ml-8px">
             Help
@@ -121,10 +121,16 @@ function gotoDonate() {
   fill: rgba(0, 0, 0, 0.2);
 }
 :global(.mapbox-control-styles) {
-  display: flex;
-  overflow: hidden;
+  /* display: flex;
+  overflow: hidden; */
 }
 :global(.mapbox-control-styles button) {
+  width: auto;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+}
+:global(.mapbox-control-layers button) {
   width: auto;
   display: flex;
   align-items: center;

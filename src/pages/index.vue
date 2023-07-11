@@ -1,4 +1,48 @@
 <script lang="ts" setup>
+const { coords, locatedAt, error, resume, pause } = useGeolocation()
+const LOCATION_POINT = 'location-point'
+storeMapTrailGPXPoints.value = []
+function pointByCoords(latitude: number, longitude: number) {
+  return {
+    type: 'Point',
+    coordinates: [longitude, latitude],
+  }
+}
+function locationChanged() {
+  const map = window.map
+  const pointSource: any = map.getSource(LOCATION_POINT)
+  if (pointSource) {
+    pointSource.setData(pointByCoords(coords.value.latitude, coords.value.longitude) as any)
+  }
+  else {
+    map.addSource(LOCATION_POINT, {
+      type: 'geojson',
+      data: pointByCoords(coords.value.latitude, coords.value.longitude) as any,
+    })
+
+    map.addLayer({
+      id: 'layer-with-pulsing-dot',
+      source: LOCATION_POINT,
+      type: 'symbol',
+      layout: {
+        'icon-image': 'pulsing-dot',
+      },
+    })
+  }
+}
+watch(() => locatedAt.value, () => {
+  locationChanged()
+  storeMapTrailGPXPoints.value.push({
+    accuracy: coords.value.accuracy,
+    altitude: coords.value.altitude,
+    altitudeAccuracy: coords.value.altitudeAccuracy,
+    heading: coords.value.heading,
+    latitude: coords.value.latitude,
+    longitude: coords.value.longitude,
+    speed: coords.value.speed,
+    locatedAt: locatedAt.value,
+  })
+})
 </script>
 
 <template>
@@ -49,6 +93,41 @@
           <div class="col-span-2">
             昌东菜场停车位
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="w-full bg-white p-8px rounded-8px mt-8px">
+      <div class="text-center bg-gray-200 rounded-8px py-4px">
+        GPX Trail 跟踪
+      </div>
+
+      <div class="text-size-12px bg-gray-100 rounded-8px py-8px mt-8px px-8px">
+        <pre lang="json">{{
+    JSON.stringify(
+      {
+        coords: {
+          accuracy: coords.accuracy,
+          latitude: coords.latitude,
+          longitude: coords.longitude,
+          altitude: coords.altitude,
+          altitudeAccuracy: coords.altitudeAccuracy,
+          heading: coords.heading,
+          speed: coords.speed,
+        },
+        locatedAt,
+        error: error ? error.message : error,
+      },
+      null,
+      2,
+    )
+      }}</pre>
+        <div class="flex justify-around">
+          <AButton type="primary" status="warning" @click="pause">
+            Pause trail
+          </AButton>
+          <AButton type="primary" status="success" @click="resume">
+            Resume trail
+          </AButton>
         </div>
       </div>
     </div>

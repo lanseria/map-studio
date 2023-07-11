@@ -22,6 +22,10 @@ export function setMapPointImg(url: string) {
 
 export function mapLoad() {
   const map = window.map
+
+  if (map.hasImage('pulsing-dot'))
+    map.removeImage('pulsing-dot')
+  map.addImage('pulsing-dot', pulsingDot(100), { pixelRatio: 2 })
   map.on('ruler.on', () => {
     globalMapRulerCoordinates.value = []
   })
