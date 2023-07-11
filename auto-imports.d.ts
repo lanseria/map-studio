@@ -63,6 +63,7 @@ declare global {
   const computedWithControl: typeof import('@vueuse/core')['computedWithControl']
   const controlledComputed: typeof import('@vueuse/core')['controlledComputed']
   const controlledRef: typeof import('@vueuse/core')['controlledRef']
+  const convertToGeoJSON: typeof import('./src/composables/utils')['convertToGeoJSON']
   const createApp: typeof import('vue')['createApp']
   const createEventHook: typeof import('@vueuse/core')['createEventHook']
   const createGlobalState: typeof import('@vueuse/core')['createGlobalState']
@@ -96,6 +97,9 @@ declare global {
   const globalGeojson: typeof import('./src/composables/store')['globalGeojson']
   const globalGeojsonExecute: typeof import('./src/composables/store')['globalGeojsonExecute']
   const globalGeojsonFeatures: typeof import('./src/composables/store')['globalGeojsonFeatures']
+  const globalHandleSaveTrailGpx: typeof import('./src/composables/global')['globalHandleSaveTrailGpx']
+  const globalHandleStartTrailGpx: typeof import('./src/composables/global')['globalHandleStartTrailGpx']
+  const globalHandleStopTrailGpx: typeof import('./src/composables/global')['globalHandleStopTrailGpx']
   const globalIsMapboxLoad: typeof import('./src/composables/global')['globalIsMapboxLoad']
   const globalJoinUsModalVisible: typeof import('./src/composables/global')['globalJoinUsModalVisible']
   const globalMapCenter: typeof import('./src/composables/global')['globalMapCenter']
@@ -105,11 +109,14 @@ declare global {
   const globalMapDrawFeatureModalVisible: typeof import('./src/composables/global')['globalMapDrawFeatureModalVisible']
   const globalMapPointUrl: typeof import('./src/composables/store')['globalMapPointUrl']
   const globalMapRulerCoordinates: typeof import('./src/composables/global')['globalMapRulerCoordinates']
+  const globalMapTrailGPXGeoJson: typeof import('./src/composables/global')['globalMapTrailGPXGeoJson']
+  const globalMapTrailGPXGeoJsonProperties: typeof import('./src/composables/global')['globalMapTrailGPXGeoJsonProperties']
   const globalModalDataMultipleMarkerVisible: typeof import('./src/composables/global')['globalModalDataMultipleMarkerVisible']
   const globalModalDrawDataUploadVisible: typeof import('./src/composables/global')['globalModalDrawDataUploadVisible']
   const globalSessionId: typeof import('./src/composables/store')['globalSessionId']
   const globalSettingModalVisible: typeof import('./src/composables/global')['globalSettingModalVisible']
   const globalTempRouteMapCoordinates: typeof import('./src/composables/store')['globalTempRouteMapCoordinates']
+  const globalTrailGpxStatus: typeof import('./src/composables/global')['globalTrailGpxStatus']
   const globalVideoId: typeof import('./src/composables/store')['globalVideoId']
   const globalWeixinMiniAppModalVisible: typeof import('./src/composables/global')['globalWeixinMiniAppModalVisible']
   const h: typeof import('vue')['h']
@@ -128,6 +135,7 @@ declare global {
   const handleSendIssueUseEmail: typeof import('./src/composables/fetch')['handleSendIssueUseEmail']
   const handleShowDistance: typeof import('./src/composables/fetch')['handleShowDistance']
   const ignorableWatch: typeof import('@vueuse/core')['ignorableWatch']
+  const initGpxProperties: typeof import('./src/composables/utils')['initGpxProperties']
   const initViewFlightForm: typeof import('./src/composables/map/mapViewFlight')['initViewFlightForm']
   const inject: typeof import('vue')['inject']
   const isDark: typeof import('./src/composables/dark')['isDark']
@@ -466,6 +474,7 @@ declare module 'vue' {
     readonly computedWithControl: UnwrapRef<typeof import('@vueuse/core')['computedWithControl']>
     readonly controlledComputed: UnwrapRef<typeof import('@vueuse/core')['controlledComputed']>
     readonly controlledRef: UnwrapRef<typeof import('@vueuse/core')['controlledRef']>
+    readonly convertToGeoJSON: UnwrapRef<typeof import('./src/composables/utils')['convertToGeoJSON']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
     readonly createEventHook: UnwrapRef<typeof import('@vueuse/core')['createEventHook']>
     readonly createGlobalState: UnwrapRef<typeof import('@vueuse/core')['createGlobalState']>
@@ -490,17 +499,24 @@ declare module 'vue' {
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly globalAboutModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalAboutModalVisible']>
+    readonly globalHandleSaveTrailGpx: UnwrapRef<typeof import('./src/composables/global')['globalHandleSaveTrailGpx']>
+    readonly globalHandleStartTrailGpx: UnwrapRef<typeof import('./src/composables/global')['globalHandleStartTrailGpx']>
+    readonly globalHandleStopTrailGpx: UnwrapRef<typeof import('./src/composables/global')['globalHandleStopTrailGpx']>
     readonly globalIsMapboxLoad: UnwrapRef<typeof import('./src/composables/global')['globalIsMapboxLoad']>
     readonly globalJoinUsModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalJoinUsModalVisible']>
     readonly globalMapCenter: UnwrapRef<typeof import('./src/composables/global')['globalMapCenter']>
     readonly globalMapRulerCoordinates: UnwrapRef<typeof import('./src/composables/global')['globalMapRulerCoordinates']>
+    readonly globalMapTrailGPXGeoJson: UnwrapRef<typeof import('./src/composables/global')['globalMapTrailGPXGeoJson']>
+    readonly globalMapTrailGPXGeoJsonProperties: UnwrapRef<typeof import('./src/composables/global')['globalMapTrailGPXGeoJsonProperties']>
     readonly globalSettingModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalSettingModalVisible']>
+    readonly globalTrailGpxStatus: UnwrapRef<typeof import('./src/composables/global')['globalTrailGpxStatus']>
     readonly globalWeixinMiniAppModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalWeixinMiniAppModalVisible']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly handleFetchDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchDistance']>
     readonly handlePushViewFlightChildren: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightChildren']>
     readonly handlePushViewFlightList: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightList']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
+    readonly initGpxProperties: UnwrapRef<typeof import('./src/composables/utils')['initGpxProperties']>
     readonly initViewFlightForm: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['initViewFlightForm']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
     readonly isDark: UnwrapRef<typeof import('./src/composables/dark')['isDark']>
@@ -826,6 +842,7 @@ declare module '@vue/runtime-core' {
     readonly computedWithControl: UnwrapRef<typeof import('@vueuse/core')['computedWithControl']>
     readonly controlledComputed: UnwrapRef<typeof import('@vueuse/core')['controlledComputed']>
     readonly controlledRef: UnwrapRef<typeof import('@vueuse/core')['controlledRef']>
+    readonly convertToGeoJSON: UnwrapRef<typeof import('./src/composables/utils')['convertToGeoJSON']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
     readonly createEventHook: UnwrapRef<typeof import('@vueuse/core')['createEventHook']>
     readonly createGlobalState: UnwrapRef<typeof import('@vueuse/core')['createGlobalState']>
@@ -850,17 +867,24 @@ declare module '@vue/runtime-core' {
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly globalAboutModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalAboutModalVisible']>
+    readonly globalHandleSaveTrailGpx: UnwrapRef<typeof import('./src/composables/global')['globalHandleSaveTrailGpx']>
+    readonly globalHandleStartTrailGpx: UnwrapRef<typeof import('./src/composables/global')['globalHandleStartTrailGpx']>
+    readonly globalHandleStopTrailGpx: UnwrapRef<typeof import('./src/composables/global')['globalHandleStopTrailGpx']>
     readonly globalIsMapboxLoad: UnwrapRef<typeof import('./src/composables/global')['globalIsMapboxLoad']>
     readonly globalJoinUsModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalJoinUsModalVisible']>
     readonly globalMapCenter: UnwrapRef<typeof import('./src/composables/global')['globalMapCenter']>
     readonly globalMapRulerCoordinates: UnwrapRef<typeof import('./src/composables/global')['globalMapRulerCoordinates']>
+    readonly globalMapTrailGPXGeoJson: UnwrapRef<typeof import('./src/composables/global')['globalMapTrailGPXGeoJson']>
+    readonly globalMapTrailGPXGeoJsonProperties: UnwrapRef<typeof import('./src/composables/global')['globalMapTrailGPXGeoJsonProperties']>
     readonly globalSettingModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalSettingModalVisible']>
+    readonly globalTrailGpxStatus: UnwrapRef<typeof import('./src/composables/global')['globalTrailGpxStatus']>
     readonly globalWeixinMiniAppModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalWeixinMiniAppModalVisible']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly handleFetchDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchDistance']>
     readonly handlePushViewFlightChildren: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightChildren']>
     readonly handlePushViewFlightList: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightList']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
+    readonly initGpxProperties: UnwrapRef<typeof import('./src/composables/utils')['initGpxProperties']>
     readonly initViewFlightForm: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['initViewFlightForm']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
     readonly isDark: UnwrapRef<typeof import('./src/composables/dark')['isDark']>

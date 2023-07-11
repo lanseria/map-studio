@@ -30,18 +30,22 @@ function locationChanged() {
     })
   }
 }
-watch(() => locatedAt.value, () => {
-  locationChanged()
-  storeMapTrailGPXPoints.value.push({
-    accuracy: coords.value.accuracy,
-    altitude: coords.value.altitude,
-    altitudeAccuracy: coords.value.altitudeAccuracy,
-    heading: coords.value.heading,
-    latitude: coords.value.latitude,
-    longitude: coords.value.longitude,
-    speed: coords.value.speed,
-    locatedAt: locatedAt.value,
-  })
+watch([() => locatedAt.value, () => globalIsMapboxLoad.value], () => {
+  if (locatedAt.value && globalIsMapboxLoad.value) {
+    locationChanged()
+    if (globalTrailGpxStatus.value === '2') {
+      storeMapTrailGPXPoints.value.push({
+        accuracy: coords.value.accuracy,
+        altitude: coords.value.altitude,
+        altitudeAccuracy: coords.value.altitudeAccuracy,
+        heading: coords.value.heading,
+        latitude: coords.value.latitude,
+        longitude: coords.value.longitude,
+        speed: coords.value.speed,
+        locatedAt: locatedAt.value,
+      })
+    }
+  }
 })
 </script>
 
@@ -98,7 +102,7 @@ watch(() => locatedAt.value, () => {
     </div>
     <div class="w-full bg-white p-8px rounded-8px mt-8px">
       <div class="text-center bg-gray-200 rounded-8px py-4px">
-        GPX Trail 跟踪
+        GPX Trail Log
       </div>
 
       <div class="text-size-12px bg-gray-100 rounded-8px py-8px mt-8px px-8px">
@@ -144,6 +148,12 @@ watch(() => locatedAt.value, () => {
           </div>
           <div class="col-span-2">
             {{ coords.altitudeAccuracy ?? '/' }}
+          </div>
+          <div class="col-span-1">
+            error
+          </div>
+          <div class="col-span-2">
+            {{ error ?? '/' }}
           </div>
         </div>
         <div class="mt-10px flex justify-around">

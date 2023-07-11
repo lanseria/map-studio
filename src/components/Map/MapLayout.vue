@@ -55,38 +55,14 @@ onMounted(() => {
 function toggleLeftSidebar() {
   storeMapLeftCollapsed.value = !storeMapLeftCollapsed.value
 }
-function gotoDonate() {
-  open('https://afdian.net/a/lanseria')
-}
 </script>
 
 <template>
   <div class="w-full h-screen relative">
     <div ref="mapContainer" class="w-full h-full relative">
-      <div class="h-32px w-300px bg-white absolute top-12px left-1/2 -translate-x-1/2 z-1 rounded-lg shadow-md flex items-center justify-between">
-        <div class="flex items-center ml-8px">
-          <img class="w-24px h-24px" src="/512.png" alt="logo">
-          <div class="ml-8px font-bold">
-            Map Studio
-          </div>
-        </div>
-        <div class="flex items-center mr-8px">
-          <div class="ml-8px">
-            Trail
-          </div>
-          <div class="ml-8px">
-            Help
-          </div>
-          <div class="ml-8px">
-            About
-          </div>
-          <div class="text-pink ml-8px font-bold cursor-pointer hover:text-pink-3" @click="gotoDonate">
-            Donate 💗
-          </div>
-        </div>
-      </div>
+      <MapHeader />
       <div class="bg-light-50 bg-opacity-30 transition-transform duration-500 z-1 w-300px h-full absolute flex justify-center items-center left-0" :class="`${storeMapLeftCollapsed ? 'collapsed' : ''}`">
-        <div class="w-[calc(100%-12px)] h-[calc(100%-12px)] bg-transparent rounded-lg absolute flex">
+        <div class="w-[calc(100%-12px)] h-[calc(100%-16px)] bg-transparent rounded-lg absolute flex">
           <slot />
           <div class="sidebar-btn left" @click="toggleLeftSidebar()">
             <div :class="`${storeMapLeftCollapsed ? 'i-carbon-chevron-right' : 'i-carbon-chevron-left'}`" />
