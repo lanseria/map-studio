@@ -91,6 +91,7 @@ declare global {
   const globalAboutModalVisible: typeof import('./src/composables/global')['globalAboutModalVisible']
   const globalAllSessions: typeof import('./src/composables/store')['globalAllSessions']
   const globalComputedFilterMapFeatures: typeof import('./src/composables/store')['globalComputedFilterMapFeatures']
+  const globalComputedMapFeatureSelect: typeof import('./src/composables/global')['globalComputedMapFeatureSelect']
   const globalCurrentProperties: typeof import('./src/composables/global')['globalCurrentProperties']
   const globalDrawEdit: typeof import('./src/composables/global')['globalDrawEdit']
   const globalDrawMode: typeof import('./src/composables/global')['globalDrawMode']
@@ -98,7 +99,9 @@ declare global {
   const globalGeojson: typeof import('./src/composables/store')['globalGeojson']
   const globalGeojsonExecute: typeof import('./src/composables/store')['globalGeojsonExecute']
   const globalGeojsonFeatures: typeof import('./src/composables/store')['globalGeojsonFeatures']
+  const globalHandleMapDrawToggle: typeof import('./src/composables/global')['globalHandleMapDrawToggle']
   const globalHandleSaveTrailGpx: typeof import('./src/composables/global')['globalHandleSaveTrailGpx']
+  const globalHandleSelectDrawMode: typeof import('./src/composables/global')['globalHandleSelectDrawMode']
   const globalHandleStartTrailGpx: typeof import('./src/composables/global')['globalHandleStartTrailGpx']
   const globalHandleStopTrailGpx: typeof import('./src/composables/global')['globalHandleStopTrailGpx']
   const globalIsMapboxLoad: typeof import('./src/composables/global')['globalIsMapboxLoad']
@@ -107,7 +110,12 @@ declare global {
   const globalMapDataExecute: typeof import('./src/composables/store')['globalMapDataExecute']
   const globalMapDataGeojsonUrl: typeof import('./src/composables/store')['globalMapDataGeojsonUrl']
   const globalMapDataValueUrl: typeof import('./src/composables/store')['globalMapDataValueUrl']
+  const globalMapDrawEdit: typeof import('./src/composables/global')['globalMapDrawEdit']
+  const globalMapDrawEnable: typeof import('./src/composables/global')['globalMapDrawEnable']
   const globalMapDrawFeatureModalVisible: typeof import('./src/composables/global')['globalMapDrawFeatureModalVisible']
+  const globalMapDrawFeatures: typeof import('./src/composables/global')['globalMapDrawFeatures']
+  const globalMapDrawMode: typeof import('./src/composables/global')['globalMapDrawMode']
+  const globalMapFeatureTypeSelectKeys: typeof import('./src/composables/global')['globalMapFeatureTypeSelectKeys']
   const globalMapPointUrl: typeof import('./src/composables/store')['globalMapPointUrl']
   const globalMapRulerCoordinates: typeof import('./src/composables/global')['globalMapRulerCoordinates']
   const globalMapTrailGPXGeoJson: typeof import('./src/composables/global')['globalMapTrailGPXGeoJson']
@@ -174,6 +182,7 @@ declare global {
   const pausableWatch: typeof import('@vueuse/core')['pausableWatch']
   const provide: typeof import('vue')['provide']
   const pulsingDot: typeof import('./src/composables/map/mapPoint')['pulsingDot']
+  const pushMapDrawFeatures: typeof import('./src/composables/global')['pushMapDrawFeatures']
   const reactify: typeof import('@vueuse/core')['reactify']
   const reactifyObject: typeof import('@vueuse/core')['reactifyObject']
   const reactive: typeof import('vue')['reactive']
@@ -503,12 +512,20 @@ declare module 'vue' {
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly globalAboutModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalAboutModalVisible']>
+    readonly globalComputedMapFeatureSelect: UnwrapRef<typeof import('./src/composables/global')['globalComputedMapFeatureSelect']>
+    readonly globalCurrentProperties: UnwrapRef<typeof import('./src/composables/global')['globalCurrentProperties']>
+    readonly globalHandleMapDrawToggle: UnwrapRef<typeof import('./src/composables/global')['globalHandleMapDrawToggle']>
     readonly globalHandleSaveTrailGpx: UnwrapRef<typeof import('./src/composables/global')['globalHandleSaveTrailGpx']>
+    readonly globalHandleSelectDrawMode: UnwrapRef<typeof import('./src/composables/global')['globalHandleSelectDrawMode']>
     readonly globalHandleStartTrailGpx: UnwrapRef<typeof import('./src/composables/global')['globalHandleStartTrailGpx']>
     readonly globalHandleStopTrailGpx: UnwrapRef<typeof import('./src/composables/global')['globalHandleStopTrailGpx']>
     readonly globalIsMapboxLoad: UnwrapRef<typeof import('./src/composables/global')['globalIsMapboxLoad']>
     readonly globalJoinUsModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalJoinUsModalVisible']>
     readonly globalMapCenter: UnwrapRef<typeof import('./src/composables/global')['globalMapCenter']>
+    readonly globalMapDrawEdit: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawEdit']>
+    readonly globalMapDrawEnable: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawEnable']>
+    readonly globalMapDrawFeatures: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawFeatures']>
+    readonly globalMapDrawMode: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawMode']>
     readonly globalMapRulerCoordinates: UnwrapRef<typeof import('./src/composables/global')['globalMapRulerCoordinates']>
     readonly globalMapTrailGPXGeoJson: UnwrapRef<typeof import('./src/composables/global')['globalMapTrailGPXGeoJson']>
     readonly globalMapTrailGPXGeoJsonProperties: UnwrapRef<typeof import('./src/composables/global')['globalMapTrailGPXGeoJsonProperties']>
@@ -534,7 +551,6 @@ declare module 'vue' {
     readonly mapLoad: UnwrapRef<typeof import('./src/composables/map/mapLoad')['mapLoad']>
     readonly mapViewFlightList: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['mapViewFlightList']>
     readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
-    readonly nanoid: UnwrapRef<typeof import('./src/composables/global')['nanoid']>
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>
     readonly onActivated: UnwrapRef<typeof import('vue')['onActivated']>
     readonly onBeforeMount: UnwrapRef<typeof import('vue')['onBeforeMount']>
@@ -558,6 +574,7 @@ declare module 'vue' {
     readonly pausableWatch: UnwrapRef<typeof import('@vueuse/core')['pausableWatch']>
     readonly provide: UnwrapRef<typeof import('vue')['provide']>
     readonly pulsingDot: UnwrapRef<typeof import('./src/composables/map/mapPoint')['pulsingDot']>
+    readonly pushMapDrawFeatures: UnwrapRef<typeof import('./src/composables/global')['pushMapDrawFeatures']>
     readonly reactify: UnwrapRef<typeof import('@vueuse/core')['reactify']>
     readonly reactifyObject: UnwrapRef<typeof import('@vueuse/core')['reactifyObject']>
     readonly reactive: UnwrapRef<typeof import('vue')['reactive']>
@@ -603,7 +620,6 @@ declare module 'vue' {
     readonly tryOnMounted: UnwrapRef<typeof import('@vueuse/core')['tryOnMounted']>
     readonly tryOnScopeDispose: UnwrapRef<typeof import('@vueuse/core')['tryOnScopeDispose']>
     readonly tryOnUnmounted: UnwrapRef<typeof import('@vueuse/core')['tryOnUnmounted']>
-    readonly turf: UnwrapRef<typeof import('./src/composables/global')['turf']>
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
     readonly unrefElement: UnwrapRef<typeof import('@vueuse/core')['unrefElement']>
     readonly until: UnwrapRef<typeof import('@vueuse/core')['until']>
@@ -874,12 +890,20 @@ declare module '@vue/runtime-core' {
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly globalAboutModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalAboutModalVisible']>
+    readonly globalComputedMapFeatureSelect: UnwrapRef<typeof import('./src/composables/global')['globalComputedMapFeatureSelect']>
+    readonly globalCurrentProperties: UnwrapRef<typeof import('./src/composables/global')['globalCurrentProperties']>
+    readonly globalHandleMapDrawToggle: UnwrapRef<typeof import('./src/composables/global')['globalHandleMapDrawToggle']>
     readonly globalHandleSaveTrailGpx: UnwrapRef<typeof import('./src/composables/global')['globalHandleSaveTrailGpx']>
+    readonly globalHandleSelectDrawMode: UnwrapRef<typeof import('./src/composables/global')['globalHandleSelectDrawMode']>
     readonly globalHandleStartTrailGpx: UnwrapRef<typeof import('./src/composables/global')['globalHandleStartTrailGpx']>
     readonly globalHandleStopTrailGpx: UnwrapRef<typeof import('./src/composables/global')['globalHandleStopTrailGpx']>
     readonly globalIsMapboxLoad: UnwrapRef<typeof import('./src/composables/global')['globalIsMapboxLoad']>
     readonly globalJoinUsModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalJoinUsModalVisible']>
     readonly globalMapCenter: UnwrapRef<typeof import('./src/composables/global')['globalMapCenter']>
+    readonly globalMapDrawEdit: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawEdit']>
+    readonly globalMapDrawEnable: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawEnable']>
+    readonly globalMapDrawFeatures: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawFeatures']>
+    readonly globalMapDrawMode: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawMode']>
     readonly globalMapRulerCoordinates: UnwrapRef<typeof import('./src/composables/global')['globalMapRulerCoordinates']>
     readonly globalMapTrailGPXGeoJson: UnwrapRef<typeof import('./src/composables/global')['globalMapTrailGPXGeoJson']>
     readonly globalMapTrailGPXGeoJsonProperties: UnwrapRef<typeof import('./src/composables/global')['globalMapTrailGPXGeoJsonProperties']>
@@ -905,7 +929,6 @@ declare module '@vue/runtime-core' {
     readonly mapLoad: UnwrapRef<typeof import('./src/composables/map/mapLoad')['mapLoad']>
     readonly mapViewFlightList: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['mapViewFlightList']>
     readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
-    readonly nanoid: UnwrapRef<typeof import('./src/composables/global')['nanoid']>
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>
     readonly onActivated: UnwrapRef<typeof import('vue')['onActivated']>
     readonly onBeforeMount: UnwrapRef<typeof import('vue')['onBeforeMount']>
@@ -929,6 +952,7 @@ declare module '@vue/runtime-core' {
     readonly pausableWatch: UnwrapRef<typeof import('@vueuse/core')['pausableWatch']>
     readonly provide: UnwrapRef<typeof import('vue')['provide']>
     readonly pulsingDot: UnwrapRef<typeof import('./src/composables/map/mapPoint')['pulsingDot']>
+    readonly pushMapDrawFeatures: UnwrapRef<typeof import('./src/composables/global')['pushMapDrawFeatures']>
     readonly reactify: UnwrapRef<typeof import('@vueuse/core')['reactify']>
     readonly reactifyObject: UnwrapRef<typeof import('@vueuse/core')['reactifyObject']>
     readonly reactive: UnwrapRef<typeof import('vue')['reactive']>
@@ -974,7 +998,6 @@ declare module '@vue/runtime-core' {
     readonly tryOnMounted: UnwrapRef<typeof import('@vueuse/core')['tryOnMounted']>
     readonly tryOnScopeDispose: UnwrapRef<typeof import('@vueuse/core')['tryOnScopeDispose']>
     readonly tryOnUnmounted: UnwrapRef<typeof import('@vueuse/core')['tryOnUnmounted']>
-    readonly turf: UnwrapRef<typeof import('./src/composables/global')['turf']>
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
     readonly unrefElement: UnwrapRef<typeof import('@vueuse/core')['unrefElement']>
     readonly until: UnwrapRef<typeof import('@vueuse/core')['until']>

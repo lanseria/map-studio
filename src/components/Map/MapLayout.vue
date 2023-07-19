@@ -3,11 +3,15 @@ import type { LngLatLike } from 'mapbox-gl'
 import mapboxgl from 'mapbox-gl'
 import MapboxLanguage from '@mapbox/mapbox-gl-language'
 import 'mapbox-gl/dist/mapbox-gl.css'
+import MapboxDraw from '@mapbox/mapbox-gl-draw'
 import ZoomControl from '~/composables/mapControl/ZoomControl/ZoomControl'
 import StylesControl from '~/composables/mapControl/StylesControl/StylesControl'
 import CompassControl from '~/composables/mapControl/CompassControl/CompassControl'
 import RulerControl from '~/composables/mapControl/RulerControl/RulerControl'
 import LayersControl from '~/composables/mapControl/LayersControl/LayersControl'
+import DrawLineString from '~/composables/draw/linestring'
+import drawStyles from '~/composables/draw/styles'
+import RadiusMode from '~/composables/draw/RadiusMode'
 
 mapboxgl.accessToken = MAPBOX_TOKEN
 let map: mapboxgl.Map | null = null
@@ -24,6 +28,19 @@ onMounted(() => {
     hash: true,
   })
   window.map = map
+
+  const draw = new MapboxDraw({
+    displayControlsDefault: false,
+    userProperties: true,
+    modes: {
+      ...MapboxDraw.modes,
+      draw_line_string: DrawLineString,
+      draw_radius: RadiusMode,
+    },
+    styles: drawStyles,
+  })
+  map.addControl(draw)
+  window.draw = draw
   // map.scrollZoom.setWheelZoomRate(1)
   // map.scrollZoom.setZoomRate(1)
   map.addControl(new MapboxLanguage({ defaultLanguage: 'zh-Hans' }))
@@ -50,6 +67,11 @@ onMounted(() => {
   map.on('style.load', () => {
     console.warn('style.load')
     mapLoad()
+  })
+
+  map.on('draw.create', (e) => {
+    pushMapDrawFeatures(e.features[0])
+    draw.deleteAll()
   })
 })
 function toggleLeftSidebar() {

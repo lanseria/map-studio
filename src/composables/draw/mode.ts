@@ -1,6 +1,6 @@
 import mapboxgl from 'mapbox-gl'
+import { featureCollection } from '@turf/turf'
 import { LineStringTypeEnum, PointTypeEnum, PolygonTypeEnum } from '../constant'
-import type { MyFeature } from '../types'
 
 export function handleSetPolygon(type: PolygonTypeEnum = PolygonTypeEnum.面) {
   // 设置完立即显示其当前要素属性
@@ -79,30 +79,6 @@ export function handleSetPoint(type: PointTypeEnum = PointTypeEnum.点) {
   window.draw.changeMode('draw_point')
 }
 
-/**
- * push进入数据
- * @param polygon
- */
-export function pushMapDrawFeatures(feature: MyFeature) {
-  const centerPoint = turf.center(feature)
-  globalCurrentProperties.value = {
-    ...globalCurrentProperties.value,
-    center: centerPoint.geometry.coordinates,
-    id: nanoid(),
-    sessionId: globalSessionId.value,
-    videoId: globalVideoId.value,
-    createdStr: globalAllSessions.value?.find(item => item.id === globalSessionId.value)?.videoList.find(item => item.aid === globalVideoId.value)?.createdStr,
-  }
-  feature.properties = {
-    ...globalCurrentProperties.value,
-  }
-  // TODO: filter type
-
-  storeMapDrawFeatures.value.push(feature)
-  storeMapDrawLayerCheckedKeys.value.push(globalCurrentProperties.value.id)
-  globalDrawMode.value = ''
-}
-
 const popup = new mapboxgl.Popup({
   anchor: 'bottom-left',
   closeButton: false,
@@ -114,10 +90,10 @@ function handleFeatureHover(e: any) {
   const map = window.map
   const description = e.features[0].properties.description
   const { geometry } = e.features[0]
-  if (globalDrawMove.value) {
-    map.getCanvas().style.cursor = 'move'
-    return
-  }
+  // if (globalDrawMove.value) {
+  //   map.getCanvas().style.cursor = 'move'
+  //   return
+  // }
   if (description) {
     //
     if (geometry.type === 'Point') {
@@ -164,16 +140,16 @@ function handleFeatureMouseDown(e: any) {
     map.off('mousemove', onMove)
     map.off('touchmove', onMove)
   }
-  if (globalDrawMove.value) {
-    e.preventDefault()
-    map.getCanvas().style.cursor = 'grab'
-    map.on('mousemove', onMove)
-    map.once('mouseup', onUp)
-  }
+  // if (globalDrawMove.value) {
+  //   e.preventDefault()
+  //   map.getCanvas().style.cursor = 'grab'
+  //   map.on('mousemove', onMove)
+  //   map.once('mouseup', onUp)
+  // }
 }
 
 function handleFeatureClick(e: any) {
-  if (!globalDrawEdit.value) {
+  if (!globalMapDrawEdit.value) {
     handleFeatureHover(e)
     return
   }
@@ -198,13 +174,11 @@ function handleFeatureClick(e: any) {
 export function addSource() {
   const map = window.map
   const source: any = map.getSource(MAP_DRAW_SOURCE)
-  const computedMapFeatures = storeMapDrawFeatures.value.filter((item) => {
-    return storeMapDrawLayerCheckedKeys.value.includes(item.properties!.id)
-  })
+  const computedMapFeatures = globalMapDrawFeatures.value
   // 判断source
   if (source) {
     source.setData(
-      turf.featureCollection([
+      featureCollection([
         ...computedMapFeatures,
       ]),
     )
@@ -212,7 +186,7 @@ export function addSource() {
   else {
     map.addSource(MAP_DRAW_SOURCE, {
       type: 'geojson',
-      data: turf.featureCollection([
+      data: featureCollection([
         ...computedMapFeatures,
       ]),
     })
