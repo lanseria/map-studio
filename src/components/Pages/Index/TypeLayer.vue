@@ -59,16 +59,20 @@ const treeData = [
                 key: 'pangu_medium-mslp-wind850',
                 children: [
                   {
-                    title: '2023-07-21_00',
+                    title: '2023-07-21_00_5号台风',
                     key: 'pangu_medium-mslp-wind850_2023-07-21_00',
                   },
                   {
-                    title: '2023-07-24_12',
+                    title: '2023-07-24_12_5号台风',
                     key: 'pangu_medium-mslp-wind850_2023-07-24_12',
                   },
                   {
-                    title: '2023-07-26_00',
+                    title: '2023-07-26_00_5号台风',
                     key: 'pangu_medium-mslp-wind850_2023-07-26_00',
+                  },
+                  {
+                    title: '2023-07-26_00_6号台风',
+                    key: 'pangu_medium-mslp-wind850_2023-07-26_00_6',
                   },
                 ],
               },

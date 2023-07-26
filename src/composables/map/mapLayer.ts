@@ -197,7 +197,7 @@ export function reloadPanguImagesLayer() {
           ],
         },
         paint: {
-          'raster-opacity': 0.7,
+          'raster-opacity': 0.5,
           'raster-fade-duration': 0,
         },
         layout: {

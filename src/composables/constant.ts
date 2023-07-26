@@ -197,4 +197,8 @@ export const PANGU_LAYER_IMG_LIST = [
     name: 'pangu_medium-mslp-wind850_2023-07-26_00',
     url: 'https://charts.ecmwf.int/content/20230726105341-e7ea554d28b4f7ffb733bda4dc7d110dbbbae30f.png',
   },
+  {
+    name: 'pangu_medium-mslp-wind850_2023-07-26_00_6',
+    url: 'https://charts.ecmwf.int/content/20230726105444-c93d15399f75d21a6ba97d483cd11fc8c23aa3a1.png',
+  },
 ]
