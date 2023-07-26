@@ -15,7 +15,7 @@ function handleDeleteSelf(item: ViewFlight) {
 </script>
 
 <template>
-  <div class="card bg-white dark:bg-black px-4 py-2 pt-6 relative">
+  <div class="card bg-white px-4 py-2 pt-6 relative">
     <div class="nanoid">
       ID: {{ item.id }}
     </div>

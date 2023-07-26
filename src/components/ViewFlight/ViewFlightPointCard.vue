@@ -41,7 +41,7 @@ function hide() {
 </script>
 
 <template>
-  <div class="card px-10px bg-white dark:bg-black" :class="animationIdx + 1 === order ? 'bg-green-1' : 'bg-light-5'">
+  <div class="card px-10px bg-white" :class="animationIdx + 1 === order ? 'bg-green-1' : 'bg-light-5'">
     <div class="flex items-center">
       <div class="number">
         #{{ order }}
@@ -58,7 +58,7 @@ function hide() {
                 </template>
               </a-button>
               <template #content>
-                <div v-if="currentItem" class="bg-white dark:bg-black shadow-md p-2">
+                <div v-if="currentItem" class="bg-white shadow-md p-2">
                   <a-input-number
                     ref="timeInputNumberRef"
                     v-model="currentItem.time" class="w-100px mb-4" placeholder="请输入动画时间" :min="100" :max="10000"

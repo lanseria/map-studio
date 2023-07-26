@@ -167,3 +167,43 @@ export function updateTrailGpxSourceLayer() {
     },
   })
 }
+
+export function reloadPanguImagesLayer() {
+  const map = window.map
+  PANGU_LAYER_IMG_LIST.forEach((item) => {
+    const visibility = storeMapTypeLayerCheckedKeys.value.includes(item.name) ? 'visible' : 'none'
+    const layerName = `${item.name}-images`
+    if (map.getLayer(layerName)) {
+      console.log(`${layerName}已存在`)
+      map.setLayoutProperty(
+        layerName,
+        'visibility',
+        visibility,
+      )
+    }
+    else {
+      console.log(`${layerName}不存在`)
+      map.addLayer({
+        id: layerName,
+        type: 'raster',
+        source: {
+          type: 'image',
+          url: item.url,
+          coordinates: [
+            [72.5, 40.5],
+            [170.5, 40.5],
+            [170.5, -40.5],
+            [72.5, -40.5],
+          ],
+        },
+        paint: {
+          'raster-opacity': 0.7,
+          'raster-fade-duration': 0,
+        },
+        layout: {
+          visibility,
+        },
+      })
+    }
+  })
+}

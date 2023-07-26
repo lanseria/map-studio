@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { storeMapTypeLayerCheckedKeys } from '~/composables'
+
 const treeData = [
   {
     title: '骑行',
@@ -40,6 +42,47 @@ const treeData = [
       },
     ],
   },
+  {
+    title: '台风',
+    key: '0-3',
+    children: [
+      {
+        title: '预测图',
+        key: 'forecast',
+        children: [
+          {
+            title: '盘古大模型',
+            key: 'pangu',
+            children: [
+              {
+                title: '平均等压面和850百帕风速',
+                key: 'pangu_medium-mslp-wind850',
+                children: [
+                  {
+                    title: '2023-07-21_00',
+                    key: 'pangu_medium-mslp-wind850_2023-07-21_00',
+                  },
+                  {
+                    title: '2023-07-24_12',
+                    key: 'pangu_medium-mslp-wind850_2023-07-24_12',
+                  },
+                  {
+                    title: '2023-07-26_00',
+                    key: 'pangu_medium-mslp-wind850_2023-07-26_00',
+                  },
+                ],
+              },
+              {
+                title: '500百帕等压面/850百帕大气温度',
+                key: 'pangu_medium-z500-t850',
+              },
+            ],
+          },
+        ],
+      },
+
+    ],
+  },
 ]
 const computedTreeData = computed(() => {
   return [
@@ -54,7 +97,6 @@ const computedTreeData = computed(() => {
     },
   ]
 })
-const checkedKeys = ref([])
 </script>
 
 <template>
@@ -64,7 +106,7 @@ const checkedKeys = ref([])
     </div>
     <div class="text-size-12px bg-gray-100 rounded-8px py-8px mt-8px px-8px">
       <a-tree
-        v-model:checked-keys="checkedKeys"
+        v-model:checked-keys="storeMapTypeLayerCheckedKeys"
         :checkable="true"
         :data="computedTreeData"
       />

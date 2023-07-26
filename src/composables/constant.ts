@@ -183,3 +183,18 @@ export const WEATHER_LIST = [
     tiles: `https://b.sat.owm.io/maps/2.0/radar/{z}/{x}/{y}?appid=${WEATHER_TOKEN}&day=${formattedDate}`,
   },
 ]
+
+export const PANGU_LAYER_IMG_LIST = [
+  {
+    name: 'pangu_medium-mslp-wind850_2023-07-21_00',
+    url: 'https://charts.ecmwf.int/content/20230726111133-b5ec88bd7e02257bae6b969fcd20c0f6524b4e94.png',
+  },
+  {
+    name: 'pangu_medium-mslp-wind850_2023-07-24_12',
+    url: 'https://charts.ecmwf.int/content/20230726111720-2384f1a756fb40b38ba4cffbee250a047c7a32f0.png',
+  },
+  {
+    name: 'pangu_medium-mslp-wind850_2023-07-26_00',
+    url: 'https://charts.ecmwf.int/content/20230726105341-e7ea554d28b4f7ffb733bda4dc7d110dbbbae30f.png',
+  },
+]

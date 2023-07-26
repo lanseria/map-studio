@@ -44,6 +44,7 @@ declare global {
   const MAP_DRAW_LAYER_POLYGON_OUTLINE: typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POLYGON_OUTLINE']
   const MAP_DRAW_LAYER_STRINGLINE: typeof import('./src/composables/constant')['MAP_DRAW_LAYER_STRINGLINE']
   const MAP_DRAW_SOURCE: typeof import('./src/composables/constant')['MAP_DRAW_SOURCE']
+  const PANGU_LAYER_IMG_LIST: typeof import('./src/composables/constant')['PANGU_LAYER_IMG_LIST']
   const PointTypeEnum: typeof import('./src/composables/constant')['PointTypeEnum']
   const PointTypeEnumMap: typeof import('./src/composables/constant')['PointTypeEnumMap']
   const PolygonTypeEnum: typeof import('./src/composables/constant')['PolygonTypeEnum']
@@ -198,6 +199,7 @@ declare global {
   const refWithControl: typeof import('@vueuse/core')['refWithControl']
   const reloadDataSourceLayer: typeof import('./src/composables/map/mapLayer')['reloadDataSourceLayer']
   const reloadMapGpxLayer: typeof import('./src/composables/map/mapLayer')['reloadMapGpxLayer']
+  const reloadPanguImagesLayer: typeof import('./src/composables/map/mapLayer')['reloadPanguImagesLayer']
   const resolveComponent: typeof import('vue')['resolveComponent']
   const resolveRef: typeof import('@vueuse/core')['resolveRef']
   const resolveUnref: typeof import('@vueuse/core')['resolveUnref']
@@ -216,6 +218,7 @@ declare global {
   const storeMapStyle: typeof import('./src/composables/store')['storeMapStyle']
   const storeMapTrailGPXLines: typeof import('./src/composables/store')['storeMapTrailGPXLines']
   const storeMapTrailGPXPoints: typeof import('./src/composables/store')['storeMapTrailGPXPoints']
+  const storeMapTypeLayerCheckedKeys: typeof import('./src/composables/store')['storeMapTypeLayerCheckedKeys']
   const storeMapTypeValue: typeof import('./src/composables/store')['storeMapTypeValue']
   const storeMapWeatherLayerEnable: typeof import('./src/composables/store')['storeMapWeatherLayerEnable']
   const syncRef: typeof import('@vueuse/core')['syncRef']
@@ -467,6 +470,7 @@ declare module 'vue' {
     readonly MAP_DRAW_LAYER_POLYGON_OUTLINE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POLYGON_OUTLINE']>
     readonly MAP_DRAW_LAYER_STRINGLINE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_STRINGLINE']>
     readonly MAP_DRAW_SOURCE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_SOURCE']>
+    readonly PANGU_LAYER_IMG_LIST: UnwrapRef<typeof import('./src/composables/constant')['PANGU_LAYER_IMG_LIST']>
     readonly PointTypeEnum: UnwrapRef<typeof import('./src/composables/constant')['PointTypeEnum']>
     readonly PointTypeEnumMap: UnwrapRef<typeof import('./src/composables/constant')['PointTypeEnumMap']>
     readonly PolygonTypeEnum: UnwrapRef<typeof import('./src/composables/constant')['PolygonTypeEnum']>
@@ -540,7 +544,6 @@ declare module 'vue' {
     readonly initGpxProperties: UnwrapRef<typeof import('./src/composables/utils')['initGpxProperties']>
     readonly initViewFlightForm: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['initViewFlightForm']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
-    readonly isDark: UnwrapRef<typeof import('./src/composables/dark')['isDark']>
     readonly isDefined: UnwrapRef<typeof import('@vueuse/core')['isDefined']>
     readonly isEditViewFlight: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['isEditViewFlight']>
     readonly isProxy: UnwrapRef<typeof import('vue')['isProxy']>
@@ -590,6 +593,7 @@ declare module 'vue' {
     readonly refWithControl: UnwrapRef<typeof import('@vueuse/core')['refWithControl']>
     readonly reloadDataSourceLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadDataSourceLayer']>
     readonly reloadMapGpxLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadMapGpxLayer']>
+    readonly reloadPanguImagesLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadPanguImagesLayer']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
     readonly resolveUnref: UnwrapRef<typeof import('@vueuse/core')['resolveUnref']>
@@ -602,6 +606,7 @@ declare module 'vue' {
     readonly storeMapStyle: UnwrapRef<typeof import('./src/composables/store')['storeMapStyle']>
     readonly storeMapTrailGPXLines: UnwrapRef<typeof import('./src/composables/store')['storeMapTrailGPXLines']>
     readonly storeMapTrailGPXPoints: UnwrapRef<typeof import('./src/composables/store')['storeMapTrailGPXPoints']>
+    readonly storeMapTypeLayerCheckedKeys: UnwrapRef<typeof import('./src/composables/store')['storeMapTypeLayerCheckedKeys']>
     readonly storeMapWeatherLayerEnable: UnwrapRef<typeof import('./src/composables/store')['storeMapWeatherLayerEnable']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>
     readonly syncRefs: UnwrapRef<typeof import('@vueuse/core')['syncRefs']>
@@ -613,7 +618,6 @@ declare module 'vue' {
     readonly toRef: UnwrapRef<typeof import('vue')['toRef']>
     readonly toRefs: UnwrapRef<typeof import('vue')['toRefs']>
     readonly toValue: UnwrapRef<typeof import('vue')['toValue']>
-    readonly toggleDark: UnwrapRef<typeof import('./src/composables/dark')['toggleDark']>
     readonly triggerRef: UnwrapRef<typeof import('vue')['triggerRef']>
     readonly tryOnBeforeMount: UnwrapRef<typeof import('@vueuse/core')['tryOnBeforeMount']>
     readonly tryOnBeforeUnmount: UnwrapRef<typeof import('@vueuse/core')['tryOnBeforeUnmount']>
@@ -845,6 +849,7 @@ declare module '@vue/runtime-core' {
     readonly MAP_DRAW_LAYER_POLYGON_OUTLINE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POLYGON_OUTLINE']>
     readonly MAP_DRAW_LAYER_STRINGLINE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_STRINGLINE']>
     readonly MAP_DRAW_SOURCE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_SOURCE']>
+    readonly PANGU_LAYER_IMG_LIST: UnwrapRef<typeof import('./src/composables/constant')['PANGU_LAYER_IMG_LIST']>
     readonly PointTypeEnum: UnwrapRef<typeof import('./src/composables/constant')['PointTypeEnum']>
     readonly PointTypeEnumMap: UnwrapRef<typeof import('./src/composables/constant')['PointTypeEnumMap']>
     readonly PolygonTypeEnum: UnwrapRef<typeof import('./src/composables/constant')['PolygonTypeEnum']>
@@ -918,7 +923,6 @@ declare module '@vue/runtime-core' {
     readonly initGpxProperties: UnwrapRef<typeof import('./src/composables/utils')['initGpxProperties']>
     readonly initViewFlightForm: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['initViewFlightForm']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
-    readonly isDark: UnwrapRef<typeof import('./src/composables/dark')['isDark']>
     readonly isDefined: UnwrapRef<typeof import('@vueuse/core')['isDefined']>
     readonly isEditViewFlight: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['isEditViewFlight']>
     readonly isProxy: UnwrapRef<typeof import('vue')['isProxy']>
@@ -968,6 +972,7 @@ declare module '@vue/runtime-core' {
     readonly refWithControl: UnwrapRef<typeof import('@vueuse/core')['refWithControl']>
     readonly reloadDataSourceLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadDataSourceLayer']>
     readonly reloadMapGpxLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadMapGpxLayer']>
+    readonly reloadPanguImagesLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadPanguImagesLayer']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
     readonly resolveUnref: UnwrapRef<typeof import('@vueuse/core')['resolveUnref']>
@@ -980,6 +985,7 @@ declare module '@vue/runtime-core' {
     readonly storeMapStyle: UnwrapRef<typeof import('./src/composables/store')['storeMapStyle']>
     readonly storeMapTrailGPXLines: UnwrapRef<typeof import('./src/composables/store')['storeMapTrailGPXLines']>
     readonly storeMapTrailGPXPoints: UnwrapRef<typeof import('./src/composables/store')['storeMapTrailGPXPoints']>
+    readonly storeMapTypeLayerCheckedKeys: UnwrapRef<typeof import('./src/composables/store')['storeMapTypeLayerCheckedKeys']>
     readonly storeMapWeatherLayerEnable: UnwrapRef<typeof import('./src/composables/store')['storeMapWeatherLayerEnable']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>
     readonly syncRefs: UnwrapRef<typeof import('@vueuse/core')['syncRefs']>
@@ -991,7 +997,6 @@ declare module '@vue/runtime-core' {
     readonly toRef: UnwrapRef<typeof import('vue')['toRef']>
     readonly toRefs: UnwrapRef<typeof import('vue')['toRefs']>
     readonly toValue: UnwrapRef<typeof import('vue')['toValue']>
-    readonly toggleDark: UnwrapRef<typeof import('./src/composables/dark')['toggleDark']>
     readonly triggerRef: UnwrapRef<typeof import('vue')['triggerRef']>
     readonly tryOnBeforeMount: UnwrapRef<typeof import('@vueuse/core')['tryOnBeforeMount']>
     readonly tryOnBeforeUnmount: UnwrapRef<typeof import('@vueuse/core')['tryOnBeforeUnmount']>

@@ -1,4 +1,5 @@
 import { handleFetchDistance } from '../fetch'
+import { reloadPanguImagesLayer } from './mapLayer'
 
 function loadImg(name: string, url: string, sdf = false) {
   const map = window.map
@@ -64,6 +65,56 @@ export function mapLoad() {
       },
     })
   })
+  // map.addSource('maine', {
+  //   type: 'geojson',
+  //   data: 'https://jihulab.com/data1355712/xuyun-data/-/raw/main/geojson/dongbeiLine.geojson',
+  // })
+  // map.addLayer({
+  //   id: 'outline',
+  //   type: 'line',
+  //   source: 'maine',
+  //   layout: {},
+  //   paint: {
+  //     'line-color': '#000',
+  //     'line-width': 3,
+  //   },
+  // })
+
+  reloadPanguImagesLayer()
+  watchDebounced(() => storeMapTypeLayerCheckedKeys.value, () => {
+    console.warn('storeMapTypeLayerCheckedKeys changed')
+    reloadPanguImagesLayer()
+  }, { debounce: 300, maxWait: 600 })
+  // map.addSource('video', {
+  //   type: 'video',
+  //   urls: ['/7.21.1200.mov'],
+  //   coordinates: [
+  //     [73, 41],
+  //     [171, 41],
+  //     [171, -41],
+  //     [73, -41],
+  //   ],
+  // })
+  // map.addLayer({
+  //   id: 'video-layer-0-3-2',
+  //   type: 'raster',
+  //   source: 'video',
+  //   paint: {
+  //     'raster-opacity': 0.7,
+  //     'raster-fade-duration': 0,
+  //   },
+  // })
+  // let playingVideo = true
+
+  // map.on('click', () => {
+  //   playingVideo = !playingVideo
+
+  //   if (playingVideo)
+  //     map.getSource('video').play()
+
+  //   else
+  //     map.getSource('video').pause()
+  // })
   // map.addLayer({
   //   id: 'radar-tiles',
   //   type: 'raster',

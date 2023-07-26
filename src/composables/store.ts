@@ -10,6 +10,8 @@ export const storeMapTrailGPXPoints = useStorage<any[]>('storeMapTrailGPXPoints'
 
 export const storeMapTrailGPXLines = useStorage<any[]>('storeMapTrailGPXLines', [])
 
+export const storeMapTypeLayerCheckedKeys = useStorage<string[]>('storeMapTypeLayerCheckedKeys', [])
+
 export function deleteTrailGPXLine(idx: number) {
   storeMapTrailGPXLines.value.splice(idx, 1)
 }
