@@ -190,10 +190,10 @@ export function reloadPanguImagesLayer() {
           type: 'image',
           url: item.url,
           coordinates: [
-            [72.5, 40.5],
-            [170.5, 40.5],
-            [170.5, -40.5],
-            [72.5, -40.5],
+            [72.5, 41.5],
+            [171, 41.5],
+            [171, -42.5],
+            [72.5, -42.5],
           ],
         },
         paint: {
