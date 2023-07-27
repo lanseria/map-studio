@@ -210,6 +210,10 @@ export const PANGU_LAYER_IMG_LIST = [
     url: 'https://charts.ecmwf.int/content/20230727102956-e477582b8757cb9e8dbf0a7027fd78e301ca4e2e.png',
   },
   {
+    name: 'pangu_medium-mslp-wind850_2023-07-27_12_5',
+    url: 'https://charts.ecmwf.int/content/20230727230402-86317cbbbf8625f42e789a11c199a5c6b3de05ee.png',
+  },
+  {
     name: 'pangu_medium-mslp-wind850_2023-07-26_00_6',
     url: 'https://charts.ecmwf.int/content/20230726105444-c93d15399f75d21a6ba97d483cd11fc8c23aa3a1.png',
   },

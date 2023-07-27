@@ -1,4 +1,4 @@
-import type { GeoLocation } from './types'
+import type { GeoJsonStormFeature, GeoLocation, StormData } from './types'
 
 export function initGpxProperties() {
   return {
@@ -21,4 +21,28 @@ export function convertToGeoJSON(locations: GeoLocation[], properties: any = {})
   }
 
   return geoJSON
+}
+
+export function convertStormDataToGeoJson(data: StormData): GeoJsonStormFeature {
+  const coordinates = [Number(data.lng), Number(data.lat)]
+  const properties = {
+    movedirection: data.movedirection,
+    movespeed: data.movespeed,
+    power: data.power,
+    pressure: data.pressure,
+    radius7: data.radius7,
+    radius10: data.radius10,
+    radius12: data.radius12,
+    speed: data.speed,
+    strong: data.strong,
+    time: data.time,
+  }
+  return {
+    type: 'Feature',
+    properties,
+    geometry: {
+      type: 'Point',
+      coordinates,
+    },
+  }
 }

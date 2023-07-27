@@ -1,4 +1,5 @@
 import { Message } from '@arco-design/web-vue'
+import type { StormData } from './types'
 
 export function handleFetchDistance(coordinates: [number, number][]) {
   //
@@ -19,5 +20,20 @@ export function handleFetchDistance(coordinates: [number, number][]) {
       duration: 1000,
     })
     msgRtn.close()
+  })
+}
+
+export function handleFetchStormDataByNumber(num = '202305') {
+  const { data, onFetchResponse } = useFetch(`https://typhoon.slt.zj.gov.cn/Api/TyphoonInfo/${num}`).get().json()
+  onFetchResponse(() => {
+    // console.log(data.value)
+    globalMapLayerStormDataList.value = data.value.points.map((item: StormData) => {
+      return convertStormDataToGeoJson(item)
+    })
+    // console.log(globalMapLayerStormDataList.value)
+    Message.success({
+      content: '获取数据成功',
+      duration: 1000,
+    })
   })
 }

@@ -83,6 +83,10 @@ const treeData = [
                     key: 'pangu_medium-mslp-wind850_2023-07-27_00_5',
                   },
                   {
+                    title: '2023-07-27_12_5号台风',
+                    key: 'pangu_medium-mslp-wind850_2023-07-27_12_5',
+                  },
+                  {
                     title: '2023-07-26_00_6号台风',
                     key: 'pangu_medium-mslp-wind850_2023-07-26_00_6',
                   },
@@ -124,6 +128,9 @@ const computedTreeData = computed(() => {
       })),
     },
   ]
+})
+onMounted(() => {
+  handleFetchStormDataByNumber()
 })
 </script>
 

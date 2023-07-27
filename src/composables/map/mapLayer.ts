@@ -174,7 +174,6 @@ export function reloadPanguImagesLayer() {
     const visibility = storeMapTypeLayerCheckedKeys.value.includes(item.name) ? 'visible' : 'none'
     const layerName = `${item.name}-images`
     if (map.getLayer(layerName)) {
-      console.log(`${layerName}已存在`)
       map.setLayoutProperty(
         layerName,
         'visibility',
@@ -182,7 +181,6 @@ export function reloadPanguImagesLayer() {
       )
     }
     else {
-      console.log(`${layerName}不存在`)
       map.addLayer({
         id: layerName,
         type: 'raster',
@@ -205,5 +203,57 @@ export function reloadPanguImagesLayer() {
         },
       })
     }
+  })
+}
+
+export function reloadCurrentStormPointsLayer() {
+  console.warn('reloadCurrentStormPointsLayer')
+  const map = window.map
+  const MAP_DATA_STORM_SOURCE = 'storm-data'
+  const MAP_DATA_STORM_POINT_LAYER = 'storm-points-layer'
+  const MAP_DATA_STORM_LINE_LAYER = 'storm-line-layer'
+  const source: any = map.getSource(MAP_DATA_STORM_SOURCE)
+  // 判断source
+  if (source) {
+    source.setData({
+      type: 'FeatureCollection',
+      features: globalMapLayerStormDataList.value, // 在之前的代码中创建的GeoJSON特征
+    })
+  }
+  else {
+    map.addSource(MAP_DATA_STORM_SOURCE, {
+      type: 'geojson',
+      data: {
+        type: 'FeatureCollection',
+        features: globalMapLayerStormDataList.value, // 在之前的代码中创建的GeoJSON特征
+      },
+    })
+  }
+  if (map.getLayer(MAP_DATA_STORM_POINT_LAYER))
+    map.removeLayer(MAP_DATA_STORM_POINT_LAYER)
+  map.addLayer({
+    id: MAP_DATA_STORM_POINT_LAYER,
+    type: 'circle',
+    source: MAP_DATA_STORM_SOURCE,
+    paint: {
+      'circle-radius': 10,
+      'circle-color': 'red',
+    },
+  })
+  // 将点连接成线
+  if (map.getLayer(MAP_DATA_STORM_LINE_LAYER))
+    map.removeLayer(MAP_DATA_STORM_LINE_LAYER)
+  map.addLayer({
+    id: MAP_DATA_STORM_LINE_LAYER,
+    type: 'line',
+    source: 'storm-data',
+    layout: {
+      'line-join': 'round',
+      'line-cap': 'round',
+    },
+    paint: {
+      'line-color': 'red',
+      'line-width': 2,
+    },
   })
 }

@@ -13,3 +13,30 @@ export interface GeoLocation {
   speed: number | null
   locatedAt: number
 }
+
+export interface StormData {
+  ckposition: null
+  forecast: { [key: string]: any }[]
+  jl: null
+  lat: string
+  lng: string
+  movedirection: string
+  movespeed: string
+  power: string
+  pressure: string
+  radius7: string
+  radius10: string
+  radius12: string
+  speed: string
+  strong: string
+  time: string
+}
+
+export interface GeoJsonStormFeature {
+  type: 'Feature'
+  properties: { [key: string]: any }
+  geometry: {
+    type: 'Point'
+    coordinates: number[]
+  }
+}

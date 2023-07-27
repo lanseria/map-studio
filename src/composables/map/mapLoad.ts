@@ -85,6 +85,13 @@ export function mapLoad() {
     console.warn('storeMapTypeLayerCheckedKeys changed')
     reloadPanguImagesLayer()
   }, { debounce: 300, maxWait: 600 })
+
+  reloadCurrentStormPointsLayer()
+
+  watchDebounced(() => globalMapLayerStormDataList.value, () => {
+    console.warn('globalMapLayerStormDataList changed')
+    reloadCurrentStormPointsLayer()
+  }, { debounce: 300, maxWait: 600 })
   // map.addSource('video', {
   //   type: 'video',
   //   urls: ['/7.21.1200.mov'],

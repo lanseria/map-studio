@@ -64,6 +64,7 @@ declare global {
   const computedWithControl: typeof import('@vueuse/core')['computedWithControl']
   const controlledComputed: typeof import('@vueuse/core')['controlledComputed']
   const controlledRef: typeof import('@vueuse/core')['controlledRef']
+  const convertStormDataToGeoJson: typeof import('./src/composables/utils')['convertStormDataToGeoJson']
   const convertToGeoJSON: typeof import('./src/composables/utils')['convertToGeoJSON']
   const createApp: typeof import('vue')['createApp']
   const createEventHook: typeof import('@vueuse/core')['createEventHook']
@@ -117,6 +118,7 @@ declare global {
   const globalMapDrawFeatures: typeof import('./src/composables/global')['globalMapDrawFeatures']
   const globalMapDrawMode: typeof import('./src/composables/global')['globalMapDrawMode']
   const globalMapFeatureTypeSelectKeys: typeof import('./src/composables/global')['globalMapFeatureTypeSelectKeys']
+  const globalMapLayerStormDataList: typeof import('./src/composables/global')['globalMapLayerStormDataList']
   const globalMapPointUrl: typeof import('./src/composables/store')['globalMapPointUrl']
   const globalMapRulerCoordinates: typeof import('./src/composables/global')['globalMapRulerCoordinates']
   const globalMapTrailGPXGeoJson: typeof import('./src/composables/global')['globalMapTrailGPXGeoJson']
@@ -135,6 +137,8 @@ declare global {
   const handleContentSideCollapsed: typeof import('./src/composables/store')['handleContentSideCollapsed']
   const handleExportComputeDistance: typeof import('./src/composables/fetch')['handleExportComputeDistance']
   const handleFetchDistance: typeof import('./src/composables/fetch')['handleFetchDistance']
+  const handleFetchStormDataByNumber: typeof import('./src/composables/fetch')['handleFetchStormDataByNumber']
+  const handleFetchTaifengByNumber: typeof import('./src/composables/fetch')['handleFetchTaifengByNumber']
   const handleMapDrawEdit: typeof import('./src/composables/global')['handleMapDrawEdit']
   const handleMapDrawMove: typeof import('./src/composables/global')['handleMapDrawMove']
   const handleMapExitDrawEdit: typeof import('./src/composables/global')['handleMapExitDrawEdit']
@@ -197,6 +201,7 @@ declare global {
   const refDefault: typeof import('@vueuse/core')['refDefault']
   const refThrottled: typeof import('@vueuse/core')['refThrottled']
   const refWithControl: typeof import('@vueuse/core')['refWithControl']
+  const reloadCurrentStormPointsLayer: typeof import('./src/composables/map/mapLayer')['reloadCurrentStormPointsLayer']
   const reloadDataSourceLayer: typeof import('./src/composables/map/mapLayer')['reloadDataSourceLayer']
   const reloadMapGpxLayer: typeof import('./src/composables/map/mapLayer')['reloadMapGpxLayer']
   const reloadPanguImagesLayer: typeof import('./src/composables/map/mapLayer')['reloadPanguImagesLayer']
@@ -490,6 +495,7 @@ declare module 'vue' {
     readonly computedWithControl: UnwrapRef<typeof import('@vueuse/core')['computedWithControl']>
     readonly controlledComputed: UnwrapRef<typeof import('@vueuse/core')['controlledComputed']>
     readonly controlledRef: UnwrapRef<typeof import('@vueuse/core')['controlledRef']>
+    readonly convertStormDataToGeoJson: UnwrapRef<typeof import('./src/composables/utils')['convertStormDataToGeoJson']>
     readonly convertToGeoJSON: UnwrapRef<typeof import('./src/composables/utils')['convertToGeoJSON']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
     readonly createEventHook: UnwrapRef<typeof import('@vueuse/core')['createEventHook']>
@@ -530,6 +536,7 @@ declare module 'vue' {
     readonly globalMapDrawEnable: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawEnable']>
     readonly globalMapDrawFeatures: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawFeatures']>
     readonly globalMapDrawMode: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawMode']>
+    readonly globalMapLayerStormDataList: UnwrapRef<typeof import('./src/composables/global')['globalMapLayerStormDataList']>
     readonly globalMapRulerCoordinates: UnwrapRef<typeof import('./src/composables/global')['globalMapRulerCoordinates']>
     readonly globalMapTrailGPXGeoJson: UnwrapRef<typeof import('./src/composables/global')['globalMapTrailGPXGeoJson']>
     readonly globalMapTrailGPXGeoJsonProperties: UnwrapRef<typeof import('./src/composables/global')['globalMapTrailGPXGeoJsonProperties']>
@@ -538,6 +545,7 @@ declare module 'vue' {
     readonly globalWeixinMiniAppModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalWeixinMiniAppModalVisible']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly handleFetchDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchDistance']>
+    readonly handleFetchStormDataByNumber: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchStormDataByNumber']>
     readonly handlePushViewFlightChildren: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightChildren']>
     readonly handlePushViewFlightList: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightList']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
@@ -591,6 +599,7 @@ declare module 'vue' {
     readonly refDefault: UnwrapRef<typeof import('@vueuse/core')['refDefault']>
     readonly refThrottled: UnwrapRef<typeof import('@vueuse/core')['refThrottled']>
     readonly refWithControl: UnwrapRef<typeof import('@vueuse/core')['refWithControl']>
+    readonly reloadCurrentStormPointsLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadCurrentStormPointsLayer']>
     readonly reloadDataSourceLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadDataSourceLayer']>
     readonly reloadMapGpxLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadMapGpxLayer']>
     readonly reloadPanguImagesLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadPanguImagesLayer']>
@@ -869,6 +878,7 @@ declare module '@vue/runtime-core' {
     readonly computedWithControl: UnwrapRef<typeof import('@vueuse/core')['computedWithControl']>
     readonly controlledComputed: UnwrapRef<typeof import('@vueuse/core')['controlledComputed']>
     readonly controlledRef: UnwrapRef<typeof import('@vueuse/core')['controlledRef']>
+    readonly convertStormDataToGeoJson: UnwrapRef<typeof import('./src/composables/utils')['convertStormDataToGeoJson']>
     readonly convertToGeoJSON: UnwrapRef<typeof import('./src/composables/utils')['convertToGeoJSON']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
     readonly createEventHook: UnwrapRef<typeof import('@vueuse/core')['createEventHook']>
@@ -909,6 +919,7 @@ declare module '@vue/runtime-core' {
     readonly globalMapDrawEnable: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawEnable']>
     readonly globalMapDrawFeatures: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawFeatures']>
     readonly globalMapDrawMode: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawMode']>
+    readonly globalMapLayerStormDataList: UnwrapRef<typeof import('./src/composables/global')['globalMapLayerStormDataList']>
     readonly globalMapRulerCoordinates: UnwrapRef<typeof import('./src/composables/global')['globalMapRulerCoordinates']>
     readonly globalMapTrailGPXGeoJson: UnwrapRef<typeof import('./src/composables/global')['globalMapTrailGPXGeoJson']>
     readonly globalMapTrailGPXGeoJsonProperties: UnwrapRef<typeof import('./src/composables/global')['globalMapTrailGPXGeoJsonProperties']>
@@ -917,6 +928,7 @@ declare module '@vue/runtime-core' {
     readonly globalWeixinMiniAppModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalWeixinMiniAppModalVisible']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly handleFetchDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchDistance']>
+    readonly handleFetchStormDataByNumber: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchStormDataByNumber']>
     readonly handlePushViewFlightChildren: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightChildren']>
     readonly handlePushViewFlightList: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightList']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
@@ -970,6 +982,7 @@ declare module '@vue/runtime-core' {
     readonly refDefault: UnwrapRef<typeof import('@vueuse/core')['refDefault']>
     readonly refThrottled: UnwrapRef<typeof import('@vueuse/core')['refThrottled']>
     readonly refWithControl: UnwrapRef<typeof import('@vueuse/core')['refWithControl']>
+    readonly reloadCurrentStormPointsLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadCurrentStormPointsLayer']>
     readonly reloadDataSourceLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadDataSourceLayer']>
     readonly reloadMapGpxLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadMapGpxLayer']>
     readonly reloadPanguImagesLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadPanguImagesLayer']>
