@@ -186,19 +186,43 @@ export const WEATHER_LIST = [
 
 export const PANGU_LAYER_IMG_LIST = [
   {
-    name: 'pangu_medium-mslp-wind850_2023-07-21_00',
+    name: 'pangu_medium-mslp-wind850_2023-07-21_00_5',
     url: 'https://charts.ecmwf.int/content/20230726111133-b5ec88bd7e02257bae6b969fcd20c0f6524b4e94.png',
   },
   {
-    name: 'pangu_medium-mslp-wind850_2023-07-24_12',
+    name: 'pangu_medium-mslp-wind850_2023-07-21_00_5_line',
+    url: 'https://s2.loli.net/2023/07/27/6k8cleqsxzXoZWp.png',
+  },
+  {
+    name: 'pangu_medium-mslp-wind850_2023-07-24_12_5',
     url: 'https://charts.ecmwf.int/content/20230726111720-2384f1a756fb40b38ba4cffbee250a047c7a32f0.png',
   },
   {
-    name: 'pangu_medium-mslp-wind850_2023-07-26_00',
+    name: 'pangu_medium-mslp-wind850_2023-07-24_12_5_line',
+    url: 'https://s2.loli.net/2023/07/27/YeAoula8x6qCOgJ.png',
+  },
+  {
+    name: 'pangu_medium-mslp-wind850_2023-07-26_00_5',
     url: 'https://charts.ecmwf.int/content/20230726105341-e7ea554d28b4f7ffb733bda4dc7d110dbbbae30f.png',
+  },
+  {
+    name: 'pangu_medium-mslp-wind850_2023-07-27_00_5',
+    url: 'https://charts.ecmwf.int/content/20230727102956-e477582b8757cb9e8dbf0a7027fd78e301ca4e2e.png',
   },
   {
     name: 'pangu_medium-mslp-wind850_2023-07-26_00_6',
     url: 'https://charts.ecmwf.int/content/20230726105444-c93d15399f75d21a6ba97d483cd11fc8c23aa3a1.png',
+  },
+  {
+    name: 'pangu_medium-mslp-wind850_2023-07-26_00_6_line',
+    url: 'https://s2.loli.net/2023/07/27/IZOdPCu5UN9h27Y.png',
+  },
+  {
+    name: 'pangu_medium-mslp-wind850_2023-07-27_00_6',
+    url: 'https://charts.ecmwf.int/content/20230727103056-c4d9ae130c41d23945091d67aedb690b642b3f28.png',
+  },
+  {
+    name: 'pangu_medium-mslp-wind850_2023-07-27_00_6_line',
+    url: 'https://s2.loli.net/2023/07/27/iw8gsDjqTV193oF.png',
   },
 ]
