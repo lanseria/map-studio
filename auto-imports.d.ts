@@ -124,6 +124,8 @@ declare global {
   const globalMapDrawMode: typeof import('./src/composables/global')['globalMapDrawMode']
   const globalMapFeatureTypeSelectKeys: typeof import('./src/composables/global')['globalMapFeatureTypeSelectKeys']
   const globalMapLayerStormDataList: typeof import('./src/composables/global')['globalMapLayerStormDataList']
+  const globalMapPhotoLoading: typeof import('./src/composables/global')['globalMapPhotoLoading']
+  const globalMapPhotoPlaying: typeof import('./src/composables/global')['globalMapPhotoPlaying']
   const globalMapPointUrl: typeof import('./src/composables/store')['globalMapPointUrl']
   const globalMapRulerCoordinates: typeof import('./src/composables/global')['globalMapRulerCoordinates']
   const globalMapTrailGPXGeoJson: typeof import('./src/composables/global')['globalMapTrailGPXGeoJson']
@@ -143,6 +145,7 @@ declare global {
   const handleExportComputeDistance: typeof import('./src/composables/fetch')['handleExportComputeDistance']
   const handleFetchCurrentStormData: typeof import('./src/composables/fetch')['handleFetchCurrentStormData']
   const handleFetchDistance: typeof import('./src/composables/fetch')['handleFetchDistance']
+  const handleFetchPanguPhotos: typeof import('./src/composables/fetch')['handleFetchPanguPhotos']
   const handleFetchStormDataByNumber: typeof import('./src/composables/fetch')['handleFetchStormDataByNumber']
   const handleFetchTaifengByNumber: typeof import('./src/composables/fetch')['handleFetchTaifengByNumber']
   const handleMapDrawEdit: typeof import('./src/composables/global')['handleMapDrawEdit']
@@ -170,6 +173,7 @@ declare global {
   const mapViewFlightList: typeof import('./src/composables/map/mapViewFlight')['mapViewFlightList']
   const markRaw: typeof import('vue')['markRaw']
   const nanoid: typeof import('./src/composables/global')['nanoid']
+  const nextPhoto: typeof import('./src/composables/map/mapLayer')['nextPhoto']
   const nextTick: typeof import('vue')['nextTick']
   const onActivated: typeof import('vue')['onActivated']
   const onBeforeMount: typeof import('vue')['onBeforeMount']
@@ -191,6 +195,7 @@ declare global {
   const onUnmounted: typeof import('vue')['onUnmounted']
   const onUpdated: typeof import('vue')['onUpdated']
   const pausableWatch: typeof import('@vueuse/core')['pausableWatch']
+  const prevPhoto: typeof import('./src/composables/map/mapLayer')['prevPhoto']
   const provide: typeof import('vue')['provide']
   const pulsingDot: typeof import('./src/composables/map/mapPoint')['pulsingDot']
   const pushMapDrawFeatures: typeof import('./src/composables/global')['pushMapDrawFeatures']
@@ -212,6 +217,7 @@ declare global {
   const reloadDataSourceLayer: typeof import('./src/composables/map/mapLayer')['reloadDataSourceLayer']
   const reloadMapGpxLayer: typeof import('./src/composables/map/mapLayer')['reloadMapGpxLayer']
   const reloadPanguImagesLayer: typeof import('./src/composables/map/mapLayer')['reloadPanguImagesLayer']
+  const reloadPanguPhotosGifLayer: typeof import('./src/composables/map/mapLayer')['reloadPanguPhotosGifLayer']
   const resolveComponent: typeof import('vue')['resolveComponent']
   const resolveRef: typeof import('@vueuse/core')['resolveRef']
   const resolveUnref: typeof import('@vueuse/core')['resolveUnref']
@@ -234,6 +240,7 @@ declare global {
   const storeMapTypeLayerCheckedKeys: typeof import('./src/composables/store')['storeMapTypeLayerCheckedKeys']
   const storeMapTypeValue: typeof import('./src/composables/store')['storeMapTypeValue']
   const storeMapWeatherLayerEnable: typeof import('./src/composables/store')['storeMapWeatherLayerEnable']
+  const storePanguPhotos: typeof import('./src/composables/store')['storePanguPhotos']
   const storeStormDataList: typeof import('./src/composables/store')['storeStormDataList']
   const storeStormDataListCheckedKeys: typeof import('./src/composables/store')['storeStormDataListCheckedKeys']
   const syncRef: typeof import('@vueuse/core')['syncRef']
@@ -551,6 +558,8 @@ declare module 'vue' {
     readonly globalMapDrawEnable: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawEnable']>
     readonly globalMapDrawFeatures: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawFeatures']>
     readonly globalMapDrawMode: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawMode']>
+    readonly globalMapPhotoLoading: UnwrapRef<typeof import('./src/composables/global')['globalMapPhotoLoading']>
+    readonly globalMapPhotoPlaying: UnwrapRef<typeof import('./src/composables/global')['globalMapPhotoPlaying']>
     readonly globalMapRulerCoordinates: UnwrapRef<typeof import('./src/composables/global')['globalMapRulerCoordinates']>
     readonly globalMapTrailGPXGeoJson: UnwrapRef<typeof import('./src/composables/global')['globalMapTrailGPXGeoJson']>
     readonly globalMapTrailGPXGeoJsonProperties: UnwrapRef<typeof import('./src/composables/global')['globalMapTrailGPXGeoJsonProperties']>
@@ -560,6 +569,7 @@ declare module 'vue' {
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly handleFetchCurrentStormData: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchCurrentStormData']>
     readonly handleFetchDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchDistance']>
+    readonly handleFetchPanguPhotos: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchPanguPhotos']>
     readonly handleFetchStormDataByNumber: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchStormDataByNumber']>
     readonly handlePushViewFlightChildren: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightChildren']>
     readonly handlePushViewFlightList: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightList']>
@@ -577,6 +587,7 @@ declare module 'vue' {
     readonly mapLoad: UnwrapRef<typeof import('./src/composables/map/mapLoad')['mapLoad']>
     readonly mapViewFlightList: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['mapViewFlightList']>
     readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
+    readonly nextPhoto: UnwrapRef<typeof import('./src/composables/map/mapLayer')['nextPhoto']>
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>
     readonly onActivated: UnwrapRef<typeof import('vue')['onActivated']>
     readonly onBeforeMount: UnwrapRef<typeof import('vue')['onBeforeMount']>
@@ -598,6 +609,7 @@ declare module 'vue' {
     readonly onUnmounted: UnwrapRef<typeof import('vue')['onUnmounted']>
     readonly onUpdated: UnwrapRef<typeof import('vue')['onUpdated']>
     readonly pausableWatch: UnwrapRef<typeof import('@vueuse/core')['pausableWatch']>
+    readonly prevPhoto: UnwrapRef<typeof import('./src/composables/map/mapLayer')['prevPhoto']>
     readonly provide: UnwrapRef<typeof import('vue')['provide']>
     readonly pulsingDot: UnwrapRef<typeof import('./src/composables/map/mapPoint')['pulsingDot']>
     readonly pushMapDrawFeatures: UnwrapRef<typeof import('./src/composables/global')['pushMapDrawFeatures']>
@@ -617,6 +629,7 @@ declare module 'vue' {
     readonly reloadDataSourceLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadDataSourceLayer']>
     readonly reloadMapGpxLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadMapGpxLayer']>
     readonly reloadPanguImagesLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadPanguImagesLayer']>
+    readonly reloadPanguPhotosGifLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadPanguPhotosGifLayer']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
     readonly resolveUnref: UnwrapRef<typeof import('@vueuse/core')['resolveUnref']>
@@ -631,6 +644,7 @@ declare module 'vue' {
     readonly storeMapTrailGPXPoints: UnwrapRef<typeof import('./src/composables/store')['storeMapTrailGPXPoints']>
     readonly storeMapTypeLayerCheckedKeys: UnwrapRef<typeof import('./src/composables/store')['storeMapTypeLayerCheckedKeys']>
     readonly storeMapWeatherLayerEnable: UnwrapRef<typeof import('./src/composables/store')['storeMapWeatherLayerEnable']>
+    readonly storePanguPhotos: UnwrapRef<typeof import('./src/composables/store')['storePanguPhotos']>
     readonly storeStormDataList: UnwrapRef<typeof import('./src/composables/store')['storeStormDataList']>
     readonly storeStormDataListCheckedKeys: UnwrapRef<typeof import('./src/composables/store')['storeStormDataListCheckedKeys']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>
@@ -940,6 +954,8 @@ declare module '@vue/runtime-core' {
     readonly globalMapDrawEnable: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawEnable']>
     readonly globalMapDrawFeatures: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawFeatures']>
     readonly globalMapDrawMode: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawMode']>
+    readonly globalMapPhotoLoading: UnwrapRef<typeof import('./src/composables/global')['globalMapPhotoLoading']>
+    readonly globalMapPhotoPlaying: UnwrapRef<typeof import('./src/composables/global')['globalMapPhotoPlaying']>
     readonly globalMapRulerCoordinates: UnwrapRef<typeof import('./src/composables/global')['globalMapRulerCoordinates']>
     readonly globalMapTrailGPXGeoJson: UnwrapRef<typeof import('./src/composables/global')['globalMapTrailGPXGeoJson']>
     readonly globalMapTrailGPXGeoJsonProperties: UnwrapRef<typeof import('./src/composables/global')['globalMapTrailGPXGeoJsonProperties']>
@@ -949,6 +965,7 @@ declare module '@vue/runtime-core' {
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly handleFetchCurrentStormData: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchCurrentStormData']>
     readonly handleFetchDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchDistance']>
+    readonly handleFetchPanguPhotos: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchPanguPhotos']>
     readonly handleFetchStormDataByNumber: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchStormDataByNumber']>
     readonly handlePushViewFlightChildren: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightChildren']>
     readonly handlePushViewFlightList: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightList']>
@@ -966,6 +983,7 @@ declare module '@vue/runtime-core' {
     readonly mapLoad: UnwrapRef<typeof import('./src/composables/map/mapLoad')['mapLoad']>
     readonly mapViewFlightList: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['mapViewFlightList']>
     readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
+    readonly nextPhoto: UnwrapRef<typeof import('./src/composables/map/mapLayer')['nextPhoto']>
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>
     readonly onActivated: UnwrapRef<typeof import('vue')['onActivated']>
     readonly onBeforeMount: UnwrapRef<typeof import('vue')['onBeforeMount']>
@@ -987,6 +1005,7 @@ declare module '@vue/runtime-core' {
     readonly onUnmounted: UnwrapRef<typeof import('vue')['onUnmounted']>
     readonly onUpdated: UnwrapRef<typeof import('vue')['onUpdated']>
     readonly pausableWatch: UnwrapRef<typeof import('@vueuse/core')['pausableWatch']>
+    readonly prevPhoto: UnwrapRef<typeof import('./src/composables/map/mapLayer')['prevPhoto']>
     readonly provide: UnwrapRef<typeof import('vue')['provide']>
     readonly pulsingDot: UnwrapRef<typeof import('./src/composables/map/mapPoint')['pulsingDot']>
     readonly pushMapDrawFeatures: UnwrapRef<typeof import('./src/composables/global')['pushMapDrawFeatures']>
@@ -1006,6 +1025,7 @@ declare module '@vue/runtime-core' {
     readonly reloadDataSourceLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadDataSourceLayer']>
     readonly reloadMapGpxLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadMapGpxLayer']>
     readonly reloadPanguImagesLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadPanguImagesLayer']>
+    readonly reloadPanguPhotosGifLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadPanguPhotosGifLayer']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
     readonly resolveUnref: UnwrapRef<typeof import('@vueuse/core')['resolveUnref']>
@@ -1020,6 +1040,7 @@ declare module '@vue/runtime-core' {
     readonly storeMapTrailGPXPoints: UnwrapRef<typeof import('./src/composables/store')['storeMapTrailGPXPoints']>
     readonly storeMapTypeLayerCheckedKeys: UnwrapRef<typeof import('./src/composables/store')['storeMapTypeLayerCheckedKeys']>
     readonly storeMapWeatherLayerEnable: UnwrapRef<typeof import('./src/composables/store')['storeMapWeatherLayerEnable']>
+    readonly storePanguPhotos: UnwrapRef<typeof import('./src/composables/store')['storePanguPhotos']>
     readonly storeStormDataList: UnwrapRef<typeof import('./src/composables/store')['storeStormDataList']>
     readonly storeStormDataListCheckedKeys: UnwrapRef<typeof import('./src/composables/store')['storeStormDataListCheckedKeys']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>

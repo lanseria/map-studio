@@ -24,6 +24,14 @@ export function handleFetchDistance(coordinates: [number, number][]) {
   })
 }
 
+export function handleFetchPanguPhotos() {
+  const { data, onFetchResponse } = useFetch('https://s8zygv-pangu.oss.laf.run/2023-07-27_00.json').get().json()
+  onFetchResponse(() => {
+    console.warn('handleFetchPanguPhotos')
+    storePanguPhotos.value = data.value
+  })
+}
+
 export function handleFetchCurrentStormData() {
   const { data, onFetchResponse } = useFetch('https://typhoon.slt.zj.gov.cn/Api/TyhoonActivity').get().json()
   onFetchResponse(() => {

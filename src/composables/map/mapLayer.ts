@@ -1,6 +1,8 @@
 import type { Position } from '@turf/turf'
 import * as turf from '@turf/turf'
 import mapboxgl from 'mapbox-gl'
+import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
 import type { GeoJsonStormFeature } from '../types'
 
 export function addSource() {
@@ -315,5 +317,79 @@ export function drawStormLineLayer(data: GeoJsonStormFeature[], id: string) {
       'line-color': ['get', 'color'],
       'line-width': 2,
     },
+  })
+}
+
+const DATE = '2023-07-27'
+const HOUR = 0
+const now = dayjs(DATE).hour(HOUR)
+let start_time = now.add(6, 'hours')
+
+function getPath() {
+  console.log(start_time.unix())
+  if (storePanguPhotos.value[start_time.unix()]) {
+    return storePanguPhotos.value[start_time.unix()]
+  }
+  else {
+    if (start_time.unix() <= now.add(6, 'hours').unix())
+      start_time = now.add(10, 'days').subtract(6, 'hours')
+    else
+      start_time = now.add(6, 'hours')
+
+    return storePanguPhotos.value[start_time.unix()]
+  }
+}
+export function startPhoto() {
+  const map: any = window.map
+  start_time = now.add(6, 'hours')
+  map.getSource('radar').updateImage({ url: getPath() })
+  globalMapPhotoLoading.value = true
+}
+export function prevPhoto() {
+  const map: any = window.map
+  start_time = start_time.subtract(6, 'hours')
+  map.getSource('radar').updateImage({ url: getPath() })
+  globalMapPhotoLoading.value = true
+}
+export function nextPhoto() {
+  const map: any = window.map
+  start_time = start_time.add(6, 'hours')
+  map.getSource('radar').updateImage({ url: getPath() })
+  globalMapPhotoLoading.value = true
+}
+export function endPhoto() {
+  const map: any = window.map
+  start_time = now.add(10, 'days').subtract(6, 'hours')
+  map.getSource('radar').updateImage({ url: getPath() })
+  globalMapPhotoLoading.value = true
+}
+export function reloadPanguPhotosGifLayer() {
+  dayjs.extend(utc)
+
+  dayjs.utc() // 设置时区为UTC
+  const map = window.map
+  map.addSource('radar', {
+    type: 'image',
+    url: getPath(),
+    coordinates: [
+      [72.5, 41.5],
+      [171, 41.5],
+      [171, -42.5],
+      [72.5, -42.5],
+    ],
+  })
+  map.addLayer({
+    id: 'radar-layer',
+    type: 'raster',
+    source: 'radar',
+    paint: {
+      'raster-fade-duration': 0,
+    },
+  })
+  map.on('idle', (e) => {
+    console.log(e)
+    globalMapPhotoLoading.value = false
+    if (globalMapPhotoPlaying.value)
+      nextPhoto()
   })
 }

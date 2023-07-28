@@ -18,6 +18,8 @@ export const storeStormDataList = useStorage<TyphoonData[]>('storeStormDataList'
 
 export const storeStormDataListCheckedKeys = useStorage<Record<string, boolean>>('storeStormDataListCheckedKeys', {})
 
+export const storePanguPhotos = useStorage<Record<string, string>>('storePanguPhotos', {})
+
 export function deleteTrailGPXLine(idx: number) {
   storeMapTrailGPXLines.value.splice(idx, 1)
 }

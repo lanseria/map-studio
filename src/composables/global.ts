@@ -11,6 +11,8 @@ export const globalWeixinMiniAppModalVisible = ref(false)
 export const globalJoinUsModalVisible = ref(false)
 export const globalMapDrawEnable = ref(false)
 export const globalMapDrawEdit = ref(false)
+export const globalMapPhotoLoading = ref(false)
+export const globalMapPhotoPlaying = ref(false)
 
 export const globalMapTrailGPXGeoJson = ref({})
 export const globalMapTrailGPXGeoJsonProperties = ref(initGpxProperties())

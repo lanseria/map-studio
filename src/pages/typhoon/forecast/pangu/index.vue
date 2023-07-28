@@ -3,5 +3,6 @@
 <template>
   <div class="w-full">
     <PanguIndex />
+    <PanguTimeline />
   </div>
 </template>
