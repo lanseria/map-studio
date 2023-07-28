@@ -43,9 +43,6 @@ const treeData = [
     ],
   },
 ]
-onMounted(() => {
-  handleFetchStormDataByNumber('202305')
-})
 function handleSelect(e: any) {
   router.push(`/${e[0]}`)
 }

@@ -86,19 +86,6 @@ export function mapLoad() {
     reloadPanguImagesLayer()
   }, { debounce: 300, maxWait: 600 })
 
-  reloadCurrentStormPointsLayer()
-
-  watchDebounced(() => storeMapLayerStormDataList.value, () => {
-    console.warn('storeMapLayerStormDataList changed')
-    reloadCurrentStormPointsLayer()
-  }, { debounce: 300, maxWait: 600 })
-
-  reloadCurrentStormLineLayer()
-
-  watchDebounced(() => storeMapLayerStormDataList.value, () => {
-    console.warn('storeMapLayerStormDataList changed')
-    reloadCurrentStormLineLayer()
-  }, { debounce: 300, maxWait: 600 })
   // map.addSource('video', {
   //   type: 'video',
   //   urls: ['/7.21.1200.mov'],

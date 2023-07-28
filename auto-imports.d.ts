@@ -84,6 +84,9 @@ declare global {
   const defineComponent: typeof import('vue')['defineComponent']
   const deleteTrailGPXLine: typeof import('./src/composables/store')['deleteTrailGPXLine']
   const drawPoint: typeof import('./src/composables/map/mapLayer')['drawPoint']
+  const drawStormLineLayer: typeof import('./src/composables/map/mapLayer')['drawStormLineLayer']
+  const drawStormPointsLayer: typeof import('./src/composables/map/mapLayer')['drawStormPointsLayer']
+  const drawTyphoonLineAndPoints: typeof import('./src/composables/map/mapLayer')['drawTyphoonLineAndPoints']
   const eagerComputed: typeof import('@vueuse/core')['eagerComputed']
   const effectScope: typeof import('vue')['effectScope']
   const exitCreateViewFlightRoute: typeof import('./src/composables/map/mapViewFlight')['exitCreateViewFlightRoute']
@@ -520,6 +523,9 @@ declare module 'vue' {
     readonly defineComponent: UnwrapRef<typeof import('vue')['defineComponent']>
     readonly deleteTrailGPXLine: UnwrapRef<typeof import('./src/composables/store')['deleteTrailGPXLine']>
     readonly drawPoint: UnwrapRef<typeof import('./src/composables/map/mapLayer')['drawPoint']>
+    readonly drawStormLineLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['drawStormLineLayer']>
+    readonly drawStormPointsLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['drawStormPointsLayer']>
+    readonly drawTyphoonLineAndPoints: UnwrapRef<typeof import('./src/composables/map/mapLayer')['drawTyphoonLineAndPoints']>
     readonly eagerComputed: UnwrapRef<typeof import('@vueuse/core')['eagerComputed']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
     readonly exitCreateViewFlightRoute: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['exitCreateViewFlightRoute']>
@@ -605,8 +611,6 @@ declare module 'vue' {
     readonly refDefault: UnwrapRef<typeof import('@vueuse/core')['refDefault']>
     readonly refThrottled: UnwrapRef<typeof import('@vueuse/core')['refThrottled']>
     readonly refWithControl: UnwrapRef<typeof import('@vueuse/core')['refWithControl']>
-    readonly reloadCurrentStormLineLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadCurrentStormLineLayer']>
-    readonly reloadCurrentStormPointsLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadCurrentStormPointsLayer']>
     readonly reloadDataSourceLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadDataSourceLayer']>
     readonly reloadMapGpxLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadMapGpxLayer']>
     readonly reloadPanguImagesLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadPanguImagesLayer']>
@@ -907,6 +911,9 @@ declare module '@vue/runtime-core' {
     readonly defineComponent: UnwrapRef<typeof import('vue')['defineComponent']>
     readonly deleteTrailGPXLine: UnwrapRef<typeof import('./src/composables/store')['deleteTrailGPXLine']>
     readonly drawPoint: UnwrapRef<typeof import('./src/composables/map/mapLayer')['drawPoint']>
+    readonly drawStormLineLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['drawStormLineLayer']>
+    readonly drawStormPointsLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['drawStormPointsLayer']>
+    readonly drawTyphoonLineAndPoints: UnwrapRef<typeof import('./src/composables/map/mapLayer')['drawTyphoonLineAndPoints']>
     readonly eagerComputed: UnwrapRef<typeof import('@vueuse/core')['eagerComputed']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
     readonly exitCreateViewFlightRoute: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['exitCreateViewFlightRoute']>
@@ -992,8 +999,6 @@ declare module '@vue/runtime-core' {
     readonly refDefault: UnwrapRef<typeof import('@vueuse/core')['refDefault']>
     readonly refThrottled: UnwrapRef<typeof import('@vueuse/core')['refThrottled']>
     readonly refWithControl: UnwrapRef<typeof import('@vueuse/core')['refWithControl']>
-    readonly reloadCurrentStormLineLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadCurrentStormLineLayer']>
-    readonly reloadCurrentStormPointsLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadCurrentStormPointsLayer']>
     readonly reloadDataSourceLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadDataSourceLayer']>
     readonly reloadMapGpxLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadMapGpxLayer']>
     readonly reloadPanguImagesLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadPanguImagesLayer']>

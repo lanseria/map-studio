@@ -38,6 +38,8 @@ export function convertStormDataToGeoJson(data: StormData, props: StormDataPrope
     movedirection: data.movedirection,
     movespeed: data.movespeed,
     power: data.power,
+    lat: data.lat,
+    lng: data.lng,
     pressure: data.pressure,
     radius7: data.radius7,
     radius10: data.radius10,

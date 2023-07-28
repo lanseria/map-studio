@@ -1,5 +1,7 @@
 import type { Position } from '@turf/turf'
 import * as turf from '@turf/turf'
+import mapboxgl from 'mapbox-gl'
+import type { GeoJsonStormFeature } from '../types'
 
 export function addSource() {
   const map = window.map
@@ -207,17 +209,22 @@ export function reloadPanguImagesLayer() {
   })
 }
 
-export function reloadCurrentStormPointsLayer() {
-  console.warn('reloadCurrentStormPointsLayer')
+export function drawTyphoonLineAndPoints(data: GeoJsonStormFeature[], id: string) {
+  drawStormPointsLayer(data, id)
+  drawStormLineLayer(data, id)
+}
+
+export function drawStormPointsLayer(data: GeoJsonStormFeature[], id: string) {
+  console.warn(`drawStormPointsLayer${id}`)
   const map = window.map
-  const MAP_DATA_STORM_POINT_SOURCE = 'storm-data-point'
-  const MAP_DATA_STORM_POINT_LAYER = 'storm-points-layer'
+  const MAP_DATA_STORM_POINT_SOURCE = `storm-data-point${id}`
+  const MAP_DATA_STORM_POINT_LAYER = `storm-points-layer${id}`
   const source: any = map.getSource(MAP_DATA_STORM_POINT_SOURCE)
   // 判断source
   if (source) {
     source.setData({
       type: 'FeatureCollection',
-      features: storeMapLayerStormDataList.value, // 在之前的代码中创建的GeoJSON特征
+      features: data, // 在之前的代码中创建的GeoJSON特征
     })
   }
   else {
@@ -225,7 +232,7 @@ export function reloadCurrentStormPointsLayer() {
       type: 'geojson',
       data: {
         type: 'FeatureCollection',
-        features: storeMapLayerStormDataList.value, // 在之前的代码中创建的GeoJSON特征
+        features: data, // 在之前的代码中创建的GeoJSON特征
       },
     })
   }
@@ -240,23 +247,42 @@ export function reloadCurrentStormPointsLayer() {
       'circle-color': ['get', 'color'],
     },
   })
+  map.on('click', MAP_DATA_STORM_POINT_LAYER, (e: any) => {
+    function genDescription(item: any) {
+      return `台风“${id}”，目前位于北纬${item.lat}度、东经${item.lng}度，向${item.movedirection}方向移动，移速为每小时${item.movespeed}公里，中心风力达到每秒${item.speed}米(${item.power}级)，为${item.strong}级别，中心气压为${item.pressure}百帕。数据发布时间为${item.time}。`
+    }
+    // Copy coordinates array.
+    const coordinates = e.features![0].geometry.coordinates!.slice()
+    const description = genDescription(e.features![0].properties)
+
+    // Ensure that if the map is zoomed out such that multiple
+    // copies of the feature are visible, the popup appears
+    // over the copy being pointed to.
+    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180)
+      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360
+
+    new mapboxgl.Popup()
+      .setLngLat(coordinates)
+      .setHTML(description)
+      .addTo(map)
+  })
 }
 
-export function reloadCurrentStormLineLayer() {
-  console.warn('reloadCurrentStormLineLayer')
+export function drawStormLineLayer(data: GeoJsonStormFeature[], id: string) {
+  console.warn(`drawStormLineLayer${id}`)
   const map = window.map
-  const MAP_DATA_STORM_LINE_SOURCE = 'storm-data-line'
-  const MAP_DATA_STORM_LINE_LAYER = 'storm-line-layer'
+  const MAP_DATA_STORM_LINE_SOURCE = `storm-data-line${id}`
+  const MAP_DATA_STORM_LINE_LAYER = `storm-line-layer${id}`
   const source: any = map.getSource(MAP_DATA_STORM_LINE_SOURCE)
-  if (storeMapLayerStormDataList.value.length === 0) {
+  if (data.length === 0) {
     console.warn('storm no data')
     return
   }
-  const lineFeature = turf.lineString(storeMapLayerStormDataList.value.map((feature) => {
+  const lineFeature = turf.lineString(data.map((feature) => {
     // console.log(feature.geometry.coordinates)
     return feature.geometry.coordinates
   }), {
-    color: 'red',
+    color: getColorByName(id),
   })
   // 判断source
   if (source) {
