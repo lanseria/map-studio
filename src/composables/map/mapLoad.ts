@@ -92,6 +92,13 @@ export function mapLoad() {
     console.warn('globalMapLayerStormDataList changed')
     reloadCurrentStormPointsLayer()
   }, { debounce: 300, maxWait: 600 })
+
+  reloadCurrentStormLineLayer()
+
+  watchDebounced(() => globalMapLayerStormDataList.value, () => {
+    console.warn('globalMapLayerStormDataList changed')
+    reloadCurrentStormLineLayer()
+  }, { debounce: 300, maxWait: 600 })
   // map.addSource('video', {
   //   type: 'video',
   //   urls: ['/7.21.1200.mov'],

@@ -28,7 +28,7 @@ export function handleFetchStormDataByNumber(num = '202305') {
   onFetchResponse(() => {
     // console.log(data.value)
     globalMapLayerStormDataList.value = data.value.points.map((item: StormData) => {
-      return convertStormDataToGeoJson(item)
+      return convertStormDataToGeoJson(item, data.value)
     })
     // console.log(globalMapLayerStormDataList.value)
     Message.success({

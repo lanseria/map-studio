@@ -130,7 +130,7 @@ const computedTreeData = computed(() => {
   ]
 })
 onMounted(() => {
-  handleFetchStormDataByNumber()
+  handleFetchStormDataByNumber('202305')
 })
 </script>
 

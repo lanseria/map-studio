@@ -88,6 +88,7 @@ declare global {
   const effectScope: typeof import('vue')['effectScope']
   const exitCreateViewFlightRoute: typeof import('./src/composables/map/mapViewFlight')['exitCreateViewFlightRoute']
   const extendRef: typeof import('@vueuse/core')['extendRef']
+  const getColorByName: typeof import('./src/composables/utils')['getColorByName']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
   const globalAboutModalVisible: typeof import('./src/composables/global')['globalAboutModalVisible']
@@ -201,6 +202,7 @@ declare global {
   const refDefault: typeof import('@vueuse/core')['refDefault']
   const refThrottled: typeof import('@vueuse/core')['refThrottled']
   const refWithControl: typeof import('@vueuse/core')['refWithControl']
+  const reloadCurrentStormLineLayer: typeof import('./src/composables/map/mapLayer')['reloadCurrentStormLineLayer']
   const reloadCurrentStormPointsLayer: typeof import('./src/composables/map/mapLayer')['reloadCurrentStormPointsLayer']
   const reloadDataSourceLayer: typeof import('./src/composables/map/mapLayer')['reloadDataSourceLayer']
   const reloadMapGpxLayer: typeof import('./src/composables/map/mapLayer')['reloadMapGpxLayer']
@@ -519,6 +521,7 @@ declare module 'vue' {
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
     readonly exitCreateViewFlightRoute: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['exitCreateViewFlightRoute']>
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
+    readonly getColorByName: UnwrapRef<typeof import('./src/composables/utils')['getColorByName']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly globalAboutModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalAboutModalVisible']>
@@ -599,6 +602,7 @@ declare module 'vue' {
     readonly refDefault: UnwrapRef<typeof import('@vueuse/core')['refDefault']>
     readonly refThrottled: UnwrapRef<typeof import('@vueuse/core')['refThrottled']>
     readonly refWithControl: UnwrapRef<typeof import('@vueuse/core')['refWithControl']>
+    readonly reloadCurrentStormLineLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadCurrentStormLineLayer']>
     readonly reloadCurrentStormPointsLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadCurrentStormPointsLayer']>
     readonly reloadDataSourceLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadDataSourceLayer']>
     readonly reloadMapGpxLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadMapGpxLayer']>
@@ -902,6 +906,7 @@ declare module '@vue/runtime-core' {
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
     readonly exitCreateViewFlightRoute: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['exitCreateViewFlightRoute']>
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
+    readonly getColorByName: UnwrapRef<typeof import('./src/composables/utils')['getColorByName']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly globalAboutModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalAboutModalVisible']>
@@ -982,6 +987,7 @@ declare module '@vue/runtime-core' {
     readonly refDefault: UnwrapRef<typeof import('@vueuse/core')['refDefault']>
     readonly refThrottled: UnwrapRef<typeof import('@vueuse/core')['refThrottled']>
     readonly refWithControl: UnwrapRef<typeof import('@vueuse/core')['refWithControl']>
+    readonly reloadCurrentStormLineLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadCurrentStormLineLayer']>
     readonly reloadCurrentStormPointsLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadCurrentStormPointsLayer']>
     readonly reloadDataSourceLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadDataSourceLayer']>
     readonly reloadMapGpxLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadMapGpxLayer']>

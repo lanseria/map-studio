@@ -1,4 +1,5 @@
 import type { Position } from '@turf/turf'
+import * as turf from '@turf/turf'
 
 export function addSource() {
   const map = window.map
@@ -209,10 +210,9 @@ export function reloadPanguImagesLayer() {
 export function reloadCurrentStormPointsLayer() {
   console.warn('reloadCurrentStormPointsLayer')
   const map = window.map
-  const MAP_DATA_STORM_SOURCE = 'storm-data'
+  const MAP_DATA_STORM_POINT_SOURCE = 'storm-data-point'
   const MAP_DATA_STORM_POINT_LAYER = 'storm-points-layer'
-  const MAP_DATA_STORM_LINE_LAYER = 'storm-line-layer'
-  const source: any = map.getSource(MAP_DATA_STORM_SOURCE)
+  const source: any = map.getSource(MAP_DATA_STORM_POINT_SOURCE)
   // 判断source
   if (source) {
     source.setData({
@@ -221,7 +221,7 @@ export function reloadCurrentStormPointsLayer() {
     })
   }
   else {
-    map.addSource(MAP_DATA_STORM_SOURCE, {
+    map.addSource(MAP_DATA_STORM_POINT_SOURCE, {
       type: 'geojson',
       data: {
         type: 'FeatureCollection',
@@ -234,25 +234,59 @@ export function reloadCurrentStormPointsLayer() {
   map.addLayer({
     id: MAP_DATA_STORM_POINT_LAYER,
     type: 'circle',
-    source: MAP_DATA_STORM_SOURCE,
+    source: MAP_DATA_STORM_POINT_SOURCE,
     paint: {
-      'circle-radius': 10,
-      'circle-color': 'red',
+      'circle-radius': 5,
+      'circle-color': ['get', 'color'],
     },
   })
+}
+
+export function reloadCurrentStormLineLayer() {
+  console.warn('reloadCurrentStormLineLayer')
+  const map = window.map
+  const MAP_DATA_STORM_LINE_SOURCE = 'storm-data-line'
+  const MAP_DATA_STORM_LINE_LAYER = 'storm-line-layer'
+  const source: any = map.getSource(MAP_DATA_STORM_LINE_SOURCE)
+  if (globalMapLayerStormDataList.value.length === 0) {
+    console.warn('storm no data')
+    return
+  }
+  const lineFeature = turf.lineString(globalMapLayerStormDataList.value.map((feature) => {
+    // console.log(feature.geometry.coordinates)
+    return feature.geometry.coordinates
+  }), {
+    color: 'red',
+  })
+  // 判断source
+  if (source) {
+    source.setData({
+      type: 'FeatureCollection',
+      features: [lineFeature], // 在之前的代码中创建的GeoJSON特征
+    })
+  }
+  else {
+    map.addSource(MAP_DATA_STORM_LINE_SOURCE, {
+      type: 'geojson',
+      data: {
+        type: 'FeatureCollection',
+        features: [lineFeature], // 在之前的代码中创建的GeoJSON特征
+      },
+    })
+  }
   // 将点连接成线
   if (map.getLayer(MAP_DATA_STORM_LINE_LAYER))
     map.removeLayer(MAP_DATA_STORM_LINE_LAYER)
   map.addLayer({
     id: MAP_DATA_STORM_LINE_LAYER,
     type: 'line',
-    source: 'storm-data',
+    source: MAP_DATA_STORM_LINE_SOURCE,
     layout: {
       'line-join': 'round',
       'line-cap': 'round',
     },
     paint: {
-      'line-color': 'red',
+      'line-color': ['get', 'color'],
       'line-width': 2,
     },
   })

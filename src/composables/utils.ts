@@ -1,4 +1,4 @@
-import type { GeoJsonStormFeature, GeoLocation, StormData } from './types'
+import type { GeoJsonStormFeature, GeoLocation, StormData, StormDataProperties } from './types'
 
 export function initGpxProperties() {
   return {
@@ -22,8 +22,17 @@ export function convertToGeoJSON(locations: GeoLocation[], properties: any = {})
 
   return geoJSON
 }
+export function getColorByName(name: string): string {
+  if (name === '202305')
+    return 'red'
 
-export function convertStormDataToGeoJson(data: StormData): GeoJsonStormFeature {
+  else if (name === '202306')
+    return 'blue'
+
+  else
+    return 'black'
+}
+export function convertStormDataToGeoJson(data: StormData, props: StormDataProperties): GeoJsonStormFeature {
   const coordinates = [Number(data.lng), Number(data.lat)]
   const properties = {
     movedirection: data.movedirection,
@@ -36,6 +45,7 @@ export function convertStormDataToGeoJson(data: StormData): GeoJsonStormFeature 
     speed: data.speed,
     strong: data.strong,
     time: data.time,
+    color: getColorByName(props.tfid),
   }
   return {
     type: 'Feature',

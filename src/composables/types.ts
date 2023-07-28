@@ -14,6 +14,18 @@ export interface GeoLocation {
   locatedAt: number
 }
 
+export interface StormDataProperties {
+  centerlat: string
+  centerlng: string
+  endtime: string
+  enname: string
+  isactive: string
+  name: string
+  starttime: string
+  tfid: string
+  warnlevel: string
+}
+
 export interface StormData {
   ckposition: null
   forecast: { [key: string]: any }[]
