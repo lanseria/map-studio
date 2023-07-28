@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@arco-design/web-vue':
-    specifier: 2.49.1
-    version: 2.49.1(vue@3.3.4)
+    specifier: 2.49.2
+    version: 2.49.2(vue@3.3.4)
   '@mapbox/mapbox-gl-draw':
     specifier: ^1.4.2
     version: 1.4.2
@@ -274,8 +274,8 @@ packages:
       color: 3.2.1
     dev: false
 
-  /@arco-design/web-vue@2.49.1(vue@3.3.4):
-    resolution: {integrity: sha512-KuYMbEhcKS4kv6T3OOqpPMVpiXR6q8YYFCA4ibckrJTvWxc5zAG/FDJJyCDP91KNB4PW2RxKBnTSQMDd3C5Wjw==}
+  /@arco-design/web-vue@2.49.2(vue@3.3.4):
+    resolution: {integrity: sha512-Q/cNVCJgvQWVAGP1yWSlEnvjdZ5emPlJuWfMr23zAQFsgzalYyLY5GZvtIpFtDaZiMXUdnQSTPoK5UTdfdIC9A==}
     peerDependencies:
       vue: ^3.1.0
     dependencies:

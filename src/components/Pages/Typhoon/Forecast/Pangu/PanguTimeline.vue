@@ -1,6 +1,7 @@
 <script lang="ts" setup>
-import { endPhoto, nextPhoto, prevPhoto, startPhoto } from '~/composables'
+import { endPhoto, nextPhoto, prevPhoto, startPhoto, storePanguTimelineValue } from '~/composables'
 
+const fieldNames = { value: 'url', label: 'label' }
 function play() {
   if (!globalMapPhotoPlaying.value) {
     globalMapPhotoPlaying.value = true
@@ -18,7 +19,10 @@ function play() {
       时间线
     </template>
     <div>
-      <a-button-group>
+      <a-select
+        v-model="storePanguTimelineValue" :options="PANGU_TIMELINE_IMG_LIST" :field-names="fieldNames"
+      />
+      <a-button-group class="mt-10px">
         <a-button
           type="outline" :loading="
             globalMapPhotoLoading" @click="startPhoto"

@@ -1,8 +1,6 @@
 import type { Position } from '@turf/turf'
 import * as turf from '@turf/turf'
 import mapboxgl from 'mapbox-gl'
-import dayjs from 'dayjs'
-import utc from 'dayjs/plugin/utc'
 import type { GeoJsonStormFeature } from '../types'
 
 export function addSource() {
@@ -36,7 +34,7 @@ export function drawPoint() {
     source: MAP_DATA_SOURCE,
     layout: {
       'text-field': ['get', 'description'],
-      'icon-image': 'map-point',
+      'icon-image': 'draw-point',
       'icon-size': 0.1,
       'text-size': ['get', 'text-size'],
       'text-offset': [0, 0.5],
@@ -320,69 +318,71 @@ export function drawStormLineLayer(data: GeoJsonStormFeature[], id: string) {
   })
 }
 
-const DATE = '2023-07-27'
-const HOUR = 0
-const now = dayjs(DATE).hour(HOUR)
-let start_time = now.add(6, 'hours')
-
+const MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE = 'storm-forecast-pangu-gif-source'
+const MAP_DATA_STORM_FORECAST_PANGU_GIF_LAYER = 'storm-forecast-pangu-gif-layer'
 function getPath() {
-  console.log(start_time.unix())
-  if (storePanguPhotos.value[start_time.unix()]) {
-    return storePanguPhotos.value[start_time.unix()]
+  // 21600
+  console.log(globalStorePanguPhotosKeysCurrent.value)
+  if (storePanguPhotos.value[globalStorePanguPhotosKeysCurrent.value]) {
+    return storePanguPhotos.value[globalStorePanguPhotosKeysCurrent.value]
   }
   else {
-    if (start_time.unix() <= now.add(6, 'hours').unix())
-      start_time = now.add(10, 'days').subtract(6, 'hours')
-    else
-      start_time = now.add(6, 'hours')
+    if (+globalStorePanguPhotosKeysCurrent.value > +globalStorePanguPhotosKeys.value[globalStorePanguPhotosKeys.value.length - 1])
+      globalStorePanguPhotosKeysCurrent.value = globalStorePanguPhotosKeys.value[0]
+    if (+globalStorePanguPhotosKeysCurrent.value < +globalStorePanguPhotosKeys.value[0])
+      globalStorePanguPhotosKeysCurrent.value = globalStorePanguPhotosKeys.value[globalStorePanguPhotosKeys.value.length - 1]
 
-    return storePanguPhotos.value[start_time.unix()]
+    return storePanguPhotos.value[globalStorePanguPhotosKeysCurrent.value]
   }
 }
 export function startPhoto() {
   const map: any = window.map
-  start_time = now.add(6, 'hours')
-  map.getSource('radar').updateImage({ url: getPath() })
+  globalStorePanguPhotosKeysCurrent.value = globalStorePanguPhotosKeys.value[0]
+  map.getSource(MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE).updateImage({ url: getPath() })
   globalMapPhotoLoading.value = true
 }
 export function prevPhoto() {
   const map: any = window.map
-  start_time = start_time.subtract(6, 'hours')
-  map.getSource('radar').updateImage({ url: getPath() })
+  globalStorePanguPhotosKeysCurrent.value = (+globalStorePanguPhotosKeysCurrent.value - 21600).toString()
+  map.getSource(MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE).updateImage({ url: getPath() })
   globalMapPhotoLoading.value = true
 }
 export function nextPhoto() {
   const map: any = window.map
-  start_time = start_time.add(6, 'hours')
-  map.getSource('radar').updateImage({ url: getPath() })
+  globalStorePanguPhotosKeysCurrent.value = (+globalStorePanguPhotosKeysCurrent.value + 21600).toString()
+  map.getSource(MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE).updateImage({ url: getPath() })
   globalMapPhotoLoading.value = true
 }
 export function endPhoto() {
   const map: any = window.map
-  start_time = now.add(10, 'days').subtract(6, 'hours')
-  map.getSource('radar').updateImage({ url: getPath() })
+  globalStorePanguPhotosKeysCurrent.value = globalStorePanguPhotosKeys.value[globalStorePanguPhotosKeys.value.length - 1]
+  map.getSource(MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE).updateImage({ url: getPath() })
   globalMapPhotoLoading.value = true
 }
 export function reloadPanguPhotosGifLayer() {
-  dayjs.extend(utc)
-
-  dayjs.utc() // 设置时区为UTC
   const map = window.map
-  map.addSource('radar', {
-    type: 'image',
-    url: getPath(),
-    coordinates: [
-      [72.5, 41.5],
-      [171, 41.5],
-      [171, -42.5],
-      [72.5, -42.5],
-    ],
-  })
+  const source: any = map.getSource(MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE)
+  // 判断source
+  if (!source) {
+    map.addSource(MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE, {
+      type: 'image',
+      url: getPath(),
+      coordinates: [
+        [72.5, 41.5],
+        [171, 41.5],
+        [171, -42.5],
+        [72.5, -42.5],
+      ],
+    })
+  }
+  if (map.getLayer(MAP_DATA_STORM_FORECAST_PANGU_GIF_LAYER))
+    map.removeLayer(MAP_DATA_STORM_FORECAST_PANGU_GIF_LAYER)
   map.addLayer({
-    id: 'radar-layer',
+    id: MAP_DATA_STORM_FORECAST_PANGU_GIF_LAYER,
     type: 'raster',
-    source: 'radar',
+    source: MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE,
     paint: {
+      'raster-opacity': 0.5,
       'raster-fade-duration': 0,
     },
   })

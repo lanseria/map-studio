@@ -45,6 +45,7 @@ declare global {
   const MAP_DRAW_LAYER_STRINGLINE: typeof import('./src/composables/constant')['MAP_DRAW_LAYER_STRINGLINE']
   const MAP_DRAW_SOURCE: typeof import('./src/composables/constant')['MAP_DRAW_SOURCE']
   const PANGU_LAYER_IMG_LIST: typeof import('./src/composables/constant')['PANGU_LAYER_IMG_LIST']
+  const PANGU_TIMELINE_IMG_LIST: typeof import('./src/composables/constant')['PANGU_TIMELINE_IMG_LIST']
   const PointTypeEnum: typeof import('./src/composables/constant')['PointTypeEnum']
   const PointTypeEnumMap: typeof import('./src/composables/constant')['PointTypeEnumMap']
   const PolygonTypeEnum: typeof import('./src/composables/constant')['PolygonTypeEnum']
@@ -90,6 +91,7 @@ declare global {
   const drawTyphoonLineAndPoints: typeof import('./src/composables/map/mapLayer')['drawTyphoonLineAndPoints']
   const eagerComputed: typeof import('@vueuse/core')['eagerComputed']
   const effectScope: typeof import('vue')['effectScope']
+  const endPhoto: typeof import('./src/composables/map/mapLayer')['endPhoto']
   const exitCreateViewFlightRoute: typeof import('./src/composables/map/mapViewFlight')['exitCreateViewFlightRoute']
   const extendRef: typeof import('@vueuse/core')['extendRef']
   const getColorByName: typeof import('./src/composables/utils')['getColorByName']
@@ -134,6 +136,9 @@ declare global {
   const globalModalDrawDataUploadVisible: typeof import('./src/composables/global')['globalModalDrawDataUploadVisible']
   const globalSessionId: typeof import('./src/composables/store')['globalSessionId']
   const globalSettingModalVisible: typeof import('./src/composables/global')['globalSettingModalVisible']
+  const globalStorePanguPhotosKeys: typeof import('./src/composables/global')['globalStorePanguPhotosKeys']
+  const globalStorePanguPhotosKeysCurrent: typeof import('./src/composables/global')['globalStorePanguPhotosKeysCurrent']
+  const globalStorePanguPhotosKeysInit: typeof import('./src/composables/global')['globalStorePanguPhotosKeysInit']
   const globalTempRouteMapCoordinates: typeof import('./src/composables/store')['globalTempRouteMapCoordinates']
   const globalTrailGpxStatus: typeof import('./src/composables/global')['globalTrailGpxStatus']
   const globalVideoId: typeof import('./src/composables/store')['globalVideoId']
@@ -225,6 +230,7 @@ declare global {
   const shallowReactive: typeof import('vue')['shallowReactive']
   const shallowReadonly: typeof import('vue')['shallowReadonly']
   const shallowRef: typeof import('vue')['shallowRef']
+  const startPhoto: typeof import('./src/composables/map/mapLayer')['startPhoto']
   const storeContentSideCollapseActiveKey: typeof import('./src/composables/store')['storeContentSideCollapseActiveKey']
   const storeContentSideCollapsed: typeof import('./src/composables/store')['storeContentSideCollapsed']
   const storeMapDataValue: typeof import('./src/composables/store')['storeMapDataValue']
@@ -241,6 +247,7 @@ declare global {
   const storeMapTypeValue: typeof import('./src/composables/store')['storeMapTypeValue']
   const storeMapWeatherLayerEnable: typeof import('./src/composables/store')['storeMapWeatherLayerEnable']
   const storePanguPhotos: typeof import('./src/composables/store')['storePanguPhotos']
+  const storePanguTimelineValue: typeof import('./src/composables/store')['storePanguTimelineValue']
   const storeStormDataList: typeof import('./src/composables/store')['storeStormDataList']
   const storeStormDataListCheckedKeys: typeof import('./src/composables/store')['storeStormDataListCheckedKeys']
   const syncRef: typeof import('@vueuse/core')['syncRef']
@@ -493,6 +500,7 @@ declare module 'vue' {
     readonly MAP_DRAW_LAYER_STRINGLINE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_STRINGLINE']>
     readonly MAP_DRAW_SOURCE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_SOURCE']>
     readonly PANGU_LAYER_IMG_LIST: UnwrapRef<typeof import('./src/composables/constant')['PANGU_LAYER_IMG_LIST']>
+    readonly PANGU_TIMELINE_IMG_LIST: UnwrapRef<typeof import('./src/composables/constant')['PANGU_TIMELINE_IMG_LIST']>
     readonly PointTypeEnum: UnwrapRef<typeof import('./src/composables/constant')['PointTypeEnum']>
     readonly PointTypeEnumMap: UnwrapRef<typeof import('./src/composables/constant')['PointTypeEnumMap']>
     readonly PolygonTypeEnum: UnwrapRef<typeof import('./src/composables/constant')['PolygonTypeEnum']>
@@ -538,6 +546,7 @@ declare module 'vue' {
     readonly drawTyphoonLineAndPoints: UnwrapRef<typeof import('./src/composables/map/mapLayer')['drawTyphoonLineAndPoints']>
     readonly eagerComputed: UnwrapRef<typeof import('@vueuse/core')['eagerComputed']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
+    readonly endPhoto: UnwrapRef<typeof import('./src/composables/map/mapLayer')['endPhoto']>
     readonly exitCreateViewFlightRoute: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['exitCreateViewFlightRoute']>
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
     readonly getColorByName: UnwrapRef<typeof import('./src/composables/utils')['getColorByName']>
@@ -564,6 +573,8 @@ declare module 'vue' {
     readonly globalMapTrailGPXGeoJson: UnwrapRef<typeof import('./src/composables/global')['globalMapTrailGPXGeoJson']>
     readonly globalMapTrailGPXGeoJsonProperties: UnwrapRef<typeof import('./src/composables/global')['globalMapTrailGPXGeoJsonProperties']>
     readonly globalSettingModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalSettingModalVisible']>
+    readonly globalStorePanguPhotosKeys: UnwrapRef<typeof import('./src/composables/global')['globalStorePanguPhotosKeys']>
+    readonly globalStorePanguPhotosKeysCurrent: UnwrapRef<typeof import('./src/composables/global')['globalStorePanguPhotosKeysCurrent']>
     readonly globalTrailGpxStatus: UnwrapRef<typeof import('./src/composables/global')['globalTrailGpxStatus']>
     readonly globalWeixinMiniAppModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalWeixinMiniAppModalVisible']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
@@ -637,6 +648,7 @@ declare module 'vue' {
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
+    readonly startPhoto: UnwrapRef<typeof import('./src/composables/map/mapLayer')['startPhoto']>
     readonly storeMapLeftCollapsed: UnwrapRef<typeof import('./src/composables/store')['storeMapLeftCollapsed']>
     readonly storeMapRulerRouteLineString: UnwrapRef<typeof import('./src/composables/store')['storeMapRulerRouteLineString']>
     readonly storeMapStyle: UnwrapRef<typeof import('./src/composables/store')['storeMapStyle']>
@@ -645,6 +657,7 @@ declare module 'vue' {
     readonly storeMapTypeLayerCheckedKeys: UnwrapRef<typeof import('./src/composables/store')['storeMapTypeLayerCheckedKeys']>
     readonly storeMapWeatherLayerEnable: UnwrapRef<typeof import('./src/composables/store')['storeMapWeatherLayerEnable']>
     readonly storePanguPhotos: UnwrapRef<typeof import('./src/composables/store')['storePanguPhotos']>
+    readonly storePanguTimelineValue: UnwrapRef<typeof import('./src/composables/store')['storePanguTimelineValue']>
     readonly storeStormDataList: UnwrapRef<typeof import('./src/composables/store')['storeStormDataList']>
     readonly storeStormDataListCheckedKeys: UnwrapRef<typeof import('./src/composables/store')['storeStormDataListCheckedKeys']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>
@@ -889,6 +902,7 @@ declare module '@vue/runtime-core' {
     readonly MAP_DRAW_LAYER_STRINGLINE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_STRINGLINE']>
     readonly MAP_DRAW_SOURCE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_SOURCE']>
     readonly PANGU_LAYER_IMG_LIST: UnwrapRef<typeof import('./src/composables/constant')['PANGU_LAYER_IMG_LIST']>
+    readonly PANGU_TIMELINE_IMG_LIST: UnwrapRef<typeof import('./src/composables/constant')['PANGU_TIMELINE_IMG_LIST']>
     readonly PointTypeEnum: UnwrapRef<typeof import('./src/composables/constant')['PointTypeEnum']>
     readonly PointTypeEnumMap: UnwrapRef<typeof import('./src/composables/constant')['PointTypeEnumMap']>
     readonly PolygonTypeEnum: UnwrapRef<typeof import('./src/composables/constant')['PolygonTypeEnum']>
@@ -934,6 +948,7 @@ declare module '@vue/runtime-core' {
     readonly drawTyphoonLineAndPoints: UnwrapRef<typeof import('./src/composables/map/mapLayer')['drawTyphoonLineAndPoints']>
     readonly eagerComputed: UnwrapRef<typeof import('@vueuse/core')['eagerComputed']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
+    readonly endPhoto: UnwrapRef<typeof import('./src/composables/map/mapLayer')['endPhoto']>
     readonly exitCreateViewFlightRoute: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['exitCreateViewFlightRoute']>
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
     readonly getColorByName: UnwrapRef<typeof import('./src/composables/utils')['getColorByName']>
@@ -960,6 +975,8 @@ declare module '@vue/runtime-core' {
     readonly globalMapTrailGPXGeoJson: UnwrapRef<typeof import('./src/composables/global')['globalMapTrailGPXGeoJson']>
     readonly globalMapTrailGPXGeoJsonProperties: UnwrapRef<typeof import('./src/composables/global')['globalMapTrailGPXGeoJsonProperties']>
     readonly globalSettingModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalSettingModalVisible']>
+    readonly globalStorePanguPhotosKeys: UnwrapRef<typeof import('./src/composables/global')['globalStorePanguPhotosKeys']>
+    readonly globalStorePanguPhotosKeysCurrent: UnwrapRef<typeof import('./src/composables/global')['globalStorePanguPhotosKeysCurrent']>
     readonly globalTrailGpxStatus: UnwrapRef<typeof import('./src/composables/global')['globalTrailGpxStatus']>
     readonly globalWeixinMiniAppModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalWeixinMiniAppModalVisible']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
@@ -1033,6 +1050,7 @@ declare module '@vue/runtime-core' {
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
+    readonly startPhoto: UnwrapRef<typeof import('./src/composables/map/mapLayer')['startPhoto']>
     readonly storeMapLeftCollapsed: UnwrapRef<typeof import('./src/composables/store')['storeMapLeftCollapsed']>
     readonly storeMapRulerRouteLineString: UnwrapRef<typeof import('./src/composables/store')['storeMapRulerRouteLineString']>
     readonly storeMapStyle: UnwrapRef<typeof import('./src/composables/store')['storeMapStyle']>
@@ -1041,6 +1059,7 @@ declare module '@vue/runtime-core' {
     readonly storeMapTypeLayerCheckedKeys: UnwrapRef<typeof import('./src/composables/store')['storeMapTypeLayerCheckedKeys']>
     readonly storeMapWeatherLayerEnable: UnwrapRef<typeof import('./src/composables/store')['storeMapWeatherLayerEnable']>
     readonly storePanguPhotos: UnwrapRef<typeof import('./src/composables/store')['storePanguPhotos']>
+    readonly storePanguTimelineValue: UnwrapRef<typeof import('./src/composables/store')['storePanguTimelineValue']>
     readonly storeStormDataList: UnwrapRef<typeof import('./src/composables/store')['storeStormDataList']>
     readonly storeStormDataListCheckedKeys: UnwrapRef<typeof import('./src/composables/store')['storeStormDataListCheckedKeys']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>

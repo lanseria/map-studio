@@ -20,6 +20,10 @@ export const globalMapDrawMode = ref('')
 export const globalCurrentProperties = ref<any>({})
 export const globalMapDrawFeatures = ref<MyFeature[]>([])
 
+export const globalStorePanguPhotosKeys = ref<string[]>([])
+
+export const globalStorePanguPhotosKeysCurrent = ref<string>('')
+
 export const globalComputedMapFeatureSelect = computed(() => {
   return !isEmpty(globalCurrentProperties.value)
 })

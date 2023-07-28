@@ -1,5 +1,5 @@
 import { handleFetchDistance } from '../fetch'
-import { reloadPanguImagesLayer, reloadPanguPhotosGifLayer } from './mapLayer'
+import { reloadPanguImagesLayer } from './mapLayer'
 
 function loadImg(name: string, url: string, sdf = false) {
   const map = window.map
@@ -86,7 +86,11 @@ export function mapLoad() {
     reloadPanguImagesLayer()
   }, { debounce: 300, maxWait: 600 })
 
-  reloadPanguPhotosGifLayer()
+  watchDebounced(() => globalStorePanguPhotosKeys.value, () => {
+    console.warn('globalStorePanguPhotosKeys changed')
+    reloadPanguPhotosGifLayer()
+  }, { debounce: 300, maxWait: 600 })
+
   // map.addSource('video', {
   //   type: 'video',
   //   urls: ['/7.21.1200.mov'],

@@ -11,7 +11,7 @@
     "up": "taze major -I"
   },
   "dependencies": {
-    "@arco-design/web-vue": "2.49.1",
+    "@arco-design/web-vue": "2.49.2",
     "@mapbox/mapbox-gl-draw": "^1.4.2",
     "@mapbox/mapbox-gl-geocoder": "^5.0.1",
     "@mapbox/mapbox-gl-language": "^1.0.1",
@@ -39,9 +39,9 @@
     "@iconify-json/mdi": "^1.1.53",
     "@iconify-json/mingcute": "^1.1.7",
     "@types/lodash-es": "^4.17.8",
-    "@types/mapbox-gl": "^2.7.12",
     "@types/mapbox__mapbox-gl-draw": "^1.4.0",
     "@types/mapbox__mapbox-gl-geocoder": "^4.7.3",
+    "@types/mapbox-gl": "^2.7.12",
     "@types/node": "^20.4.5",
     "@types/numeral": "^2.0.2",
     "@unocss/reset": "^0.53.6",

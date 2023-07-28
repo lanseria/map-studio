@@ -1,4 +1,5 @@
 import { Message } from '@arco-design/web-vue'
+import { keysIn } from 'lodash-es'
 import type { GeoJsonStormFeature, StormData } from './types'
 import { drawTyphoonLineAndPoints } from './map/mapLayer'
 
@@ -25,10 +26,15 @@ export function handleFetchDistance(coordinates: [number, number][]) {
 }
 
 export function handleFetchPanguPhotos() {
-  const { data, onFetchResponse } = useFetch('https://s8zygv-pangu.oss.laf.run/2023-07-27_00.json').get().json()
+  const { data, onFetchResponse } = useFetch(storePanguTimelineValue.value).get().json()
   onFetchResponse(() => {
     console.warn('handleFetchPanguPhotos')
     storePanguPhotos.value = data.value
+    globalStorePanguPhotosKeys.value = keysIn(data.value)
+    console.log(globalStorePanguPhotosKeys.value)
+    globalStorePanguPhotosKeysCurrent.value = globalStorePanguPhotosKeys.value[0]
+    console.log(globalStorePanguPhotosKeysCurrent.value)
+    reloadPanguPhotosGifLayer()
   })
 }
 
