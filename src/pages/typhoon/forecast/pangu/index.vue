@@ -2,6 +2,6 @@
 
 <template>
   <div class="w-full">
-    <Pangu />
+    <PanguIndex />
   </div>
 </template>

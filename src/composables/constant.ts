@@ -183,7 +183,18 @@ export const WEATHER_LIST = [
     tiles: `https://b.sat.owm.io/maps/2.0/radar/{z}/{x}/{y}?appid=${WEATHER_TOKEN}&day=${formattedDate}`,
   },
 ]
-
+export const WEATHER_MODEL_LIST = [
+  {
+    label: '盘古模型',
+    value: 'pangu',
+    color: '#FFC72E',
+  },
+  {
+    label: 'ECWMF',
+    value: 'ec',
+    color: '#3491FA',
+  },
+]
 export const PANGU_LAYER_IMG_LIST = [
   {
     name: 'pangu_medium-mslp-wind850_2023-07-21_00_5',

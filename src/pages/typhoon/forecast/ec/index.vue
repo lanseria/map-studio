@@ -4,6 +4,6 @@
 
 <template>
   <div class="w-full text-size-14px">
-    <ForecastIndex />
+    <EcIndex />
   </div>
 </template>

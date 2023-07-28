@@ -1,4 +1,4 @@
-import type { GeoJsonStormFeature, TyphoonData } from './types'
+import type { TyphoonData } from './types'
 
 export const storeMapStyle = useStorage('storeMapStyle', 'Streets')
 
@@ -16,7 +16,7 @@ export const storeMapTypeLayerCheckedKeys = useStorage<string[]>('storeMapTypeLa
 
 export const storeStormDataList = useStorage<TyphoonData[]>('storeStormDataList', [])
 
-export const storeMapLayerStormDataList = useStorage<GeoJsonStormFeature[]>('storeMapLayerStormDataList', [])
+export const storeStormDataListCheckedKeys = useStorage<Record<string, boolean>>('storeStormDataListCheckedKeys', {})
 
 export function deleteTrailGPXLine(idx: number) {
   storeMapTrailGPXLines.value.splice(idx, 1)

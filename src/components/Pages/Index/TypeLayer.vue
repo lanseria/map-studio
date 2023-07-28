@@ -39,7 +39,10 @@ const treeData = [
           },
         ],
       },
-
+      {
+        title: '当前台风',
+        key: 'typhoon/current',
+      },
     ],
   },
 ]

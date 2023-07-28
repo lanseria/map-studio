@@ -31,6 +31,8 @@ export function handleFetchCurrentStormData() {
     storeStormDataList.value = data.value
     storeStormDataList.value.forEach((item) => {
       handleFetchStormDataByNumber(item.tfid)
+      if (storeStormDataListCheckedKeys.value[item.tfid] === undefined)
+        storeStormDataListCheckedKeys.value[item.tfid] = true
     })
   })
 }
@@ -43,10 +45,5 @@ export function handleFetchStormDataByNumber(num = '202305') {
       return convertStormDataToGeoJson(item, data.value)
     })
     drawTyphoonLineAndPoints(mapLayerStormDataList, num)
-    // console.log(storeMapLayerStormDataList.value)
-    Message.success({
-      content: '获取数据成功',
-      duration: 1000,
-    })
   })
 }
