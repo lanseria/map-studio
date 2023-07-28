@@ -23,14 +23,30 @@ export function handleFetchDistance(coordinates: [number, number][]) {
   })
 }
 
+export function handleFetchCurrentStormData() {
+  const { data, onFetchResponse } = useFetch('https://typhoon.slt.zj.gov.cn/Api/TyhoonActivity').get().json()
+  onFetchResponse(() => {
+    console.warn('handleFetchCurrentStormData')
+    storeStormDataList.value = data.value
+    // storeMapLayerStormDataList.value = data.value.points.map((item: StormData) => {
+    //   return convertStormDataToGeoJson(item, data.value)
+    // })
+    // // console.log(storeMapLayerStormDataList.value)
+    Message.success({
+      content: '获取数据成功',
+      duration: 1000,
+    })
+  })
+}
+
 export function handleFetchStormDataByNumber(num = '202305') {
   const { data, onFetchResponse } = useFetch(`https://typhoon.slt.zj.gov.cn/Api/TyphoonInfo/${num}`).get().json()
   onFetchResponse(() => {
-    // console.log(data.value)
-    globalMapLayerStormDataList.value = data.value.points.map((item: StormData) => {
+    console.warn(`handleFetchStormDataByNumber${num}`)
+    storeMapLayerStormDataList.value = data.value.points.map((item: StormData) => {
       return convertStormDataToGeoJson(item, data.value)
     })
-    // console.log(globalMapLayerStormDataList.value)
+    // console.log(storeMapLayerStormDataList.value)
     Message.success({
       content: '获取数据成功',
       duration: 1000,

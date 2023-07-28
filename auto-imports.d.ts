@@ -137,6 +137,7 @@ declare global {
   const handleComputeDistanceInEdit: typeof import('./src/composables/fetch')['handleComputeDistanceInEdit']
   const handleContentSideCollapsed: typeof import('./src/composables/store')['handleContentSideCollapsed']
   const handleExportComputeDistance: typeof import('./src/composables/fetch')['handleExportComputeDistance']
+  const handleFetchCurrentStormData: typeof import('./src/composables/fetch')['handleFetchCurrentStormData']
   const handleFetchDistance: typeof import('./src/composables/fetch')['handleFetchDistance']
   const handleFetchStormDataByNumber: typeof import('./src/composables/fetch')['handleFetchStormDataByNumber']
   const handleFetchTaifengByNumber: typeof import('./src/composables/fetch')['handleFetchTaifengByNumber']
@@ -220,6 +221,7 @@ declare global {
   const storeMapDrawFeatures: typeof import('./src/composables/store')['storeMapDrawFeatures']
   const storeMapDrawLayerCheckedKeys: typeof import('./src/composables/store')['storeMapDrawLayerCheckedKeys']
   const storeMapImportLayerCheckedKeys: typeof import('./src/composables/store')['storeMapImportLayerCheckedKeys']
+  const storeMapLayerStormDataList: typeof import('./src/composables/store')['storeMapLayerStormDataList']
   const storeMapLeftCollapsed: typeof import('./src/composables/store')['storeMapLeftCollapsed']
   const storeMapRulerRouteLineString: typeof import('./src/composables/store')['storeMapRulerRouteLineString']
   const storeMapStyle: typeof import('./src/composables/store')['storeMapStyle']
@@ -228,6 +230,7 @@ declare global {
   const storeMapTypeLayerCheckedKeys: typeof import('./src/composables/store')['storeMapTypeLayerCheckedKeys']
   const storeMapTypeValue: typeof import('./src/composables/store')['storeMapTypeValue']
   const storeMapWeatherLayerEnable: typeof import('./src/composables/store')['storeMapWeatherLayerEnable']
+  const storeStormDataList: typeof import('./src/composables/store')['storeStormDataList']
   const syncRef: typeof import('@vueuse/core')['syncRef']
   const syncRefs: typeof import('@vueuse/core')['syncRefs']
   const templateRef: typeof import('@vueuse/core')['templateRef']
@@ -539,7 +542,6 @@ declare module 'vue' {
     readonly globalMapDrawEnable: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawEnable']>
     readonly globalMapDrawFeatures: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawFeatures']>
     readonly globalMapDrawMode: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawMode']>
-    readonly globalMapLayerStormDataList: UnwrapRef<typeof import('./src/composables/global')['globalMapLayerStormDataList']>
     readonly globalMapRulerCoordinates: UnwrapRef<typeof import('./src/composables/global')['globalMapRulerCoordinates']>
     readonly globalMapTrailGPXGeoJson: UnwrapRef<typeof import('./src/composables/global')['globalMapTrailGPXGeoJson']>
     readonly globalMapTrailGPXGeoJsonProperties: UnwrapRef<typeof import('./src/composables/global')['globalMapTrailGPXGeoJsonProperties']>
@@ -547,6 +549,7 @@ declare module 'vue' {
     readonly globalTrailGpxStatus: UnwrapRef<typeof import('./src/composables/global')['globalTrailGpxStatus']>
     readonly globalWeixinMiniAppModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalWeixinMiniAppModalVisible']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
+    readonly handleFetchCurrentStormData: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchCurrentStormData']>
     readonly handleFetchDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchDistance']>
     readonly handleFetchStormDataByNumber: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchStormDataByNumber']>
     readonly handlePushViewFlightChildren: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightChildren']>
@@ -614,6 +617,7 @@ declare module 'vue' {
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
+    readonly storeMapLayerStormDataList: UnwrapRef<typeof import('./src/composables/store')['storeMapLayerStormDataList']>
     readonly storeMapLeftCollapsed: UnwrapRef<typeof import('./src/composables/store')['storeMapLeftCollapsed']>
     readonly storeMapRulerRouteLineString: UnwrapRef<typeof import('./src/composables/store')['storeMapRulerRouteLineString']>
     readonly storeMapStyle: UnwrapRef<typeof import('./src/composables/store')['storeMapStyle']>
@@ -621,6 +625,7 @@ declare module 'vue' {
     readonly storeMapTrailGPXPoints: UnwrapRef<typeof import('./src/composables/store')['storeMapTrailGPXPoints']>
     readonly storeMapTypeLayerCheckedKeys: UnwrapRef<typeof import('./src/composables/store')['storeMapTypeLayerCheckedKeys']>
     readonly storeMapWeatherLayerEnable: UnwrapRef<typeof import('./src/composables/store')['storeMapWeatherLayerEnable']>
+    readonly storeStormDataList: UnwrapRef<typeof import('./src/composables/store')['storeStormDataList']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>
     readonly syncRefs: UnwrapRef<typeof import('@vueuse/core')['syncRefs']>
     readonly templateRef: UnwrapRef<typeof import('@vueuse/core')['templateRef']>
@@ -924,7 +929,6 @@ declare module '@vue/runtime-core' {
     readonly globalMapDrawEnable: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawEnable']>
     readonly globalMapDrawFeatures: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawFeatures']>
     readonly globalMapDrawMode: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawMode']>
-    readonly globalMapLayerStormDataList: UnwrapRef<typeof import('./src/composables/global')['globalMapLayerStormDataList']>
     readonly globalMapRulerCoordinates: UnwrapRef<typeof import('./src/composables/global')['globalMapRulerCoordinates']>
     readonly globalMapTrailGPXGeoJson: UnwrapRef<typeof import('./src/composables/global')['globalMapTrailGPXGeoJson']>
     readonly globalMapTrailGPXGeoJsonProperties: UnwrapRef<typeof import('./src/composables/global')['globalMapTrailGPXGeoJsonProperties']>
@@ -932,6 +936,7 @@ declare module '@vue/runtime-core' {
     readonly globalTrailGpxStatus: UnwrapRef<typeof import('./src/composables/global')['globalTrailGpxStatus']>
     readonly globalWeixinMiniAppModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalWeixinMiniAppModalVisible']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
+    readonly handleFetchCurrentStormData: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchCurrentStormData']>
     readonly handleFetchDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchDistance']>
     readonly handleFetchStormDataByNumber: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchStormDataByNumber']>
     readonly handlePushViewFlightChildren: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightChildren']>
@@ -999,6 +1004,7 @@ declare module '@vue/runtime-core' {
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
+    readonly storeMapLayerStormDataList: UnwrapRef<typeof import('./src/composables/store')['storeMapLayerStormDataList']>
     readonly storeMapLeftCollapsed: UnwrapRef<typeof import('./src/composables/store')['storeMapLeftCollapsed']>
     readonly storeMapRulerRouteLineString: UnwrapRef<typeof import('./src/composables/store')['storeMapRulerRouteLineString']>
     readonly storeMapStyle: UnwrapRef<typeof import('./src/composables/store')['storeMapStyle']>
@@ -1006,6 +1012,7 @@ declare module '@vue/runtime-core' {
     readonly storeMapTrailGPXPoints: UnwrapRef<typeof import('./src/composables/store')['storeMapTrailGPXPoints']>
     readonly storeMapTypeLayerCheckedKeys: UnwrapRef<typeof import('./src/composables/store')['storeMapTypeLayerCheckedKeys']>
     readonly storeMapWeatherLayerEnable: UnwrapRef<typeof import('./src/composables/store')['storeMapWeatherLayerEnable']>
+    readonly storeStormDataList: UnwrapRef<typeof import('./src/composables/store')['storeStormDataList']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>
     readonly syncRefs: UnwrapRef<typeof import('@vueuse/core')['syncRefs']>
     readonly templateRef: UnwrapRef<typeof import('@vueuse/core')['templateRef']>

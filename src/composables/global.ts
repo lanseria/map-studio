@@ -2,7 +2,7 @@ import { cloneDeep, isEmpty } from 'lodash-es'
 import { center } from '@turf/turf'
 import { nanoid } from 'nanoid'
 import { handleSetLineString, handleSetPoint, handleSetPolygon, reloadMapDrawLayer } from './draw/mode'
-import type { GeoJsonStormFeature, MyFeature } from './types'
+import type { MyFeature } from './types'
 
 export const globalIsMapboxLoad = ref(false)
 export const globalSettingModalVisible = ref(false)
@@ -17,7 +17,6 @@ export const globalMapTrailGPXGeoJsonProperties = ref(initGpxProperties())
 export const globalMapDrawMode = ref('')
 export const globalCurrentProperties = ref<any>({})
 export const globalMapDrawFeatures = ref<MyFeature[]>([])
-export const globalMapLayerStormDataList = ref<GeoJsonStormFeature[]>([])
 
 export const globalComputedMapFeatureSelect = computed(() => {
   return !isEmpty(globalCurrentProperties.value)

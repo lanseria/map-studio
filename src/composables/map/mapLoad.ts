@@ -88,15 +88,15 @@ export function mapLoad() {
 
   reloadCurrentStormPointsLayer()
 
-  watchDebounced(() => globalMapLayerStormDataList.value, () => {
-    console.warn('globalMapLayerStormDataList changed')
+  watchDebounced(() => storeMapLayerStormDataList.value, () => {
+    console.warn('storeMapLayerStormDataList changed')
     reloadCurrentStormPointsLayer()
   }, { debounce: 300, maxWait: 600 })
 
   reloadCurrentStormLineLayer()
 
-  watchDebounced(() => globalMapLayerStormDataList.value, () => {
-    console.warn('globalMapLayerStormDataList changed')
+  watchDebounced(() => storeMapLayerStormDataList.value, () => {
+    console.warn('storeMapLayerStormDataList changed')
     reloadCurrentStormLineLayer()
   }, { debounce: 300, maxWait: 600 })
   // map.addSource('video', {

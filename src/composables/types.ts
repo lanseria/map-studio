@@ -25,7 +25,23 @@ export interface StormDataProperties {
   tfid: string
   warnlevel: string
 }
-
+export interface TyphoonData {
+  enname: string
+  lat: string
+  lng: string
+  movedirection: string
+  movespeed: string
+  name: string
+  power: string
+  pressure: string
+  radius7: null
+  radius10: null
+  speed: string
+  strong: string
+  tfid: string
+  time: string
+  timeformate: string
+}
 export interface StormData {
   ckposition: null
   forecast: { [key: string]: any }[]

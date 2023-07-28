@@ -1,10 +1,10 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div class="w-full bg-white p-8px rounded-8px mt-8px">
-    <div class="text-center bg-gray-200 rounded-8px py-4px">
+  <MapBoxWrap class="mt-8px">
+    <template #title>
       GPX Trail List
-    </div>
+    </template>
 
     <div v-for="(item, idx) in storeMapTrailGPXLines" :key="idx" class="text-size-12px bg-gray-100 rounded-8px py-8px mt-8px px-8px">
       <div class="grid grid-cols-3 gap-4px">
@@ -47,5 +47,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </MapBoxWrap>
 </template>

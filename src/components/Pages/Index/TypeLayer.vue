@@ -43,39 +43,22 @@ const treeData = [
     ],
   },
 ]
-const computedTreeData = computed(() => {
-  return [
-    ...treeData,
-    {
-      title: '未命名',
-      key: 'undefined',
-      children: globalMapDrawFeatures.value.map((item: any) => ({
-        title: item.properties.description || item.properties.id,
-        key: item.properties.id,
-      })),
-    },
-  ]
-})
 onMounted(() => {
   handleFetchStormDataByNumber('202305')
 })
 function handleSelect(e: any) {
-  console.log(e)
   router.push(`/${e[0]}`)
 }
 </script>
 
 <template>
-  <div class="w-full bg-white p-8px rounded-8px">
-    <div class="text-center bg-gray-200 rounded-8px py-4px">
+  <MapBoxWrap>
+    <template #title>
       要素筛选
-    </div>
-    <div class="text-size-12px bg-gray-100 rounded-8px py-8px mt-8px px-8px">
-      <a-tree
-        :checkable="true"
-        :data="computedTreeData"
-        @select="handleSelect"
-      />
-    </div>
-  </div>
+    </template>
+    <a-tree
+      :data="treeData"
+      @select="handleSelect"
+    />
+  </MapBoxWrap>
 </template>

@@ -1,6 +1,24 @@
 <script lang="ts" setup>
 import { storeMapTypeLayerCheckedKeys } from '~/composables'
 
+const routes = [
+  {
+    path: '/',
+    label: 'Home',
+  },
+  {
+    path: '/typhoon',
+    label: 'Typhoon',
+  },
+  {
+    path: '/typhoon/forecast',
+    label: 'Forecast',
+  },
+  {
+    path: '/typhoon/forecast/pangu',
+    label: 'Pangu',
+  },
+]
 const treeData = [
   {
     title: '平均等压面和850百帕风速',
@@ -60,16 +78,20 @@ const treeData = [
 </script>
 
 <template>
-  <div class="w-full bg-white p-8px rounded-8px">
-    <div class="text-center bg-gray-200 rounded-8px py-4px">
-      类型筛选
-    </div>
-    <div class="text-size-12px bg-gray-100 rounded-8px py-8px mt-8px px-8px">
-      <a-tree
-        v-model:checked-keys="storeMapTypeLayerCheckedKeys"
-        :checkable="true"
-        :data="treeData"
-      />
-    </div>
-  </div>
+  <MapBoxWrap>
+    <template #title>
+      <a-breadcrumb :routes="routes">
+        <template #item-render="{ route }">
+          <RouterLink :to="route.path">
+            {{ route.label }}
+          </RouterLink>
+        </template>
+      </a-breadcrumb>
+    </template>
+    <a-tree
+      v-model:checked-keys="storeMapTypeLayerCheckedKeys"
+      :checkable="true"
+      :data="treeData"
+    />
+  </MapBoxWrap>
 </template>

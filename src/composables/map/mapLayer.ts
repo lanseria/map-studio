@@ -217,7 +217,7 @@ export function reloadCurrentStormPointsLayer() {
   if (source) {
     source.setData({
       type: 'FeatureCollection',
-      features: globalMapLayerStormDataList.value, // 在之前的代码中创建的GeoJSON特征
+      features: storeMapLayerStormDataList.value, // 在之前的代码中创建的GeoJSON特征
     })
   }
   else {
@@ -225,7 +225,7 @@ export function reloadCurrentStormPointsLayer() {
       type: 'geojson',
       data: {
         type: 'FeatureCollection',
-        features: globalMapLayerStormDataList.value, // 在之前的代码中创建的GeoJSON特征
+        features: storeMapLayerStormDataList.value, // 在之前的代码中创建的GeoJSON特征
       },
     })
   }
@@ -248,11 +248,11 @@ export function reloadCurrentStormLineLayer() {
   const MAP_DATA_STORM_LINE_SOURCE = 'storm-data-line'
   const MAP_DATA_STORM_LINE_LAYER = 'storm-line-layer'
   const source: any = map.getSource(MAP_DATA_STORM_LINE_SOURCE)
-  if (globalMapLayerStormDataList.value.length === 0) {
+  if (storeMapLayerStormDataList.value.length === 0) {
     console.warn('storm no data')
     return
   }
-  const lineFeature = turf.lineString(globalMapLayerStormDataList.value.map((feature) => {
+  const lineFeature = turf.lineString(storeMapLayerStormDataList.value.map((feature) => {
     // console.log(feature.geometry.coordinates)
     return feature.geometry.coordinates
   }), {
