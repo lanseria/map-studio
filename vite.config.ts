@@ -1,4 +1,5 @@
 import path from 'node:path'
+import { cwd } from 'node:process'
 import type { ConfigEnv, UserConfig } from 'vite'
 import { loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
@@ -9,7 +10,7 @@ import Unocss from 'unocss/vite'
 import { ArcoResolver } from 'unplugin-vue-components/resolvers'
 
 export default ({ mode }: ConfigEnv): UserConfig => {
-  const root = process.cwd()
+  const root = cwd()
   const env = loadEnv(mode, root)
   return {
     server: {
@@ -29,7 +30,9 @@ export default ({ mode }: ConfigEnv): UserConfig => {
       vue(),
 
       // https://github.com/hannoeru/vite-plugin-pages
-      Pages(),
+      Pages({
+        exclude: ['**/components/*.vue'],
+      }),
 
       // https://github.com/antfu/unplugin-auto-import
       AutoImport({

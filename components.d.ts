@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     FeatureInfo: typeof import('./src/components/Pages/Index/FeatureInfo.vue')['default']
+    Forecast: typeof import('./src/components/Pages/Typhoon/Forecast/index.vue')['default']
     GpxList: typeof import('./src/components/Pages/Index/GpxList.vue')['default']
     GpxLog: typeof import('./src/components/Pages/Index/GpxLog.vue')['default']
     MapHeader: typeof import('./src/components/Map/MapHeader.vue')['default']
@@ -19,9 +20,11 @@ declare module 'vue' {
     ModalJoinUs: typeof import('./src/components/Modal/ModalJoinUs.vue')['default']
     ModalMapDraw: typeof import('./src/components/Modal/ModalMapDraw.vue')['default']
     ModalWeixinMiniApp: typeof import('./src/components/Modal/ModalWeixinMiniApp.vue')['default']
+    Pangu: typeof import('./src/components/Pages/Typhoon/Forecast/Pangu/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TypeLayer: typeof import('./src/components/Pages/Index/TypeLayer.vue')['default']
+    Typhoon: typeof import('./src/components/Pages/Typhoon/index.vue')['default']
     ViewFlightItem: typeof import('./src/components/ViewFlight/ViewFlightItem.vue')['default']
     ViewFlightPointCard: typeof import('./src/components/ViewFlight/ViewFlightPointCard.vue')['default']
   }

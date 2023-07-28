@@ -1,5 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div>开发中</div>
+  <div class="w-full">
+    开发中
+  </div>
 </template>
