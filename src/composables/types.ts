@@ -68,3 +68,11 @@ export interface GeoJsonStormFeature {
     coordinates: number[]
   }
 }
+
+// export interface EcForecast {
+
+// }
+// export interface EcStormForecast {
+//   name: string
+//   forecasts
+// }

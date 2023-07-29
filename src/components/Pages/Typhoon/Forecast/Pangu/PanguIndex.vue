@@ -68,6 +68,18 @@ const treeData = [
         title: '2023-07-27_00_6号台风路径',
         key: 'pangu_medium-mslp-wind850_2023-07-27_00_6_line',
       },
+      {
+        title: '2023-07-27_12_6号台风',
+        key: 'pangu_medium-mslp-wind850_2023-07-27_12_6',
+      },
+      {
+        title: '2023-07-28_00_6号台风',
+        key: 'pangu_medium-mslp-wind850_2023-07-28_00_6',
+      },
+      {
+        title: '2023-07-28_12_6号台风',
+        key: 'pangu_medium-mslp-wind850_2023-07-28_12_6',
+      },
     ],
   },
   {

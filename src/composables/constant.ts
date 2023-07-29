@@ -240,6 +240,18 @@ export const PANGU_LAYER_IMG_LIST = [
     name: 'pangu_medium-mslp-wind850_2023-07-27_00_6_line',
     url: 'https://s2.loli.net/2023/07/27/iw8gsDjqTV193oF.png',
   },
+  {
+    name: 'pangu_medium-mslp-wind850_2023-07-27_12_6',
+    url: 'https://charts.ecmwf.int/content/20230728114720-f8b72f8bd4f0d86ff00e86e15856f0775dfac684.png',
+  },
+  {
+    name: 'pangu_medium-mslp-wind850_2023-07-28_00_6',
+    url: 'https://charts.ecmwf.int/content/20230728114947-ce4f0b3110f6d3f1c2a4dfb52d6147acc58b371b.png',
+  },
+  {
+    name: 'pangu_medium-mslp-wind850_2023-07-28_12_6',
+    url: 'https://charts.ecmwf.int/content/20230729005241-6e7ab772687b85cb3e97736f4d76a6c7b2dbb50c.png',
+  },
 ]
 
 export const PANGU_TIMELINE_IMG_LIST = [
@@ -288,3 +300,6 @@ export const PANGU_TIMELINE_IMG_LIST = [
     url: 'https://s8zygv-pangu.oss.laf.run/2023-07-28_00.json',
   },
 ]
+
+export const MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE = 'storm-forecast-pangu-gif-source'
+export const MAP_DATA_STORM_FORECAST_PANGU_GIF_LAYER = 'storm-forecast-pangu-gif-layer'

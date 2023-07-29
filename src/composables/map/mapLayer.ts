@@ -318,8 +318,6 @@ export function drawStormLineLayer(data: GeoJsonStormFeature[], id: string) {
   })
 }
 
-const MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE = 'storm-forecast-pangu-gif-source'
-const MAP_DATA_STORM_FORECAST_PANGU_GIF_LAYER = 'storm-forecast-pangu-gif-layer'
 function getPath() {
   // 21600
   console.log(globalStorePanguPhotosKeysCurrent.value)
@@ -385,6 +383,9 @@ export function reloadPanguPhotosGifLayer() {
       'raster-opacity': 0.5,
       'raster-fade-duration': 0,
     },
+    layout: {
+      visibility: storeMapPhotoPlayingVisible.value ? 'visible' : 'none',
+    },
   })
   map.on('idle', (e) => {
     console.log(e)
@@ -392,4 +393,8 @@ export function reloadPanguPhotosGifLayer() {
     if (globalMapPhotoPlaying.value)
       nextPhoto()
   })
+}
+
+export function drawEcForecast() {
+
 }

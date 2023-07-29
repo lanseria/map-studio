@@ -38,6 +38,8 @@ declare global {
   const MAP_DATA_LAYER_POINT: typeof import('./src/composables/constant')['MAP_DATA_LAYER_POINT']
   const MAP_DATA_LIST: typeof import('./src/composables/constant')['MAP_DATA_LIST']
   const MAP_DATA_SOURCE: typeof import('./src/composables/constant')['MAP_DATA_SOURCE']
+  const MAP_DATA_STORM_FORECAST_PANGU_GIF_LAYER: typeof import('./src/composables/constant')['MAP_DATA_STORM_FORECAST_PANGU_GIF_LAYER']
+  const MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE: typeof import('./src/composables/constant')['MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE']
   const MAP_DATA_TYPE: typeof import('./src/composables/constant')['MAP_DATA_TYPE']
   const MAP_DRAW_LAYER_POINT: typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POINT']
   const MAP_DRAW_LAYER_POLYGON_FILL: typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POLYGON_FILL']
@@ -85,6 +87,7 @@ declare global {
   const defineAsyncComponent: typeof import('vue')['defineAsyncComponent']
   const defineComponent: typeof import('vue')['defineComponent']
   const deleteTrailGPXLine: typeof import('./src/composables/store')['deleteTrailGPXLine']
+  const drawEcForecast: typeof import('./src/composables/map/mapLayer')['drawEcForecast']
   const drawPoint: typeof import('./src/composables/map/mapLayer')['drawPoint']
   const drawStormLineLayer: typeof import('./src/composables/map/mapLayer')['drawStormLineLayer']
   const drawStormPointsLayer: typeof import('./src/composables/map/mapLayer')['drawStormPointsLayer']
@@ -152,6 +155,7 @@ declare global {
   const handleFetchDistance: typeof import('./src/composables/fetch')['handleFetchDistance']
   const handleFetchPanguPhotos: typeof import('./src/composables/fetch')['handleFetchPanguPhotos']
   const handleFetchStormDataByNumber: typeof import('./src/composables/fetch')['handleFetchStormDataByNumber']
+  const handleFetchStormDataUseWindy: typeof import('./src/composables/fetch')['handleFetchStormDataUseWindy']
   const handleFetchTaifengByNumber: typeof import('./src/composables/fetch')['handleFetchTaifengByNumber']
   const handleMapDrawEdit: typeof import('./src/composables/global')['handleMapDrawEdit']
   const handleMapDrawMove: typeof import('./src/composables/global')['handleMapDrawMove']
@@ -239,6 +243,7 @@ declare global {
   const storeMapImportLayerCheckedKeys: typeof import('./src/composables/store')['storeMapImportLayerCheckedKeys']
   const storeMapLayerStormDataList: typeof import('./src/composables/store')['storeMapLayerStormDataList']
   const storeMapLeftCollapsed: typeof import('./src/composables/store')['storeMapLeftCollapsed']
+  const storeMapPhotoPlayingVisible: typeof import('./src/composables/store')['storeMapPhotoPlayingVisible']
   const storeMapRulerRouteLineString: typeof import('./src/composables/store')['storeMapRulerRouteLineString']
   const storeMapStyle: typeof import('./src/composables/store')['storeMapStyle']
   const storeMapTrailGPXLines: typeof import('./src/composables/store')['storeMapTrailGPXLines']
@@ -493,6 +498,8 @@ declare module 'vue' {
     readonly MAP_DATA_LAYER_POINT: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_LAYER_POINT']>
     readonly MAP_DATA_LIST: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_LIST']>
     readonly MAP_DATA_SOURCE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_SOURCE']>
+    readonly MAP_DATA_STORM_FORECAST_PANGU_GIF_LAYER: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_STORM_FORECAST_PANGU_GIF_LAYER']>
+    readonly MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE']>
     readonly MAP_DATA_TYPE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_TYPE']>
     readonly MAP_DRAW_LAYER_POINT: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POINT']>
     readonly MAP_DRAW_LAYER_POLYGON_FILL: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POLYGON_FILL']>
@@ -540,6 +547,7 @@ declare module 'vue' {
     readonly defineAsyncComponent: UnwrapRef<typeof import('vue')['defineAsyncComponent']>
     readonly defineComponent: UnwrapRef<typeof import('vue')['defineComponent']>
     readonly deleteTrailGPXLine: UnwrapRef<typeof import('./src/composables/store')['deleteTrailGPXLine']>
+    readonly drawEcForecast: UnwrapRef<typeof import('./src/composables/map/mapLayer')['drawEcForecast']>
     readonly drawPoint: UnwrapRef<typeof import('./src/composables/map/mapLayer')['drawPoint']>
     readonly drawStormLineLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['drawStormLineLayer']>
     readonly drawStormPointsLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['drawStormPointsLayer']>
@@ -582,6 +590,7 @@ declare module 'vue' {
     readonly handleFetchDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchDistance']>
     readonly handleFetchPanguPhotos: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchPanguPhotos']>
     readonly handleFetchStormDataByNumber: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchStormDataByNumber']>
+    readonly handleFetchStormDataUseWindy: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchStormDataUseWindy']>
     readonly handlePushViewFlightChildren: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightChildren']>
     readonly handlePushViewFlightList: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightList']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
@@ -650,6 +659,7 @@ declare module 'vue' {
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
     readonly startPhoto: UnwrapRef<typeof import('./src/composables/map/mapLayer')['startPhoto']>
     readonly storeMapLeftCollapsed: UnwrapRef<typeof import('./src/composables/store')['storeMapLeftCollapsed']>
+    readonly storeMapPhotoPlayingVisible: UnwrapRef<typeof import('./src/composables/store')['storeMapPhotoPlayingVisible']>
     readonly storeMapRulerRouteLineString: UnwrapRef<typeof import('./src/composables/store')['storeMapRulerRouteLineString']>
     readonly storeMapStyle: UnwrapRef<typeof import('./src/composables/store')['storeMapStyle']>
     readonly storeMapTrailGPXLines: UnwrapRef<typeof import('./src/composables/store')['storeMapTrailGPXLines']>
@@ -895,6 +905,8 @@ declare module '@vue/runtime-core' {
     readonly MAP_DATA_LAYER_POINT: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_LAYER_POINT']>
     readonly MAP_DATA_LIST: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_LIST']>
     readonly MAP_DATA_SOURCE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_SOURCE']>
+    readonly MAP_DATA_STORM_FORECAST_PANGU_GIF_LAYER: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_STORM_FORECAST_PANGU_GIF_LAYER']>
+    readonly MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE']>
     readonly MAP_DATA_TYPE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_TYPE']>
     readonly MAP_DRAW_LAYER_POINT: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POINT']>
     readonly MAP_DRAW_LAYER_POLYGON_FILL: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POLYGON_FILL']>
@@ -942,6 +954,7 @@ declare module '@vue/runtime-core' {
     readonly defineAsyncComponent: UnwrapRef<typeof import('vue')['defineAsyncComponent']>
     readonly defineComponent: UnwrapRef<typeof import('vue')['defineComponent']>
     readonly deleteTrailGPXLine: UnwrapRef<typeof import('./src/composables/store')['deleteTrailGPXLine']>
+    readonly drawEcForecast: UnwrapRef<typeof import('./src/composables/map/mapLayer')['drawEcForecast']>
     readonly drawPoint: UnwrapRef<typeof import('./src/composables/map/mapLayer')['drawPoint']>
     readonly drawStormLineLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['drawStormLineLayer']>
     readonly drawStormPointsLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['drawStormPointsLayer']>
@@ -984,6 +997,7 @@ declare module '@vue/runtime-core' {
     readonly handleFetchDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchDistance']>
     readonly handleFetchPanguPhotos: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchPanguPhotos']>
     readonly handleFetchStormDataByNumber: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchStormDataByNumber']>
+    readonly handleFetchStormDataUseWindy: UnwrapRef<typeof import('./src/composables/fetch')['handleFetchStormDataUseWindy']>
     readonly handlePushViewFlightChildren: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightChildren']>
     readonly handlePushViewFlightList: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightList']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
@@ -1052,6 +1066,7 @@ declare module '@vue/runtime-core' {
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
     readonly startPhoto: UnwrapRef<typeof import('./src/composables/map/mapLayer')['startPhoto']>
     readonly storeMapLeftCollapsed: UnwrapRef<typeof import('./src/composables/store')['storeMapLeftCollapsed']>
+    readonly storeMapPhotoPlayingVisible: UnwrapRef<typeof import('./src/composables/store')['storeMapPhotoPlayingVisible']>
     readonly storeMapRulerRouteLineString: UnwrapRef<typeof import('./src/composables/store')['storeMapRulerRouteLineString']>
     readonly storeMapStyle: UnwrapRef<typeof import('./src/composables/store')['storeMapStyle']>
     readonly storeMapTrailGPXLines: UnwrapRef<typeof import('./src/composables/store')['storeMapTrailGPXLines']>

@@ -31,9 +31,9 @@ export function handleFetchPanguPhotos() {
     console.warn('handleFetchPanguPhotos')
     storePanguPhotos.value = data.value
     globalStorePanguPhotosKeys.value = keysIn(data.value)
-    console.log(globalStorePanguPhotosKeys.value)
+    // console.log(globalStorePanguPhotosKeys.value)
     globalStorePanguPhotosKeysCurrent.value = globalStorePanguPhotosKeys.value[0]
-    console.log(globalStorePanguPhotosKeysCurrent.value)
+    // console.log(globalStorePanguPhotosKeysCurrent.value)
     reloadPanguPhotosGifLayer()
   })
 }
@@ -59,5 +59,13 @@ export function handleFetchStormDataByNumber(num = '202305') {
       return convertStormDataToGeoJson(item, data.value)
     })
     drawTyphoonLineAndPoints(mapLayerStormDataList, num)
+  })
+}
+
+export function handleFetchStormDataUseWindy() {
+  const { data, onFetchResponse } = useFetch(`https://node.windy.com/tc/storms
+  `).get().json()
+  onFetchResponse(() => {
+    console.log(data.value.storms)
   })
 }
