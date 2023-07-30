@@ -175,8 +175,10 @@ export function reloadPanguImagesLayer() {
   const map = window.map
   PANGU_LAYER_IMG_LIST.forEach((item) => {
     const visibility = storeMapTypeLayerCheckedKeys.value.includes(item.name) ? 'visible' : 'none'
+    // console.log(visibility)
     const layerName = `${item.name}-images`
     if (map.getLayer(layerName)) {
+      // console.log(1)
       map.setLayoutProperty(
         layerName,
         'visibility',
@@ -184,6 +186,7 @@ export function reloadPanguImagesLayer() {
       )
     }
     else {
+      // console.log(2)
       map.addLayer({
         id: layerName,
         type: 'raster',
