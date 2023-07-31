@@ -93,7 +93,7 @@ export function mapLoad() {
 
   map.addSource('video', {
     type: 'video',
-    urls: ['https://s8zygv-pangu.oss.laf.run/pangu-073012.mov'],
+    urls: ['https://s8zygv-pangu.oss.laf.run/pangu-073100.mov'],
     coordinates: [
       [73, 41],
       [171, 41],
