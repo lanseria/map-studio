@@ -26,6 +26,7 @@ declare module 'vue' {
     ModalWeixinMiniApp: typeof import('./src/components/Modal/ModalWeixinMiniApp.vue')['default']
     PanguIndex: typeof import('./src/components/Pages/Typhoon/Forecast/Pangu/PanguIndex.vue')['default']
     PanguTimeline: typeof import('./src/components/Pages/Typhoon/Forecast/Pangu/PanguTimeline.vue')['default']
+    PanguVideo: typeof import('./src/components/Pages/Typhoon/Forecast/Pangu/PanguVideo.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TypeLayer: typeof import('./src/components/Pages/Index/TypeLayer.vue')['default']

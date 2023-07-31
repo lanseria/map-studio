@@ -40,6 +40,7 @@ declare global {
   const MAP_DATA_SOURCE: typeof import('./src/composables/constant')['MAP_DATA_SOURCE']
   const MAP_DATA_STORM_FORECAST_PANGU_GIF_LAYER: typeof import('./src/composables/constant')['MAP_DATA_STORM_FORECAST_PANGU_GIF_LAYER']
   const MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE: typeof import('./src/composables/constant')['MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE']
+  const MAP_DATA_STORM_FORECAST_PANGU_VIDEO_LAYER: typeof import('./src/composables/constant')['MAP_DATA_STORM_FORECAST_PANGU_VIDEO_LAYER']
   const MAP_DATA_TYPE: typeof import('./src/composables/constant')['MAP_DATA_TYPE']
   const MAP_DRAW_LAYER_POINT: typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POINT']
   const MAP_DRAW_LAYER_POLYGON_FILL: typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POLYGON_FILL']
@@ -250,6 +251,8 @@ declare global {
   const storeMapTrailGPXPoints: typeof import('./src/composables/store')['storeMapTrailGPXPoints']
   const storeMapTypeLayerCheckedKeys: typeof import('./src/composables/store')['storeMapTypeLayerCheckedKeys']
   const storeMapTypeValue: typeof import('./src/composables/store')['storeMapTypeValue']
+  const storeMapVideoPlaying: typeof import('./src/composables/store')['storeMapVideoPlaying']
+  const storeMapVideoVisible: typeof import('./src/composables/store')['storeMapVideoVisible']
   const storeMapWeatherLayerEnable: typeof import('./src/composables/store')['storeMapWeatherLayerEnable']
   const storePanguPhotos: typeof import('./src/composables/store')['storePanguPhotos']
   const storePanguTimelineValue: typeof import('./src/composables/store')['storePanguTimelineValue']
@@ -500,6 +503,7 @@ declare module 'vue' {
     readonly MAP_DATA_SOURCE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_SOURCE']>
     readonly MAP_DATA_STORM_FORECAST_PANGU_GIF_LAYER: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_STORM_FORECAST_PANGU_GIF_LAYER']>
     readonly MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE']>
+    readonly MAP_DATA_STORM_FORECAST_PANGU_VIDEO_LAYER: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_STORM_FORECAST_PANGU_VIDEO_LAYER']>
     readonly MAP_DATA_TYPE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_TYPE']>
     readonly MAP_DRAW_LAYER_POINT: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POINT']>
     readonly MAP_DRAW_LAYER_POLYGON_FILL: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POLYGON_FILL']>
@@ -665,6 +669,8 @@ declare module 'vue' {
     readonly storeMapTrailGPXLines: UnwrapRef<typeof import('./src/composables/store')['storeMapTrailGPXLines']>
     readonly storeMapTrailGPXPoints: UnwrapRef<typeof import('./src/composables/store')['storeMapTrailGPXPoints']>
     readonly storeMapTypeLayerCheckedKeys: UnwrapRef<typeof import('./src/composables/store')['storeMapTypeLayerCheckedKeys']>
+    readonly storeMapVideoPlaying: UnwrapRef<typeof import('./src/composables/store')['storeMapVideoPlaying']>
+    readonly storeMapVideoVisible: UnwrapRef<typeof import('./src/composables/store')['storeMapVideoVisible']>
     readonly storeMapWeatherLayerEnable: UnwrapRef<typeof import('./src/composables/store')['storeMapWeatherLayerEnable']>
     readonly storePanguPhotos: UnwrapRef<typeof import('./src/composables/store')['storePanguPhotos']>
     readonly storePanguTimelineValue: UnwrapRef<typeof import('./src/composables/store')['storePanguTimelineValue']>
@@ -907,6 +913,7 @@ declare module '@vue/runtime-core' {
     readonly MAP_DATA_SOURCE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_SOURCE']>
     readonly MAP_DATA_STORM_FORECAST_PANGU_GIF_LAYER: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_STORM_FORECAST_PANGU_GIF_LAYER']>
     readonly MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE']>
+    readonly MAP_DATA_STORM_FORECAST_PANGU_VIDEO_LAYER: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_STORM_FORECAST_PANGU_VIDEO_LAYER']>
     readonly MAP_DATA_TYPE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_TYPE']>
     readonly MAP_DRAW_LAYER_POINT: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POINT']>
     readonly MAP_DRAW_LAYER_POLYGON_FILL: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POLYGON_FILL']>
@@ -1072,6 +1079,8 @@ declare module '@vue/runtime-core' {
     readonly storeMapTrailGPXLines: UnwrapRef<typeof import('./src/composables/store')['storeMapTrailGPXLines']>
     readonly storeMapTrailGPXPoints: UnwrapRef<typeof import('./src/composables/store')['storeMapTrailGPXPoints']>
     readonly storeMapTypeLayerCheckedKeys: UnwrapRef<typeof import('./src/composables/store')['storeMapTypeLayerCheckedKeys']>
+    readonly storeMapVideoPlaying: UnwrapRef<typeof import('./src/composables/store')['storeMapVideoPlaying']>
+    readonly storeMapVideoVisible: UnwrapRef<typeof import('./src/composables/store')['storeMapVideoVisible']>
     readonly storeMapWeatherLayerEnable: UnwrapRef<typeof import('./src/composables/store')['storeMapWeatherLayerEnable']>
     readonly storePanguPhotos: UnwrapRef<typeof import('./src/composables/store')['storePanguPhotos']>
     readonly storePanguTimelineValue: UnwrapRef<typeof import('./src/composables/store')['storePanguTimelineValue']>

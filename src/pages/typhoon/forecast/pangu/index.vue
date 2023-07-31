@@ -3,6 +3,7 @@
 <template>
   <div class="w-full">
     <PanguIndex />
-    <PanguTimeline />
+    <PanguTimeline class="mt-10px" />
+    <PanguVideo class="mt-10px" />
   </div>
 </template>

@@ -23,6 +23,10 @@ export const storePanguPhotos = useStorage<Record<string, string>>('storePanguPh
 export const storePanguTimelineValue = useStorage<string>('storePanguTimelineValue', PANGU_TIMELINE_IMG_LIST[PANGU_TIMELINE_IMG_LIST.length - 1].url)
 
 export const storeMapPhotoPlayingVisible = useStorage<boolean>('storeMapPhotoPlayingVisible', false)
+
+export const storeMapVideoVisible = useStorage<boolean>('storeMapVideoVisible', false)
+export const storeMapVideoPlaying = useStorage<boolean>('storeMapVideoPlaying', false)
+
 watch(() => storePanguTimelineValue.value, () => {
   handleFetchPanguPhotos()
 })
