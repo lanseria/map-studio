@@ -1,5 +1,5 @@
 import { handleFetchDistance } from '../fetch'
-import { reloadPanguImagesLayer } from './mapLayer'
+import { reloadPanguImagesLayer, reloadPanguVideo } from './mapLayer'
 
 function loadImg(name: string, url: string, sdf = false) {
   const map = window.map
@@ -91,31 +91,7 @@ export function mapLoad() {
     reloadPanguPhotosGifLayer()
   }, { debounce: 300, maxWait: 600 })
 
-  map.addSource('video', {
-    type: 'video',
-    urls: ['https://s8zygv-pangu.oss.laf.run/pangu-073100.mov'],
-    coordinates: [
-      [73, 41],
-      [171, 41],
-      [171, -41],
-      [73, -41],
-    ],
-  })
-  map.addLayer({
-    id: MAP_DATA_STORM_FORECAST_PANGU_VIDEO_LAYER,
-    type: 'raster',
-    source: 'video',
-    paint: {
-      'raster-opacity': 0.7,
-      'raster-fade-duration': 0,
-    },
-  })
-
-  if (storeMapVideoPlaying.value)
-    map.getSource('video').play()
-
-  else
-    map.getSource('video').pause()
+  reloadPanguVideo()
   // map.addLayer({
   //   id: 'radar-tiles',
   //   type: 'raster',

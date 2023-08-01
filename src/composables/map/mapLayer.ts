@@ -398,6 +398,52 @@ export function reloadPanguPhotosGifLayer() {
   })
 }
 
+export function reloadPanguVideo() {
+  const map = window.map
+  PANGU_VIDEO_LIST.forEach((item) => {
+    const layerName = MAP_DATA_STORM_FORECAST_PANGU_VIDEO_LAYER
+    const visibility = storeMapVideoVisible.value ? 'visible' : 'none'
+    map.addSource('video', {
+      type: 'video',
+      urls: item.urls,
+      coordinates: [
+        [60, 55],
+        [167, 55],
+        [167, 21],
+        [60, 21],
+      ],
+    })
+    if (map.getLayer(layerName)) {
+      // console.log(1)
+      map.setLayoutProperty(
+        layerName,
+        'visibility',
+        visibility,
+      )
+    }
+    else {
+      map.addLayer({
+        id: layerName,
+        type: 'raster',
+        source: 'video',
+        paint: {
+          'raster-opacity': 0.7,
+          'raster-fade-duration': 0,
+        },
+        layout: {
+          visibility,
+        },
+      })
+    }
+
+    if (storeMapVideoPlaying.value)
+      map.getSource('video').play()
+
+    else
+      map.getSource('video').pause()
+  })
+}
+
 export function drawEcForecast() {
 
 }

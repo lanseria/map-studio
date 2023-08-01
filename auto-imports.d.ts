@@ -49,6 +49,7 @@ declare global {
   const MAP_DRAW_SOURCE: typeof import('./src/composables/constant')['MAP_DRAW_SOURCE']
   const PANGU_LAYER_IMG_LIST: typeof import('./src/composables/constant')['PANGU_LAYER_IMG_LIST']
   const PANGU_TIMELINE_IMG_LIST: typeof import('./src/composables/constant')['PANGU_TIMELINE_IMG_LIST']
+  const PANGU_VIDEO_LIST: typeof import('./src/composables/constant')['PANGU_VIDEO_LIST']
   const PointTypeEnum: typeof import('./src/composables/constant')['PointTypeEnum']
   const PointTypeEnumMap: typeof import('./src/composables/constant')['PointTypeEnumMap']
   const PolygonTypeEnum: typeof import('./src/composables/constant')['PolygonTypeEnum']
@@ -228,6 +229,7 @@ declare global {
   const reloadMapGpxLayer: typeof import('./src/composables/map/mapLayer')['reloadMapGpxLayer']
   const reloadPanguImagesLayer: typeof import('./src/composables/map/mapLayer')['reloadPanguImagesLayer']
   const reloadPanguPhotosGifLayer: typeof import('./src/composables/map/mapLayer')['reloadPanguPhotosGifLayer']
+  const reloadPanguVideo: typeof import('./src/composables/map/mapLayer')['reloadPanguVideo']
   const resolveComponent: typeof import('vue')['resolveComponent']
   const resolveRef: typeof import('@vueuse/core')['resolveRef']
   const resolveUnref: typeof import('@vueuse/core')['resolveUnref']
@@ -512,6 +514,7 @@ declare module 'vue' {
     readonly MAP_DRAW_SOURCE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_SOURCE']>
     readonly PANGU_LAYER_IMG_LIST: UnwrapRef<typeof import('./src/composables/constant')['PANGU_LAYER_IMG_LIST']>
     readonly PANGU_TIMELINE_IMG_LIST: UnwrapRef<typeof import('./src/composables/constant')['PANGU_TIMELINE_IMG_LIST']>
+    readonly PANGU_VIDEO_LIST: UnwrapRef<typeof import('./src/composables/constant')['PANGU_VIDEO_LIST']>
     readonly PointTypeEnum: UnwrapRef<typeof import('./src/composables/constant')['PointTypeEnum']>
     readonly PointTypeEnumMap: UnwrapRef<typeof import('./src/composables/constant')['PointTypeEnumMap']>
     readonly PolygonTypeEnum: UnwrapRef<typeof import('./src/composables/constant')['PolygonTypeEnum']>
@@ -654,6 +657,7 @@ declare module 'vue' {
     readonly reloadMapGpxLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadMapGpxLayer']>
     readonly reloadPanguImagesLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadPanguImagesLayer']>
     readonly reloadPanguPhotosGifLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadPanguPhotosGifLayer']>
+    readonly reloadPanguVideo: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadPanguVideo']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
     readonly resolveUnref: UnwrapRef<typeof import('@vueuse/core')['resolveUnref']>
@@ -922,6 +926,7 @@ declare module '@vue/runtime-core' {
     readonly MAP_DRAW_SOURCE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_SOURCE']>
     readonly PANGU_LAYER_IMG_LIST: UnwrapRef<typeof import('./src/composables/constant')['PANGU_LAYER_IMG_LIST']>
     readonly PANGU_TIMELINE_IMG_LIST: UnwrapRef<typeof import('./src/composables/constant')['PANGU_TIMELINE_IMG_LIST']>
+    readonly PANGU_VIDEO_LIST: UnwrapRef<typeof import('./src/composables/constant')['PANGU_VIDEO_LIST']>
     readonly PointTypeEnum: UnwrapRef<typeof import('./src/composables/constant')['PointTypeEnum']>
     readonly PointTypeEnumMap: UnwrapRef<typeof import('./src/composables/constant')['PointTypeEnumMap']>
     readonly PolygonTypeEnum: UnwrapRef<typeof import('./src/composables/constant')['PolygonTypeEnum']>
@@ -1064,6 +1069,7 @@ declare module '@vue/runtime-core' {
     readonly reloadMapGpxLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadMapGpxLayer']>
     readonly reloadPanguImagesLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadPanguImagesLayer']>
     readonly reloadPanguPhotosGifLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadPanguPhotosGifLayer']>
+    readonly reloadPanguVideo: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadPanguVideo']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
     readonly resolveUnref: UnwrapRef<typeof import('@vueuse/core')['resolveUnref']>
