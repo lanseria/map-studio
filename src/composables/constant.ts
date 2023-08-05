@@ -196,58 +196,6 @@ export const WEATHER_MODEL_LIST = [
   },
 ]
 export const PANGU_LAYER_IMG_LIST = [
-  {
-    name: 'pangu_medium-mslp-wind850_2023-07-26_00_5',
-    url: 'https://charts.ecmwf.int/content/20230726105341-e7ea554d28b4f7ffb733bda4dc7d110dbbbae30f.png',
-  },
-  {
-    name: 'pangu_medium-mslp-wind850_2023-07-27_00_5',
-    url: 'https://charts.ecmwf.int/content/20230727102956-e477582b8757cb9e8dbf0a7027fd78e301ca4e2e.png',
-  },
-  {
-    name: 'pangu_medium-mslp-wind850_2023-07-27_12_5',
-    url: 'https://charts.ecmwf.int/content/20230727230402-86317cbbbf8625f42e789a11c199a5c6b3de05ee.png',
-  },
-  {
-    name: 'pangu_medium-mslp-wind850_2023-07-26_00_6',
-    url: 'https://charts.ecmwf.int/content/20230726105444-c93d15399f75d21a6ba97d483cd11fc8c23aa3a1.png',
-  },
-  {
-    name: 'pangu_medium-mslp-wind850_2023-07-26_00_6_line',
-    url: 'https://s2.loli.net/2023/07/27/IZOdPCu5UN9h27Y.png',
-  },
-  {
-    name: 'pangu_medium-mslp-wind850_2023-07-27_00_6',
-    url: 'https://charts.ecmwf.int/content/20230727103056-c4d9ae130c41d23945091d67aedb690b642b3f28.png',
-  },
-  {
-    name: 'pangu_medium-mslp-wind850_2023-07-27_00_6_line',
-    url: 'https://s2.loli.net/2023/07/27/iw8gsDjqTV193oF.png',
-  },
-  {
-    name: 'pangu_medium-mslp-wind850_2023-07-27_12_6',
-    url: 'https://charts.ecmwf.int/content/20230728114720-f8b72f8bd4f0d86ff00e86e15856f0775dfac684.png',
-  },
-  {
-    name: 'pangu_medium-mslp-wind850_2023-07-28_00_6',
-    url: 'https://charts.ecmwf.int/content/20230728114947-ce4f0b3110f6d3f1c2a4dfb52d6147acc58b371b.png',
-  },
-  {
-    name: 'pangu_medium-mslp-wind850_2023-07-28_12_6',
-    url: 'https://charts.ecmwf.int/content/20230729005241-6e7ab772687b85cb3e97736f4d76a6c7b2dbb50c.png',
-  },
-  {
-    name: 'pangu_medium-mslp-wind850_2023-07-29_00_6',
-    url: 'https://charts.ecmwf.int/content/20230729115437-97c1a71e51a2965c90a188f8971caddaa52ccc45.png',
-  },
-  {
-    name: 'pangu_medium-mslp-wind850_2023-07-29_12_6',
-    url: 'https://charts.ecmwf.int/content/20230730114105-ca280d3be05bf120bca4cece01dd28e56075ee26.png',
-  },
-  {
-    name: 'pangu_medium-mslp-wind850_2023-07-30_00_6',
-    url: 'https://charts.ecmwf.int/content/20230730120209-ee74571179bc208eebad09b3660ee770b3da40d7.png',
-  },
 ]
 
 export const PANGU_TIMELINE_IMG_LIST = [

@@ -24,58 +24,6 @@ const treeData = [
     title: '平均等压面和850百帕风速',
     key: 'pangu_medium-mslp-wind850',
     children: [
-      {
-        title: '2023-07-26_00_5号台风',
-        key: 'pangu_medium-mslp-wind850_2023-07-26_00_5',
-      },
-      {
-        title: '2023-07-27_00_5号台风',
-        key: 'pangu_medium-mslp-wind850_2023-07-27_00_5',
-      },
-      {
-        title: '2023-07-27_12_5号台风',
-        key: 'pangu_medium-mslp-wind850_2023-07-27_12_5',
-      },
-      {
-        title: '2023-07-26_00_6号台风',
-        key: 'pangu_medium-mslp-wind850_2023-07-26_00_6',
-      },
-      {
-        title: '2023-07-26_00_6号台风路径',
-        key: 'pangu_medium-mslp-wind850_2023-07-26_00_6_line',
-      },
-      {
-        title: '2023-07-27_00_6号台风',
-        key: 'pangu_medium-mslp-wind850_2023-07-27_00_6',
-      },
-      {
-        title: '2023-07-27_00_6号台风路径',
-        key: 'pangu_medium-mslp-wind850_2023-07-27_00_6_line',
-      },
-      {
-        title: '2023-07-27_12_6号台风',
-        key: 'pangu_medium-mslp-wind850_2023-07-27_12_6',
-      },
-      {
-        title: '2023-07-28_00_6号台风',
-        key: 'pangu_medium-mslp-wind850_2023-07-28_00_6',
-      },
-      {
-        title: '2023-07-28_12_6号台风',
-        key: 'pangu_medium-mslp-wind850_2023-07-28_12_6',
-      },
-      {
-        title: '2023-07-29_00_6号台风',
-        key: 'pangu_medium-mslp-wind850_2023-07-29_00_6',
-      },
-      {
-        title: '2023-07-29_12_6号台风',
-        key: 'pangu_medium-mslp-wind850_2023-07-29_12_6',
-      },
-      {
-        title: '2023-07-30_00_6号台风',
-        key: 'pangu_medium-mslp-wind850_2023-07-30_00_6',
-      },
     ],
   },
   {
