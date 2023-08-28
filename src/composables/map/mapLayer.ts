@@ -324,8 +324,9 @@ export function drawStormLineLayer(data: GeoJsonStormFeature[], id: string) {
 function getPath() {
   // 21600
   console.log(globalStorePanguPhotosKeysCurrent.value)
-  if (storePanguPhotos.value[globalStorePanguPhotosKeysCurrent.value]) {
-    return storePanguPhotos.value[globalStorePanguPhotosKeysCurrent.value]
+  const idx = storePanguPhotos.value.findIndex(item => item.time === +globalStorePanguPhotosKeysCurrent.value)
+  if (idx >= 0) {
+    return storePanguPhotos.value[idx].url
   }
   else {
     if (+globalStorePanguPhotosKeysCurrent.value > +globalStorePanguPhotosKeys.value[globalStorePanguPhotosKeys.value.length - 1])
@@ -333,32 +334,33 @@ function getPath() {
     if (+globalStorePanguPhotosKeysCurrent.value < +globalStorePanguPhotosKeys.value[0])
       globalStorePanguPhotosKeysCurrent.value = globalStorePanguPhotosKeys.value[globalStorePanguPhotosKeys.value.length - 1]
 
-    return storePanguPhotos.value[globalStorePanguPhotosKeysCurrent.value]
+    const idx = storePanguPhotos.value.findIndex(item => item.time === +globalStorePanguPhotosKeysCurrent.value)
+    return storePanguPhotos.value[idx].url
   }
 }
 export function startPhoto() {
   const map: any = window.map
   globalStorePanguPhotosKeysCurrent.value = globalStorePanguPhotosKeys.value[0]
   map.getSource(MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE).updateImage({ url: getPath() })
-  globalMapPhotoLoading.value = true
+  // globalMapPhotoLoading.value = true
 }
 export function prevPhoto() {
   const map: any = window.map
   globalStorePanguPhotosKeysCurrent.value = (+globalStorePanguPhotosKeysCurrent.value - 21600).toString()
   map.getSource(MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE).updateImage({ url: getPath() })
-  globalMapPhotoLoading.value = true
+  // globalMapPhotoLoading.value = true
 }
 export function nextPhoto() {
   const map: any = window.map
   globalStorePanguPhotosKeysCurrent.value = (+globalStorePanguPhotosKeysCurrent.value + 21600).toString()
   map.getSource(MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE).updateImage({ url: getPath() })
-  globalMapPhotoLoading.value = true
+  // globalMapPhotoLoading.value = true
 }
 export function endPhoto() {
   const map: any = window.map
   globalStorePanguPhotosKeysCurrent.value = globalStorePanguPhotosKeys.value[globalStorePanguPhotosKeys.value.length - 1]
   map.getSource(MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE).updateImage({ url: getPath() })
-  globalMapPhotoLoading.value = true
+  // globalMapPhotoLoading.value = true
 }
 export function reloadPanguPhotosGifLayer() {
   const map = window.map
@@ -390,12 +392,6 @@ export function reloadPanguPhotosGifLayer() {
       visibility: storeMapPhotoPlayingVisible.value ? 'visible' : 'none',
     },
   })
-  map.on('idle', (e) => {
-    console.log(e)
-    globalMapPhotoLoading.value = false
-    if (globalMapPhotoPlaying.value)
-      nextPhoto()
-  })
 }
 
 export function reloadPanguVideo() {
@@ -407,10 +403,10 @@ export function reloadPanguVideo() {
       type: 'video',
       urls: item.urls,
       coordinates: [
-        [60, 55],
-        [167, 55],
-        [167, 21],
-        [60, 21],
+        [74, 34.5],
+        [170, 34.5],
+        [170, -18],
+        [74, -18],
       ],
     })
     if (map.getLayer(layerName)) {

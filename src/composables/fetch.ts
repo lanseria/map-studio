@@ -30,7 +30,7 @@ export function handleFetchPanguPhotos() {
   onFetchResponse(() => {
     console.warn('handleFetchPanguPhotos')
     storePanguPhotos.value = data.value
-    globalStorePanguPhotosKeys.value = keysIn(data.value)
+    globalStorePanguPhotosKeys.value = storePanguPhotos.value.map(item => item.time.toString())
     // console.log(globalStorePanguPhotosKeys.value)
     globalStorePanguPhotosKeysCurrent.value = globalStorePanguPhotosKeys.value[0]
     // console.log(globalStorePanguPhotosKeysCurrent.value)

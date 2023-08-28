@@ -200,48 +200,8 @@ export const PANGU_LAYER_IMG_LIST = [
 
 export const PANGU_TIMELINE_IMG_LIST = [
   {
-    label: 'mslp-wind850_2023-07-23_00',
-    url: 'https://s8zygv-pangu.oss.laf.run/2023-07-23_00.json',
-  },
-  {
-    label: 'mslp-wind850_2023-07-23_12',
-    url: 'https://s8zygv-pangu.oss.laf.run/2023-07-23_12.json',
-  },
-  {
-    label: 'mslp-wind850_2023-07-24_00',
-    url: 'https://s8zygv-pangu.oss.laf.run/2023-07-24_00.json',
-  },
-  {
-    label: 'mslp-wind850_2023-07-24_12',
-    url: 'https://s8zygv-pangu.oss.laf.run/2023-07-24_12.json',
-  },
-  {
-    label: 'mslp-wind850_2023-07-25_00',
-    url: 'https://s8zygv-pangu.oss.laf.run/2023-07-25_00.json',
-  },
-  {
-    label: 'mslp-wind850_2023-07-25_12',
-    url: 'https://s8zygv-pangu.oss.laf.run/2023-07-25_12.json',
-  },
-  {
-    label: 'mslp-wind850_2023-07-26_00',
-    url: 'https://s8zygv-pangu.oss.laf.run/2023-07-26_00.json',
-  },
-  {
-    label: 'mslp-wind850_2023-07-26_12',
-    url: 'https://s8zygv-pangu.oss.laf.run/2023-07-26_12.json',
-  },
-  {
-    label: 'mslp-wind850_2023-07-27_00',
-    url: 'https://s8zygv-pangu.oss.laf.run/2023-07-27_00.json',
-  },
-  {
-    label: 'mslp-wind850_2023-07-27_12',
-    url: 'https://s8zygv-pangu.oss.laf.run/2023-07-27_12.json',
-  },
-  {
-    label: 'mslp-wind850_2023-07-28_00',
-    url: 'https://s8zygv-pangu.oss.laf.run/2023-07-28_00.json',
+    label: 'mslp-wind850_2023-08-27_12',
+    url: 'https://s8zygv-pangu.oss.laf.run/2023-08-27_12.json',
   },
 ]
 
@@ -251,7 +211,7 @@ export const MAP_DATA_STORM_FORECAST_PANGU_VIDEO_LAYER = 'storm-forecast-pangu-v
 
 export const PANGU_VIDEO_LIST = [
   {
-    label: 'pangu-080100',
-    urls: ['https://s8zygv-pangu.oss.laf.run/pangu-080100.mov'],
+    label: 'pangu_medium-mslp-wind850_2023-08-27_12',
+    urls: ['https://s8zygv-pangu.oss.laf.run/output_pangu_medium-mslp-wind850_2023-08-27_12.mp4'],
   },
 ]

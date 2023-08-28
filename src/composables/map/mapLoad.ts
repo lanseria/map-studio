@@ -1,3 +1,4 @@
+import dayjs from 'dayjs'
 import { handleFetchDistance } from '../fetch'
 import { reloadPanguImagesLayer, reloadPanguVideo } from './mapLayer'
 
@@ -35,6 +36,17 @@ export function mapLoad() {
   })
   map.on('ruler.change', (params) => {
     globalMapRulerCoordinates.value = params.coordinates
+  })
+  map.on('click', (e) => {
+    const formattedDate = dayjs(+globalStorePanguPhotosKeysCurrent.value * 1000).format('YYYY-MM-DD,HH:mm:00')
+    console.log(`${e.lngLat.lat},${e.lngLat.lng},${formattedDate},48,945`)
+  })
+
+  map.on('idle', (e) => {
+    console.log('idle', e)
+    globalMapPhotoLoading.value = false
+    if (globalMapPhotoPlaying.value)
+      nextPhoto()
   })
   watchEffect(() => {
     map.easeTo({

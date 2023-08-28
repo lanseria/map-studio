@@ -18,7 +18,12 @@ export const storeStormDataList = useStorage<TyphoonData[]>('storeStormDataList'
 
 export const storeStormDataListCheckedKeys = useStorage<Record<string, boolean>>('storeStormDataListCheckedKeys', {})
 
-export const storePanguPhotos = useStorage<Record<string, string>>('storePanguPhotos', {})
+interface TimelineItem {
+  time: number
+  url: string
+}
+
+export const storePanguPhotos = useStorage<TimelineItem[]>('storePanguPhotos', [])
 
 export const storePanguTimelineValue = useStorage<string>('storePanguTimelineValue', PANGU_TIMELINE_IMG_LIST[PANGU_TIMELINE_IMG_LIST.length - 1].url)
 
