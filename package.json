@@ -17,7 +17,7 @@
     "@mapbox/mapbox-gl-language": "^1.0.1",
     "@mapbox/togeojson": "^0.16.0",
     "@turf/turf": "^6.5.0",
-    "@vueuse/core": "^10.4.0",
+    "@vueuse/core": "^10.4.1",
     "@xmldom/xmldom": "^0.8.10",
     "dayjs": "^1.11.9",
     "lodash-es": "^4.17.21",

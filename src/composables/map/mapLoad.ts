@@ -37,9 +37,11 @@ export function mapLoad() {
   map.on('ruler.change', (params) => {
     globalMapRulerCoordinates.value = params.coordinates
   })
+  const { copy } = useClipboard()
   map.on('click', (e) => {
     const formattedDate = dayjs(+globalStorePanguPhotosKeysCurrent.value * 1000).format('YYYY-MM-DD,HH:mm:00')
     console.log(`${e.lngLat.lat},${e.lngLat.lng},${formattedDate},48,945`)
+    copy(`${e.lngLat.lat},${e.lngLat.lng},${formattedDate},48,945`)
   })
 
   map.on('idle', (e) => {

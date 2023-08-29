@@ -196,12 +196,24 @@ export const WEATHER_MODEL_LIST = [
   },
 ]
 export const PANGU_LAYER_IMG_LIST = [
+  // {
+  //   name: 'pangu_medium-mslp-wind850_2023-07-24_12_5_line',
+  //   url: '/1693267200.png',
+  // },
 ]
 
 export const PANGU_TIMELINE_IMG_LIST = [
   {
     label: 'mslp-wind850_2023-08-28_00',
     url: 'https://s8zygv-pangu.oss.laf.run/2023-08-28_00.json',
+  },
+  {
+    label: 'mslp-wind850_2023-08-28_12',
+    url: 'https://s8zygv-pangu.oss.laf.run/2023-08-28_12.json',
+  },
+  {
+    label: 'mslp-wind850_2023-08-29_00',
+    url: 'https://s8zygv-pangu.oss.laf.run/2023-08-29_00.json',
   },
 ]
 
