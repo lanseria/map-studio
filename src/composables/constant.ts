@@ -215,6 +215,10 @@ export const PANGU_TIMELINE_IMG_LIST = [
     label: 'mslp-wind850_2023-08-29_00',
     url: 'https://s8zygv-pangu.oss.laf.run/2023-08-29_00.json',
   },
+  {
+    label: 'mslp-wind850_2023-08-29_12',
+    url: '/2023-08-29_12.json',
+  },
 ]
 
 export const MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE = 'storm-forecast-pangu-gif-source'
