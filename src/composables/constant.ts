@@ -204,60 +204,12 @@ export const PANGU_LAYER_IMG_LIST = [
 
 export const PANGU_TIMELINE_IMG_LIST = [
   {
-    label: 'mslp-wind850_2023-08-28_00',
-    url: 'https://s8zygv-pangu.oss.laf.run/2023-08-28_00.json',
-  },
-  {
-    label: 'mslp-wind850_2023-08-28_12',
-    url: 'https://s8zygv-pangu.oss.laf.run/2023-08-28_12.json',
-  },
-  {
-    label: 'mslp-wind850_2023-08-29_00',
-    url: 'https://s8zygv-pangu.oss.laf.run/2023-08-29_00.json',
-  },
-  {
-    label: 'mslp-wind850_2023-08-29_12',
-    url: '/2023-08-29_12.json',
-  },
-  {
-    label: 'mslp-wind850_2023-08-30_00',
-    url: '/2023-08-30_00.json',
-  },
-  {
-    label: 'mslp-wind850_2023-08-30_12',
-    url: '/2023-08-30_12.json',
-  },
-  {
-    label: 'mslp-wind850_2023-08-31_00',
-    url: '/2023-08-31_00.json',
-  },
-  {
-    label: 'mslp-wind850_2023-08-31_12',
-    url: '/2023-08-31_12.json',
-  },
-  {
-    label: 'mslp-wind850_2023-09-01_00',
-    url: '/2023-09-01_00.json',
-  },
-  {
-    label: 'mslp-wind850_2023-09-01_12',
-    url: '/2023-09-01_12.json',
-  },
-  {
-    label: 'mslp-wind850_2023-09-02_00',
-    url: '/2023-09-02_00.json',
-  },
-  {
-    label: 'mslp-wind850_2023-09-02_12',
-    url: '/2023-09-02_12.json',
-  },
-  {
-    label: 'mslp-wind850_2023-09-03_00',
-    url: '/2023-09-03_00.json',
-  },
-  {
-    label: 'mslp-wind850_2023-09-03_12',
+    label: '2023-09-03_12',
     url: '/2023-09-03_12.json',
+  },
+  {
+    label: '2023-09-04_00',
+    url: '/2023-09-04_00.json',
   },
 ]
 
