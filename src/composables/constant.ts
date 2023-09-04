@@ -255,6 +255,10 @@ export const PANGU_TIMELINE_IMG_LIST = [
     label: 'mslp-wind850_2023-09-03_00',
     url: '/2023-09-03_00.json',
   },
+  {
+    label: 'mslp-wind850_2023-09-03_12',
+    url: '/2023-09-03_12.json',
+  },
 ]
 
 export const MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE = 'storm-forecast-pangu-gif-source'
