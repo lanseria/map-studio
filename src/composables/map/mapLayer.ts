@@ -371,10 +371,10 @@ export function reloadPanguPhotosGifLayer() {
       type: 'image',
       url: getPath(),
       coordinates: [
-        [67, 42],
-        [177, 42],
-        [177, -50],
-        [67, -50],
+        [66.5, 41.5],
+        [177, 41.5],
+        [177, -49],
+        [66.5, -49],
       ],
     })
   }
