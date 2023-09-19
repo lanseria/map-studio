@@ -3,7 +3,7 @@
 <template>
   <MapBoxWrap>
     <template #title>
-      开发中
+      路线
     </template>
   </MapBoxWrap>
 </template>
