@@ -204,8 +204,8 @@ export const PANGU_LAYER_IMG_LIST = [
 
 export const PANGU_TIMELINE_IMG_LIST = [
   {
-    label: '2023-10-03_00.json',
-    url: '/2023-10-03_00.json',
+    label: '2023-10-04_00.json',
+    url: '/2023-10-04_00.json',
   },
   {
     label: '2023-10-03_12.json',
