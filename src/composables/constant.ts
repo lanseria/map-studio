@@ -208,8 +208,8 @@ export const PANGU_TIMELINE_IMG_LIST = [
     url: '/2023-10-05_00.json',
   },
   {
-    label: '2023-10-04_12.json',
-    url: '/2023-10-04_12.json',
+    label: '2023-10-05_12.json',
+    url: '/2023-10-05_12.json',
   },
 ]
 
