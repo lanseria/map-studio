@@ -172,6 +172,7 @@ declare global {
   const initGpxProperties: typeof import('./src/composables/utils')['initGpxProperties']
   const initViewFlightForm: typeof import('./src/composables/map/mapViewFlight')['initViewFlightForm']
   const inject: typeof import('vue')['inject']
+  const injectLocal: typeof import('@vueuse/core')['injectLocal']
   const isDark: typeof import('./src/composables/dark')['isDark']
   const isDefined: typeof import('@vueuse/core')['isDefined']
   const isEditViewFlight: typeof import('./src/composables/map/mapViewFlight')['isEditViewFlight']
@@ -208,6 +209,7 @@ declare global {
   const pausableWatch: typeof import('@vueuse/core')['pausableWatch']
   const prevPhoto: typeof import('./src/composables/map/mapLayer')['prevPhoto']
   const provide: typeof import('vue')['provide']
+  const provideLocal: typeof import('@vueuse/core')['provideLocal']
   const pulsingDot: typeof import('./src/composables/map/mapPoint')['pulsingDot']
   const pushMapDrawFeatures: typeof import('./src/composables/global')['pushMapDrawFeatures']
   const reactify: typeof import('@vueuse/core')['reactify']
@@ -604,6 +606,7 @@ declare module 'vue' {
     readonly initGpxProperties: UnwrapRef<typeof import('./src/composables/utils')['initGpxProperties']>
     readonly initViewFlightForm: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['initViewFlightForm']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
+    readonly injectLocal: UnwrapRef<typeof import('@vueuse/core')['injectLocal']>
     readonly isDefined: UnwrapRef<typeof import('@vueuse/core')['isDefined']>
     readonly isEditViewFlight: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['isEditViewFlight']>
     readonly isProxy: UnwrapRef<typeof import('vue')['isProxy']>
@@ -638,6 +641,7 @@ declare module 'vue' {
     readonly pausableWatch: UnwrapRef<typeof import('@vueuse/core')['pausableWatch']>
     readonly prevPhoto: UnwrapRef<typeof import('./src/composables/map/mapLayer')['prevPhoto']>
     readonly provide: UnwrapRef<typeof import('vue')['provide']>
+    readonly provideLocal: UnwrapRef<typeof import('@vueuse/core')['provideLocal']>
     readonly pulsingDot: UnwrapRef<typeof import('./src/composables/map/mapPoint')['pulsingDot']>
     readonly pushMapDrawFeatures: UnwrapRef<typeof import('./src/composables/global')['pushMapDrawFeatures']>
     readonly reactify: UnwrapRef<typeof import('@vueuse/core')['reactify']>
@@ -1016,6 +1020,7 @@ declare module '@vue/runtime-core' {
     readonly initGpxProperties: UnwrapRef<typeof import('./src/composables/utils')['initGpxProperties']>
     readonly initViewFlightForm: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['initViewFlightForm']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
+    readonly injectLocal: UnwrapRef<typeof import('@vueuse/core')['injectLocal']>
     readonly isDefined: UnwrapRef<typeof import('@vueuse/core')['isDefined']>
     readonly isEditViewFlight: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['isEditViewFlight']>
     readonly isProxy: UnwrapRef<typeof import('vue')['isProxy']>
@@ -1050,6 +1055,7 @@ declare module '@vue/runtime-core' {
     readonly pausableWatch: UnwrapRef<typeof import('@vueuse/core')['pausableWatch']>
     readonly prevPhoto: UnwrapRef<typeof import('./src/composables/map/mapLayer')['prevPhoto']>
     readonly provide: UnwrapRef<typeof import('vue')['provide']>
+    readonly provideLocal: UnwrapRef<typeof import('@vueuse/core')['provideLocal']>
     readonly pulsingDot: UnwrapRef<typeof import('./src/composables/map/mapPoint')['pulsingDot']>
     readonly pushMapDrawFeatures: UnwrapRef<typeof import('./src/composables/global')['pushMapDrawFeatures']>
     readonly reactify: UnwrapRef<typeof import('@vueuse/core')['reactify']>
