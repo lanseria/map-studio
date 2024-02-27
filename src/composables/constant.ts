@@ -1,4 +1,5 @@
 import dayjs from 'dayjs'
+import { MyFeature } from './types'
 
 export const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN
 
@@ -223,3 +224,22 @@ export const PANGU_VIDEO_LIST = [
     urls: ['https://s8zygv-pangu.oss.laf.run/output_pangu_medium-mslp-wind850_2023-08-27_12.mp4'],
   },
 ]
+
+export const GRATICULE = {
+  type: 'FeatureCollection',
+  features: [] as MyFeature[]
+};
+for (let lng = -170; lng <= 180; lng += 10) {
+  GRATICULE.features.push({
+      type: 'Feature',
+      geometry: {type: 'LineString', coordinates: [[lng, -90], [lng, 90]]},
+      properties: {value: lng}
+  });
+}
+for (let lat = -80; lat <= 80; lat += 10) {
+  GRATICULE.features.push({
+      type: 'Feature',
+      geometry: {type: 'LineString', coordinates: [[-180, lat], [180, lat]]},
+      properties: {value: lat}
+  });
+}
