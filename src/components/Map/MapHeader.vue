@@ -1,18 +1,16 @@
 <script lang="ts" setup>
 import { globalMapTrailGPXGeoJsonProperties } from '~/composables'
-
-const ModalVisible = ref(false)
-
-function handleOk() {
-  globalHandleSaveTrailGpx()
-}
+const ModalGpxRef = shallowRef()
+const ModalAboutRef = shallowRef()
 function gotoDonate() {
   open('https://afdian.net/a/lanseria')
 }
 function handleBeforeSubmit() {
-  //
   globalMapTrailGPXGeoJsonProperties.value = initGpxProperties()
-  ModalVisible.value = true
+  ModalGpxRef.value.open()
+}
+function handleAbout() {
+  ModalAboutRef.value.open()
 }
 </script>
 
@@ -62,7 +60,7 @@ function handleBeforeSubmit() {
       <div class="ml-8px cursor-pointer" :class="globalMapDrawEnable ? 'bg-green' : ''" @click="globalHandleMapDrawToggle()">
         Draw
       </div>
-      <div class="ml-8px">
+      <div class="ml-8px cursor-pointer" @click="handleAbout()">
         About
       </div>
       <div class="text-pink ml-8px font-bold cursor-pointer hover:text-pink-3" @click="gotoDonate">
@@ -80,25 +78,7 @@ function handleBeforeSubmit() {
         <div class="text-size-16px i-gis-polygon-pt" :class="{ 'bg-green': globalMapDrawMode === 'draw_polygon' }" />
       </div>
     </div>
+    <ModalGpx ref="ModalGpxRef"></ModalGpx>
+    <ModalAbout ref="ModalAboutRef"></ModalAbout>
   </div>
-  <a-modal v-model:visible="ModalVisible" width="300px" @ok="handleOk">
-    <template #title>
-      保存路线
-    </template>
-
-    <a-form :model="globalMapTrailGPXGeoJsonProperties" layout="vertical">
-      <a-form-item field="name" label="命名">
-        <a-input v-model="globalMapTrailGPXGeoJsonProperties.name" placeholder="命名" />
-      </a-form-item>
-      <a-form-item field="desc" label="描述">
-        <a-input v-model="globalMapTrailGPXGeoJsonProperties.desc" placeholder="描述" />
-      </a-form-item>
-      <a-form-item field="type" label="类型">
-        <a-input v-model="globalMapTrailGPXGeoJsonProperties.type" placeholder="类型" />
-      </a-form-item>
-      <a-form-item field="link" label="链接">
-        <a-input v-model="globalMapTrailGPXGeoJsonProperties.link" placeholder="链接" />
-      </a-form-item>
-    </a-form>
-  </a-modal>
 </template>

@@ -6,7 +6,6 @@ import type { MyFeature } from './types'
 
 export const globalIsMapboxLoad = ref(false)
 export const globalSettingModalVisible = ref(false)
-export const globalAboutModalVisible = ref(false)
 export const globalWeixinMiniAppModalVisible = ref(false)
 export const globalJoinUsModalVisible = ref(false)
 export const globalMapDrawEnable = ref(false)

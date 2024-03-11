@@ -5,7 +5,7 @@ import { globalCurrentProperties } from '~/composables'
 <template>
   <MapBoxWrap class="mt-8px">
     <template #title>
-      要素信息
+      Feature Info/要素信息
     </template>
     <div v-if="globalComputedMapFeatureSelect" class="text-size-12px bg-gray-100 rounded-8px py-8px mt-8px px-8px">
       <div class="grid grid-cols-3 gap-4px">

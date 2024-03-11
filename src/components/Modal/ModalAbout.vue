@@ -1,9 +1,17 @@
 <script lang="ts" setup>
-import { globalAboutModalVisible } from '~/composables'
+const ModalVisible = ref(false)
+
+function open() {
+  ModalVisible.value = true
+}
+
+defineExpose({
+  open
+})
 </script>
 
 <template>
-  <a-modal v-model:visible="globalAboutModalVisible" :footer="false">
+  <a-modal v-model:visible="ModalVisible" :footer="false">
     <template #title>
       关于
     </template>
@@ -44,6 +52,12 @@ import { globalAboutModalVisible } from '~/composables'
           target="_blank"
           rel="noreferrer"
         >jihulab数据源</a>
+        <a
+          class="link-text"
+          href="https://enjqkboeqf.feishu.cn/share/base/form/shrcnoe95aMXAUGejzSvvEW9O2b"
+          target="_blank"
+          rel="noreferrer"
+        >飞书多维表格数据源[停车位]</a>
       </a-typography-text>
     </ASpace>
   </a-modal>

@@ -6,7 +6,7 @@
     <TypeLayer />
     <DrawLayer />
     <FeatureInfo />
-    <GpxLog />
-    <GpxList />
+    <!-- <GpxLog /> -->
+    <!-- <GpxList /> -->
   </div>
 </template>

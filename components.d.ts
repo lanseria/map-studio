@@ -21,6 +21,7 @@ declare module 'vue' {
     ModalAbout: typeof import('./src/components/Modal/ModalAbout.vue')['default']
     ModalDataMultipleMarker: typeof import('./src/components/Modal/ModalDataMultipleMarker.vue')['default']
     ModalDrawDataUpload: typeof import('./src/components/Modal/ModalDrawDataUpload.vue')['default']
+    ModalGpx: typeof import('./src/components/Modal/ModalGpx.vue')['default']
     ModalJoinUs: typeof import('./src/components/Modal/ModalJoinUs.vue')['default']
     ModalMapDraw: typeof import('./src/components/Modal/ModalMapDraw.vue')['default']
     ModalWeixinMiniApp: typeof import('./src/components/Modal/ModalWeixinMiniApp.vue')['default']

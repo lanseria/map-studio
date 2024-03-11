@@ -16,7 +16,7 @@ const computedTreeData = computed(() => {
 <template>
   <MapBoxWrap class="mt-8px">
     <template #title>
-      DrawLayer筛选
+      Draw Layer/自画图层
     </template>
     <a-tree
       :checkable="true"

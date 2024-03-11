@@ -12,7 +12,7 @@ onMounted(() => {
   <AConfigProvider
     :locale="zhCN"
   >
-    <main font-sans>
+    <main class="font-sans!">
       <MapLayout>
         <RouterView />
       </MapLayout>

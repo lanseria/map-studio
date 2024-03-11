@@ -575,7 +575,6 @@ declare module 'vue' {
     readonly getColorByName: UnwrapRef<typeof import('./src/composables/utils')['getColorByName']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
-    readonly globalAboutModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalAboutModalVisible']>
     readonly globalComputedMapFeatureSelect: UnwrapRef<typeof import('./src/composables/global')['globalComputedMapFeatureSelect']>
     readonly globalCurrentProperties: UnwrapRef<typeof import('./src/composables/global')['globalCurrentProperties']>
     readonly globalHandleMapDrawToggle: UnwrapRef<typeof import('./src/composables/global')['globalHandleMapDrawToggle']>
@@ -992,7 +991,6 @@ declare module '@vue/runtime-core' {
     readonly getColorByName: UnwrapRef<typeof import('./src/composables/utils')['getColorByName']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
-    readonly globalAboutModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalAboutModalVisible']>
     readonly globalComputedMapFeatureSelect: UnwrapRef<typeof import('./src/composables/global')['globalComputedMapFeatureSelect']>
     readonly globalCurrentProperties: UnwrapRef<typeof import('./src/composables/global')['globalCurrentProperties']>
     readonly globalHandleMapDrawToggle: UnwrapRef<typeof import('./src/composables/global')['globalHandleMapDrawToggle']>

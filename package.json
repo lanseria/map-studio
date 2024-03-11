@@ -11,7 +11,7 @@
     "up": "taze major -I"
   },
   "dependencies": {
-    "@arco-design/web-vue": "2.54.5",
+    "@arco-design/web-vue": "^2.54.6",
     "@mapbox/mapbox-gl-draw": "^1.4.3",
     "@mapbox/mapbox-gl-geocoder": "^5.0.2",
     "@mapbox/mapbox-gl-language": "^1.0.1",
