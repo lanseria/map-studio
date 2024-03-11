@@ -31,7 +31,13 @@ export function mapLoad() {
   map.addLayer({
       id: 'graticule',
       type: 'line',
-      source: 'graticule'
+      source: 'graticule',
+      paint: {
+        'line-color': '#000000', // 设置线条颜色，这里为黑色
+        'line-opacity': 0.5, // 设置线条透明度，这里为0.5，即半透明
+        'line-width': 1, // 设置线条宽度，这里为1个像素
+        'line-dasharray': [2, 2] // 设置线条样式为虚线，每个虚线由2个单位的实线和2个单位的虚线组成
+      }
   });
   if (map.hasImage('pulsing-dot'))
     map.removeImage('pulsing-dot')
