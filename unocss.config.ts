@@ -22,9 +22,9 @@ export default defineConfig({
     }),
     presetWebFonts({
       fonts: {
-        sans: 'Roboto',
-        serif: 'IBM Plex Serif',
-        mono: 'Roboto Mono',
+        sans: 'Noto Sans Simplified Chinese',
+        serif: 'Noto Serif Simplified Chinese',
+        mono: 'Noto Sans Mono',
       },
     }),
   ],

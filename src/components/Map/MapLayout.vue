@@ -59,17 +59,17 @@ onMounted(() => {
   map.addControl(new LayersControl({ }), 'bottom-right')
 
   map.on('load', () => {
-    setTimeout(() => {
-      globalIsMapboxLoad.value = true
-    }, 500)
+    console.warn('[map.load]')
     map!.resize()
   })
   map.on('style.load', () => {
-    console.warn('style.load')
+    console.warn('[style.load]')
+    globalIsMapboxLoad.value = true
     mapLoad()
   })
 
   map.on('draw.create', (e) => {
+    console.warn('[draw.create]')
     pushMapDrawFeatures(e.features[0])
     draw.deleteAll()
   })
@@ -81,7 +81,7 @@ function toggleLeftSidebar() {
 
 <template>
   <div class="w-full h-screen relative">
-    <div ref="mapContainer" class="w-full h-full relative">
+    <div ref="mapContainer" class="w-full h-full relative map-container">
       <MapHeader />
       <div class="bg-light-50 bg-opacity-30 transition-transform duration-500 z-1 w-300px h-full absolute flex justify-center items-center left-0" :class="`${storeMapLeftCollapsed ? 'collapsed' : ''}`">
         <div class="w-[calc(100%-12px)] h-[calc(100%-16px)] bg-transparent rounded-lg absolute flex">
@@ -96,6 +96,9 @@ function toggleLeftSidebar() {
 </template>
 
 <style lang="css" scoped>
+.map-container > * {
+  @apply font-sans;
+}
 :global(.mapbox-control button) {
   display: flex;
   align-items: center;

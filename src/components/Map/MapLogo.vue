@@ -4,7 +4,7 @@
 <template>
   <div class="flex p-1 items-center">
     <div class="logo" />
-    <div class="ml-2 justify-start text-size-18px">
+    <div class="ml-2 justify-start text-size-18px font-serif">
       Map Studio 万物分享
     </div>
   </div>

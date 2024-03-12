@@ -1,13 +1,8 @@
 <script lang="ts" setup>
-import { globalMapTrailGPXGeoJsonProperties } from '~/composables'
 const ModalGpxRef = shallowRef()
 const ModalAboutRef = shallowRef()
 function gotoDonate() {
   open('https://afdian.net/a/lanseria')
-}
-function handleBeforeSubmit() {
-  globalMapTrailGPXGeoJsonProperties.value = initGpxProperties()
-  ModalGpxRef.value.open()
 }
 function handleAbout() {
   ModalAboutRef.value.open()
@@ -38,25 +33,6 @@ function handleAbout() {
       </div>
     </div>
     <div class="flex items-center mr-8px">
-      <a-trigger trigger="click" show-arrow :popup-translate="[0, 20]">
-        <div class="ml-8px cursor-pointer hover:underline hover:text-dark-3">
-          Trail
-        </div>
-        <template #content>
-          <div class="bg-white shadow-lg w-300px">
-            <img src="https://jihulab.com/data1355712/digital-cartography/-/raw/main/%E5%B1%8F%E5%B9%95%E5%BD%95%E5%88%B62023-07-11_10.45.53.gif">
-            <a-button v-if="globalTrailGpxStatus === '1'" type="primary" long @click="globalHandleStartTrailGpx">
-              开始记录
-            </a-button>
-            <a-button v-if="globalTrailGpxStatus === '2'" type="primary" status="danger" long @click="globalHandleStopTrailGpx">
-              停止记录
-            </a-button>
-            <a-button v-if="globalTrailGpxStatus === '3'" type="primary" status="success" long @click="handleBeforeSubmit">
-              保存记录
-            </a-button>
-          </div>
-        </template>
-      </a-trigger>
       <div class="ml-8px cursor-pointer" :class="globalMapDrawEnable ? 'bg-green' : ''" @click="globalHandleMapDrawToggle()">
         Draw
       </div>
