@@ -3,8 +3,6 @@ import type { MyFeature } from './types'
 
 export const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN
 
-console.warn('renderer constant: ', MAPBOX_TOKEN)
-
 export const DEFAULT_ICONFONT_CN_URL = '//at.alicdn.com/t/c/font_3827842_wufq09bulno.js'
 
 export const MAPBOX_STYLE_LIST = [
@@ -121,38 +119,14 @@ export const INIT_POINT_TEXT_SIZE = 12
 export const INIT_LINE_OPACITY = 0.8
 
 export const INIT_RASTER_OPACITY = 0.5
-
+// Draw图层
 export const MAP_DRAW_SOURCE = 'MAP_DRAW_SOURCE'
 export const MAP_DRAW_LAYER_POLYGON_FILL = 'MAP_DRAW_LAYER_POLYGON_FILL'
 export const MAP_DRAW_LAYER_POLYGON_OUTLINE = 'MAP_DRAW_LAYER_POLYGON_OUTLINE'
 export const MAP_DRAW_LAYER_STRINGLINE = 'MAP_DRAW_LAYER_STRINGLINE'
 export const MAP_DRAW_LAYER_POINT = 'MAP_DRAW_LAYER_POINT'
 
-export const MAP_DATA_SOURCE = 'MAP_DATA_SOURCE'
-export const MAP_DATA_LAYER_POINT = 'MAP_DATA_LAYER_POINT'
-
-export const MAP_DATA_TYPE = [
-  {
-    label: '户外旅行UP主',
-    value: 'travel_example',
-  },
-]
-
-export const MAP_DATA_LIST = [
-  {
-    type: 'travel_example',
-    label: '徐云流浪中国',
-    value: '/xuyun-data',
-    issue: 'incoming+data1355712-xuyun-data-114561-d4uz7cegv0krtvsns2ipla067-issue@mg.jihulab.com',
-  },
-  {
-    type: 'travel_example',
-    label: '十三要和拳头',
-    value: '/shisanyaoshitou-data',
-    issue: 'incoming+data1355712-shisanyaoshitou-data-116130-d4uz7cegv0krtvsns2ipla067-issue@mg.jihulab.com',
-  },
-]
-
+// 气象图层
 const now = new Date()
 const utcDate = new Date(now.getTime() + now.getTimezoneOffset() * 60000)
 const formattedDate = dayjs(utcDate).subtract(1, 'hour').format('YYYY-MM-DDTHH:00')
@@ -184,51 +158,15 @@ export const WEATHER_LIST = [
     tiles: `https://b.sat.owm.io/maps/2.0/radar/{z}/{x}/{y}?appid=${WEATHER_TOKEN}&day=${formattedDate}`,
   },
 ]
-export const WEATHER_MODEL_LIST = [
-  {
-    label: '盘古模型',
-    value: 'pangu',
-    color: '#FFC72E',
-  },
-  {
-    label: 'ECWMF',
-    value: 'ec',
-    color: '#3491FA',
-  },
-]
-export const PANGU_LAYER_IMG_LIST = [
-  // {
-  //   name: 'pangu_medium-mslp-wind850_2023-07-24_12_5_line',
-  //   url: '/1693267200.png',
-  // },
-]
-
-export const PANGU_TIMELINE_IMG_LIST = [
-  {
-    label: '2023-10-07_00.json',
-    url: '/2023-10-07_00.json',
-  },
-  {
-    label: '2023-10-06_12.json',
-    url: '/2023-10-06_12.json',
-  },
-]
-
-export const MAP_DATA_STORM_FORECAST_PANGU_GIF_SOURCE = 'storm-forecast-pangu-gif-source'
-export const MAP_DATA_STORM_FORECAST_PANGU_GIF_LAYER = 'storm-forecast-pangu-gif-layer'
-export const MAP_DATA_STORM_FORECAST_PANGU_VIDEO_LAYER = 'storm-forecast-pangu-video-layer'
-
-export const PANGU_VIDEO_LIST = [
-  {
-    label: 'pangu_medium-mslp-wind850_2023-08-27_12',
-    urls: ['https://s8zygv-pangu.oss.laf.run/output_pangu_medium-mslp-wind850_2023-08-27_12.mp4'],
-  },
-]
-
+// 经纬度
 export const GRATICULE = {
   type: 'FeatureCollection',
   features: [] as MyFeature[],
 }
+
+export const GRATICULE_SOURCE_NAME = 'graticule_source'
+export const GRATICULE_LAYER_NAME = 'graticule_layer'
+
 for (let lng = -170; lng <= 180; lng += 10) {
   GRATICULE.features.push({
     type: 'Feature',
@@ -243,3 +181,8 @@ for (let lat = -80; lat <= 80; lat += 10) {
     properties: { value: lat },
   })
 }
+// 停车场图层
+export const PARKING_SPOT_SOURCE_NAME = 'parking_spot_source'
+export const PARKING_SPOT_LAYER_NAME = 'parking_spot_layer'
+export const PARKING_SPOT_CLUSTER_LAYER_NAME = 'parking_spot_cluster_layer'
+export const PARKING_SPOT_CLUSTER_COUNT_LAYER_NAME = 'parking_spot_cluster_count_layer'

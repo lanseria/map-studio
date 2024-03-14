@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import type { TreeNodeData } from '@arco-design/web-vue'
+import { center } from '@turf/turf'
 import { fetchParkingSpot, fetchParkingSpotCount } from '~/composables/api'
 
 const treeData = ref([] as TreeNodeData[])
@@ -9,13 +10,23 @@ async function fetchData() {
 }
 async function handleSelect(node: any) {
   if (node.extra) {
-    // console.log(node.label, node.extra)
     const { data } = await fetchParkingSpot(node.label, node.extra)
-    // console.log(data)
+    globalParkingSpotGeo.value = data
+    addParkingSpotSource(PARKING_SPOT_SOURCE_NAME, data)
+    addParkingSpotLayer()
+    const centerPoint = center(data)
+    window.map.flyTo({
+      center: [centerPoint.geometry.coordinates[0], centerPoint.geometry.coordinates[1]],
+      zoom: 15,
+    })
+    storeMapLeftCollapsed.value = true
   }
 }
 onMounted(() => {
   fetchData()
+})
+onBeforeUnmount(() => {
+  clearParkingSpotSource(PARKING_SPOT_SOURCE_NAME)
 })
 </script>
 

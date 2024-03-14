@@ -5,7 +5,7 @@
   <div class="w-full text-size-14px">
     <TypeLayer />
     <DrawLayer />
-    <FeatureInfo v-if="globalComputedMapFeatureSelect" />
+    <FeatureInfo />
     <!-- <GpxLog /> -->
     <!-- <GpxList /> -->
   </div>

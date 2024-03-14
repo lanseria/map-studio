@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-const ModalGpxRef = shallowRef()
 const ModalAboutRef = shallowRef()
 function gotoDonate() {
   open('https://afdian.net/a/lanseria')
@@ -41,7 +40,6 @@ function handleAbout() {
         <div class="i-gis-polygon-pt text-size-16px" :class="{ 'bg-green': globalMapDrawMode === 'draw_polygon' }" />
       </div>
     </div>
-    <ModalGpx ref="ModalGpxRef" />
     <ModalAbout ref="ModalAboutRef" />
   </div>
 </template>

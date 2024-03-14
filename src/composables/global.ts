@@ -1,4 +1,5 @@
-import { cloneDeep, isEmpty } from 'lodash-es'
+import { cloneDeep } from 'lodash-es'
+import type { FeatureCollection } from '@turf/turf'
 import { center } from '@turf/turf'
 import { nanoid } from 'nanoid'
 import { handleSetLineString, handleSetPoint, handleSetPolygon, reloadMapDrawLayer } from './draw/mode'
@@ -10,54 +11,17 @@ export const globalWeixinMiniAppModalVisible = ref(false)
 export const globalJoinUsModalVisible = ref(false)
 export const globalMapDrawEnable = ref(false)
 export const globalMapDrawEdit = ref(false)
-export const globalMapPhotoLoading = ref(false)
-export const globalMapPhotoPlaying = ref(false)
 
-export const globalMapTrailGPXGeoJson = ref({})
-export const globalMapTrailGPXGeoJsonProperties = ref(initGpxProperties())
 export const globalMapDrawMode = ref('')
 export const globalCurrentProperties = ref<any>({})
 export const globalMapDrawFeatures = ref<MyFeature[]>([])
 
-export const globalStorePanguPhotosKeys = ref<string[]>([])
-
-export const globalStorePanguPhotosKeysCurrent = ref<string>('')
-
-export const globalComputedMapFeatureSelect = computed(() => {
-  return !isEmpty(globalCurrentProperties.value)
-})
-/**
- * 1 new ready to start
- * 2 start trail gpx
- * 3 finish trail gpx
- */
-export const globalTrailGpxStatus = ref('1')
-
-export function globalHandleStartTrailGpx() {
-  if (globalTrailGpxStatus.value === '1') {
-    storeMapTrailGPXPoints.value = []
-    globalTrailGpxStatus.value = '2'
-  }
-}
-
-export function globalHandleStopTrailGpx() {
-  if (globalTrailGpxStatus.value === '2')
-    globalTrailGpxStatus.value = '3'
-}
-
-export function globalHandleSaveTrailGpx() {
-  if (globalTrailGpxStatus.value === '3') {
-    //
-    globalMapTrailGPXGeoJson.value = convertToGeoJSON(storeMapTrailGPXPoints.value, globalMapTrailGPXGeoJsonProperties.value)
-    storeMapTrailGPXLines.value.push(globalMapTrailGPXGeoJson.value)
-    globalTrailGpxStatus.value = '1'
-    updateTrailGpxSourceLayer()
-  }
-}
-
 export const globalMapCenter = ref(INIT_POINT)
 
-export const globalMapRulerCoordinates = ref([])
+export const globalParkingSpotGeo = ref<FeatureCollection>({
+  type: 'FeatureCollection',
+  features: [],
+})
 
 export function globalHandleMapDrawToggle(val?: boolean) {
   globalMapDrawEnable.value = val ?? !globalMapDrawEnable.value

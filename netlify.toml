@@ -1,10 +1,10 @@
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "20"
   NODE_OPTIONS = "--max-old-space-size=32768"
 
 [build]
   publish = "dist"
-  command = "pnpm build"
+  command = "pnpm check && pnpm build"
 
 [[redirects]]
   from = "/*"
