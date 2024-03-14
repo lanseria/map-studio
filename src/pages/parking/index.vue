@@ -37,7 +37,7 @@ onBeforeUnmount(() => {
 <template>
   <MapBoxWrap>
     <template #title>
-      🅿️停车场
+      Parking Spot/🅿️停车场
     </template>
     <ATree block-node :data="treeData" action-on-node-click="expand" :field-names="{ title: 'label', key: 'value' }">
       <template #title="nodeData">

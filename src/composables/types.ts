@@ -84,6 +84,10 @@ export interface ParkingSpotPointProps {
    */
   type: string
   /**
+   * 类型颜色
+   */
+  typeColor: string
+  /**
    * 免费/收费
    */
   isFree: string

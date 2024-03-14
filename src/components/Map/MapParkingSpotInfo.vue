@@ -27,7 +27,7 @@ function handleClose() {
     <p>
       <span
         class="inline-block align-middle"
-        :style="{ color: globalParkingSpotCurrent.properties?.color }"
+        :style="{ color: globalParkingSpotCurrent.properties?.typeColor }"
       >{{ globalParkingSpotCurrent.properties?.type }}
       </span>
       <template v-if="globalParkingSpotCurrent.properties?.isFree === '收费'">

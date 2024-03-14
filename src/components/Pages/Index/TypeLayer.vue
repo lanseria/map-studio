@@ -3,7 +3,7 @@ const route = useRoute()
 const router = useRouter()
 const treeData = [
   {
-    title: '停车场',
+    title: '🅿️停车场',
     key: 'parking',
   },
 ]
@@ -15,7 +15,7 @@ function handleSelect(e: any) {
 <template>
   <MapBoxWrap>
     <template #title>
-      Features/要素
+      Search Features/查询要素
     </template>
     <a-tree
       :data="treeData"
