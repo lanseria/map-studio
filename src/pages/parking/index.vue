@@ -21,7 +21,8 @@ async function handleSelect(node: any) {
     setTimeout(() => {
       window.map.flyTo({
         center: centerPoint.geometry.coordinates as LngLatLike,
-        zoom: 15,
+        zoom: 10,
+        speed: 2
       })
     }, 200)
   }
