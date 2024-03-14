@@ -11,13 +11,13 @@ defineExpose({
 </script>
 
 <template>
-  <a-modal v-model:visible="ModalVisible" :footer="false">
+  <AModal v-model:visible="ModalVisible" :width="400" :footer="false">
     <template #title>
       关于
     </template>
     <ASpace direction="vertical" align="center" class="w-full">
       <MapLogo />
-      <a-typography-text>
+      <ATypographyText>
         技术栈
         <a
           class="link-text"
@@ -31,8 +31,8 @@ defineExpose({
           target="_blank"
           rel="noreferrer"
         >Vue3</a>
-      </a-typography-text>
-      <a-typography-text>
+      </ATypographyText>
+      <ATypographyText>
         Made by  <a
           class="link-text"
           href="https://github.com/lanseria"
@@ -44,8 +44,8 @@ defineExpose({
           target="_blank"
           rel="noreferrer"
         >@爱吃包子的超</a>
-      </a-typography-text>
-      <a-typography-text>
+      </ATypographyText>
+      <ATypographyText>
         Data from: <a
           class="link-text"
           href="https://jihulab.com/data1355712"
@@ -58,9 +58,9 @@ defineExpose({
           target="_blank"
           rel="noreferrer"
         >飞书多维表格数据源[停车位]</a>
-      </a-typography-text>
+      </ATypographyText>
     </ASpace>
-  </a-modal>
+  </AModal>
 </template>
 
 <style lang="css" scoped>

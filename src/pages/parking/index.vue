@@ -35,7 +35,7 @@ onBeforeUnmount(() => {
     <template #title>
       🅿️停车场
     </template>
-    <ATree block-node :data="treeData" :field-names="{ title: 'label', key: 'value' }">
+    <ATree block-node :data="treeData" action-on-node-click="expand" :field-names="{ title: 'label', key: 'value' }">
       <template #title="nodeData">
         <div @click="handleSelect(nodeData)">
           {{ nodeData.label }}<span>({{ nodeData.count }})</span>

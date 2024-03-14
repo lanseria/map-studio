@@ -18,6 +18,7 @@ declare module 'vue' {
     MapHeader: typeof import('./src/components/Map/MapHeader.vue')['default']
     MapLayout: typeof import('./src/components/Map/MapLayout.vue')['default']
     MapLogo: typeof import('./src/components/Map/MapLogo.vue')['default']
+    MapParkingSpotInfo: typeof import('./src/components/Map/MapParkingSpotInfo.vue')['default']
     ModalAbout: typeof import('./src/components/Modal/ModalAbout.vue')['default']
     ModalDataMultipleMarker: typeof import('./src/components/Modal/ModalDataMultipleMarker.vue')['default']
     ModalDrawDataUpload: typeof import('./src/components/Modal/ModalDrawDataUpload.vue')['default']

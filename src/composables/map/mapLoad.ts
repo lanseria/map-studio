@@ -1,3 +1,5 @@
+import { addMapParkingSpotLayerClickEvents } from './mapClick'
+
 export function mapLoad() {
   const map = window.map
   // 显示经纬度
@@ -40,4 +42,6 @@ export function mapLoad() {
       },
     })
   })
+  // 点击事件
+  addMapParkingSpotLayerClickEvents()
 }

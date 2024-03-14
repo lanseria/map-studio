@@ -69,10 +69,40 @@ export interface GeoJsonStormFeature {
   }
 }
 
-// export interface EcForecast {
+export interface ParkingSpotPointProps {
+  id: string
+  /**
+   * 描述
+   */
+  desc: string
+  /**
+   * 免费颜色
+   */
+  color: string
+  /**
+   * 类型
+   */
+  type: string
+  /**
+   * 免费/收费
+   */
+  isFree: string
+  /**
+   * 是否节假日免费
+   */
+  holiday: boolean
+  marker: string
+  /**
+   * 前几个小时免费
+   */
+  freeHours: string
+  /**
+   * 社交链接
+   */
+  link: string
+}
 
-// }
-// export interface EcStormForecast {
-//   name: string
-//   forecasts
-// }
+export interface ParkingSpotCurrent {
+  coordinates: number[]
+  properties?: ParkingSpotPointProps
+}

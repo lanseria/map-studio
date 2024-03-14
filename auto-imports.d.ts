@@ -121,6 +121,7 @@ declare global {
   const globalMapDrawEnable: typeof import('./src/composables/global')['globalMapDrawEnable']
   const globalMapDrawFeatures: typeof import('./src/composables/global')['globalMapDrawFeatures']
   const globalMapDrawMode: typeof import('./src/composables/global')['globalMapDrawMode']
+  const globalParkingSpotCurrent: typeof import('./src/composables/global')['globalParkingSpotCurrent']
   const globalParkingSpotGeo: typeof import('./src/composables/global')['globalParkingSpotGeo']
   const globalSettingModalVisible: typeof import('./src/composables/global')['globalSettingModalVisible']
   const globalWeixinMiniAppModalVisible: typeof import('./src/composables/global')['globalWeixinMiniAppModalVisible']
@@ -505,6 +506,7 @@ declare module 'vue' {
     readonly globalMapDrawEnable: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawEnable']>
     readonly globalMapDrawFeatures: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawFeatures']>
     readonly globalMapDrawMode: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawMode']>
+    readonly globalParkingSpotCurrent: UnwrapRef<typeof import('./src/composables/global')['globalParkingSpotCurrent']>
     readonly globalParkingSpotGeo: UnwrapRef<typeof import('./src/composables/global')['globalParkingSpotGeo']>
     readonly globalSettingModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalSettingModalVisible']>
     readonly globalWeixinMiniAppModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalWeixinMiniAppModalVisible']>
@@ -880,6 +882,7 @@ declare module '@vue/runtime-core' {
     readonly globalMapDrawEnable: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawEnable']>
     readonly globalMapDrawFeatures: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawFeatures']>
     readonly globalMapDrawMode: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawMode']>
+    readonly globalParkingSpotCurrent: UnwrapRef<typeof import('./src/composables/global')['globalParkingSpotCurrent']>
     readonly globalParkingSpotGeo: UnwrapRef<typeof import('./src/composables/global')['globalParkingSpotGeo']>
     readonly globalSettingModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalSettingModalVisible']>
     readonly globalWeixinMiniAppModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalWeixinMiniAppModalVisible']>

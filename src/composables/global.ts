@@ -3,7 +3,7 @@ import type { FeatureCollection } from '@turf/turf'
 import { center } from '@turf/turf'
 import { nanoid } from 'nanoid'
 import { handleSetLineString, handleSetPoint, handleSetPolygon, reloadMapDrawLayer } from './draw/mode'
-import type { MyFeature } from './types'
+import type { MyFeature, ParkingSpotCurrent } from './types'
 
 export const globalIsMapboxLoad = ref(false)
 export const globalSettingModalVisible = ref(false)
@@ -21,6 +21,11 @@ export const globalMapCenter = ref(INIT_POINT)
 export const globalParkingSpotGeo = ref<FeatureCollection>({
   type: 'FeatureCollection',
   features: [],
+})
+
+export const globalParkingSpotCurrent = ref<ParkingSpotCurrent>({
+  coordinates: [],
+  properties: undefined,
 })
 
 export function globalHandleMapDrawToggle(val?: boolean) {

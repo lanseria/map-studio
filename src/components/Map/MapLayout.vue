@@ -83,6 +83,7 @@ function toggleLeftSidebar() {
   <div class="relative h-screen w-full">
     <div ref="mapContainer" class="map-container relative h-full w-full">
       <MapHeader />
+      <MapParkingSpotInfo v-if="globalParkingSpotCurrent.properties" />
       <div class="absolute left-0 z-1 h-full w-300px flex items-center justify-center bg-light-50 bg-opacity-30 transition-transform duration-500" :class="`${storeMapLeftCollapsed ? 'collapsed' : ''}`">
         <div class="absolute h-[calc(100%-16px)] w-[calc(100%-12px)] flex rounded-lg bg-transparent">
           <slot />
