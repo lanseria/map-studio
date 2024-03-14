@@ -27,7 +27,7 @@ const routes = [
       </a-breadcrumb>
     </template>
     <div class="grid grid-cols-3 items-center justify-center justify-items-center">
-      <div v-for="item in WEATHER_MODEL_LIST" :key="item.value" class="flex flex-col items-center cursor-pointer" @click="() => $router.push({ path: `/typhoon/forecast/${item.value}` })">
+      <div v-for="item in WEATHER_MODEL_LIST" :key="item.value" class="flex flex-col cursor-pointer items-center" @click="() => $router.push({ path: `/typhoon/forecast/${item.value}` })">
         <a-avatar :style="{ backgroundColor: item.color }">
           {{ item.value }}
         </a-avatar>

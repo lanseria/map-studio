@@ -32,7 +32,7 @@ watch(() => storeMapPhotoPlayingVisible.value, () => {
       <a-select
         v-model="storePanguTimelineValue" :options="PANGU_TIMELINE_IMG_LIST" :field-names="fieldNames"
       />
-      <div class="flex justify-center mt-10px">
+      <div class="mt-10px flex justify-center">
         <a-button-group>
           <a-button
             type="outline" :loading="

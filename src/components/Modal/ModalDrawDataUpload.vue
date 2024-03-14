@@ -43,7 +43,7 @@ watchEffect(() => {
       提示
     </template>
     <div>
-      <div class="flex justify-between items-center mb-10px">
+      <div class="mb-10px flex items-center justify-between">
         <div>
           确定提交此数据嘛？
         </div>

@@ -12,7 +12,7 @@ onMounted(() => {
   <AConfigProvider
     :locale="zhCN"
   >
-    <main >
+    <main>
       <MapLayout>
         <RouterView />
       </MapLayout>

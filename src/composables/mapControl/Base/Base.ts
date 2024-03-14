@@ -3,9 +3,7 @@ import type Button from '../Button/Button'
 
 class Base {
   node: HTMLDivElement
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
-  map: Map
+  map: Map | undefined
 
   constructor() {
     this.node = document.createElement('div')

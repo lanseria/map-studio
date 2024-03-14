@@ -100,6 +100,8 @@ declare global {
   const endPhoto: typeof import('./src/composables/map/mapLayer')['endPhoto']
   const exitCreateViewFlightRoute: typeof import('./src/composables/map/mapViewFlight')['exitCreateViewFlightRoute']
   const extendRef: typeof import('@vueuse/core')['extendRef']
+  const fetchParkingSpot: typeof import('./src/composables/api')['fetchParkingSpot']
+  const fetchParkingSpotCount: typeof import('./src/composables/api')['fetchParkingSpotCount']
   const getColorByName: typeof import('./src/composables/utils')['getColorByName']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
@@ -572,6 +574,8 @@ declare module 'vue' {
     readonly endPhoto: UnwrapRef<typeof import('./src/composables/map/mapLayer')['endPhoto']>
     readonly exitCreateViewFlightRoute: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['exitCreateViewFlightRoute']>
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
+    readonly fetchParkingSpot: UnwrapRef<typeof import('./src/composables/api')['fetchParkingSpot']>
+    readonly fetchParkingSpotCount: UnwrapRef<typeof import('./src/composables/api')['fetchParkingSpotCount']>
     readonly getColorByName: UnwrapRef<typeof import('./src/composables/utils')['getColorByName']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
@@ -664,9 +668,7 @@ declare module 'vue' {
     readonly refWithControl: UnwrapRef<typeof import('@vueuse/core')['refWithControl']>
     readonly reloadDataSourceLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadDataSourceLayer']>
     readonly reloadMapGpxLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadMapGpxLayer']>
-    readonly reloadPanguImagesLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadPanguImagesLayer']>
     readonly reloadPanguPhotosGifLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadPanguPhotosGifLayer']>
-    readonly reloadPanguVideo: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadPanguVideo']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
     readonly resolveUnref: UnwrapRef<typeof import('@vueuse/core')['resolveUnref']>
@@ -988,6 +990,8 @@ declare module '@vue/runtime-core' {
     readonly endPhoto: UnwrapRef<typeof import('./src/composables/map/mapLayer')['endPhoto']>
     readonly exitCreateViewFlightRoute: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['exitCreateViewFlightRoute']>
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
+    readonly fetchParkingSpot: UnwrapRef<typeof import('./src/composables/api')['fetchParkingSpot']>
+    readonly fetchParkingSpotCount: UnwrapRef<typeof import('./src/composables/api')['fetchParkingSpotCount']>
     readonly getColorByName: UnwrapRef<typeof import('./src/composables/utils')['getColorByName']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
@@ -1080,9 +1084,7 @@ declare module '@vue/runtime-core' {
     readonly refWithControl: UnwrapRef<typeof import('@vueuse/core')['refWithControl']>
     readonly reloadDataSourceLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadDataSourceLayer']>
     readonly reloadMapGpxLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadMapGpxLayer']>
-    readonly reloadPanguImagesLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadPanguImagesLayer']>
     readonly reloadPanguPhotosGifLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadPanguPhotosGifLayer']>
-    readonly reloadPanguVideo: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadPanguVideo']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
     readonly resolveUnref: UnwrapRef<typeof import('@vueuse/core')['resolveUnref']>

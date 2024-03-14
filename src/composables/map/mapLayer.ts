@@ -47,10 +47,7 @@ export function drawPoint() {
       'text-halo-width': 1,
       'text-halo-blur': 0,
     },
-    filter: ['all',
-      ['==', ['geometry-type'], 'Point'],
-      ['==', ['get', 'sessionId'], globalSessionId.value],
-    ],
+    filter: ['all', ['==', ['geometry-type'], 'Point'], ['==', ['get', 'sessionId'], globalSessionId.value]],
   })
 }
 
@@ -113,7 +110,7 @@ export function updateDistanceSourceLayer(data: Position[]) {
     })
   }
   else {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // eslint-disable-next-line ts/ban-ts-comment
     // @ts-expect-error
     map.getSource(sourceId).setData(geojsonObj)
   }
@@ -148,7 +145,7 @@ export function updateTrailGpxSourceLayer() {
     })
   }
   else {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // eslint-disable-next-line ts/ban-ts-comment
     // @ts-expect-error
     map.getSource(sourceId).setData(geojsonObj)
   }
@@ -168,47 +165,6 @@ export function updateTrailGpxSourceLayer() {
       'line-opacity': 0.8,
       'line-dasharray': [1, 2], // 设置虚线样式，第一个值表示实线长度，第二个值表示虚线长度
     },
-  })
-}
-
-export function reloadPanguImagesLayer() {
-  const map = window.map
-  PANGU_LAYER_IMG_LIST.forEach((item) => {
-    const visibility = storeMapTypeLayerCheckedKeys.value.includes(item.name) ? 'visible' : 'none'
-    // console.log(visibility)
-    const layerName = `${item.name}-images`
-    if (map.getLayer(layerName)) {
-      // console.log(1)
-      map.setLayoutProperty(
-        layerName,
-        'visibility',
-        visibility,
-      )
-    }
-    else {
-      // console.log(2)
-      map.addLayer({
-        id: layerName,
-        type: 'raster',
-        source: {
-          type: 'image',
-          url: item.url,
-          coordinates: [
-            [72.5, 41.5],
-            [171, 41.5],
-            [171, -42.5],
-            [72.5, -42.5],
-          ],
-        },
-        paint: {
-          'raster-opacity': 0.5,
-          'raster-fade-duration': 0,
-        },
-        layout: {
-          visibility,
-        },
-      })
-    }
   })
 }
 
@@ -323,7 +279,6 @@ export function drawStormLineLayer(data: GeoJsonStormFeature[], id: string) {
 
 function getPath() {
   // 21600
-  console.log(globalStorePanguPhotosKeysCurrent.value)
   const idx = storePanguPhotos.value.findIndex(item => item.time === +globalStorePanguPhotosKeysCurrent.value)
   if (idx >= 0) {
     return storePanguPhotos.value[idx].url
@@ -391,52 +346,6 @@ export function reloadPanguPhotosGifLayer() {
     layout: {
       visibility: storeMapPhotoPlayingVisible.value ? 'visible' : 'none',
     },
-  })
-}
-
-export function reloadPanguVideo() {
-  const map = window.map
-  PANGU_VIDEO_LIST.forEach((item) => {
-    const layerName = MAP_DATA_STORM_FORECAST_PANGU_VIDEO_LAYER
-    const visibility = storeMapVideoVisible.value ? 'visible' : 'none'
-    map.addSource('video', {
-      type: 'video',
-      urls: item.urls,
-      coordinates: [
-        [74, 34.5],
-        [170, 34.5],
-        [170, -18],
-        [74, -18],
-      ],
-    })
-    if (map.getLayer(layerName)) {
-      // console.log(1)
-      map.setLayoutProperty(
-        layerName,
-        'visibility',
-        visibility,
-      )
-    }
-    else {
-      map.addLayer({
-        id: layerName,
-        type: 'raster',
-        source: 'video',
-        paint: {
-          'raster-opacity': 0.7,
-          'raster-fade-duration': 0,
-        },
-        layout: {
-          visibility,
-        },
-      })
-    }
-
-    if (storeMapVideoPlaying.value)
-      map.getSource('video').play()
-
-    else
-      map.getSource('video').pause()
   })
 }
 

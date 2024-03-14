@@ -9,12 +9,12 @@ function open() {
 }
 
 defineExpose({
-  open
+  open,
 })
 </script>
-<template>
 
-<a-modal v-model:visible="ModalVisible" width="300px" @ok="handleOk">
+<template>
+  <a-modal v-model:visible="ModalVisible" width="300px" @ok="handleOk">
     <template #title>
       保存路线
     </template>

@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-    "lint": "eslint .",
+    "lint": "eslint src scripts --fix",
     "preview": "vite preview",
-    "up": "taze major -I"
+    "up": "taze major -I",
+    "check": "node scripts/fetch.mjs"
   },
   "dependencies": {
     "@arco-design/web-vue": "^2.54.6",
@@ -19,6 +20,7 @@
     "@turf/turf": "^6.5.0",
     "@vueuse/core": "^10.9.0",
     "@xmldom/xmldom": "^0.8.10",
+    "axios": "^1.6.7",
     "dayjs": "^1.11.10",
     "lodash-es": "^4.17.21",
     "mapbox-gl": "3.1.2",
@@ -39,14 +41,16 @@
     "@iconify-json/mdi": "^1.1.64",
     "@iconify-json/mingcute": "^1.1.16",
     "@types/lodash-es": "^4.17.12",
+    "@types/mapbox-gl": "^3.1.0",
     "@types/mapbox__mapbox-gl-draw": "^1.4.6",
     "@types/mapbox__mapbox-gl-geocoder": "^5.0.0",
-    "@types/mapbox-gl": "^3.1.0",
-    "@types/node": "^20.11.26",
+    "@types/node": "^20.11.27",
     "@types/numeral": "^2.0.5",
+    "@unocss/eslint-plugin": "^0.58.5",
     "@unocss/reset": "^0.58.5",
     "@vitejs/plugin-vue": "^5.0.4",
     "eslint": "^8.57.0",
+    "eslint-plugin-format": "^0.1.0",
     "pnpm": "^8.15.4",
     "taze": "^0.13.3",
     "typescript": "^5.4.2",
@@ -56,8 +60,5 @@
     "vite": "^5.1.6",
     "vite-plugin-pages": "^0.32.0",
     "vue-tsc": "^2.0.6"
-  },
-  "eslintConfig": {
-    "extends": "@antfu"
   }
 }

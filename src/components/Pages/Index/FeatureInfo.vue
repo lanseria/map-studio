@@ -7,7 +7,7 @@ import { globalCurrentProperties } from '~/composables'
     <template #title>
       Feature Info/要素信息
     </template>
-    <div class="text-size-12px bg-gray-100 rounded-8px py-8px mt-8px px-8px">
+    <div class="mt-8px rounded-8px bg-gray-100 px-8px py-8px text-size-12px">
       <div class="grid grid-cols-3 gap-4px">
         <div class="col-span-1">
           ID

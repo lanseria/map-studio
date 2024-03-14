@@ -1,8 +1,6 @@
 // this mode extends the build-in linestring tool, displaying the current length
 // of the line as the user draws using a point feature and a symbol layer
 
-import * as MapboxDraw from '@mapbox/mapbox-gl-draw'
-
 import { getDisplayMeasurements } from './utils'
 
 const ExtendedLineStringMode = {

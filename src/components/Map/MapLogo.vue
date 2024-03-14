@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="flex p-1 items-center">
+  <div class="flex items-center p-1">
     <div class="logo" />
     <div class="ml-2 justify-start text-size-18px font-serif">
       Map Studio 万物分享
@@ -11,7 +11,7 @@
 </template>
 
 <style lang="css" scoped>
-.logo  {
+.logo {
   width: 32px;
   height: 32px;
   opacity: 1;

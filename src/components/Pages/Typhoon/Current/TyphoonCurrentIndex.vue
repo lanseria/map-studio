@@ -46,10 +46,10 @@ function handleToggoleVisible(id: string) {
     <div class="grid grid-cols-3 items-center justify-items-center">
       <div v-for="item in storeStormDataList" :key="item.tfid" @click="handleToggoleVisible(item.tfid)">
         <div
-          class="w-50px h-50px rounded flex justify-center items-center hover:bg-blue-5" :class="
+          class="h-50px w-50px flex items-center justify-center rounded hover:bg-blue-5" :class="
             storeStormDataListCheckedKeys[item.tfid] ? 'bg-blue' : 'bg-gray'"
         >
-          <div class="i-mingcute-typhoon-fill text-size-30px bg-white" />
+          <div class="i-mingcute-typhoon-fill bg-white text-size-30px" />
         </div>
         <div class="text-center">
           {{ item.name }}

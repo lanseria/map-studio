@@ -11,50 +11,37 @@ function handleAbout() {
 
 <template>
   <div
-    class="
-    h-32px
-    w-300px
-    bg-white
-    absolute
-    top-8px
-    left-1/2
-    -translate-x-1/2
-    z-1
-    rounded-lg
-    shadow-md
-    flex
-    items-center
-    justify-between"
+    class="absolute left-1/2 top-8px z-1 h-32px w-300px flex items-center justify-between rounded-lg bg-white shadow-md -translate-x-1/2"
   >
-    <div class="flex items-center ml-8px">
-      <img class="w-24px h-24px" src="/512.png" alt="logo">
+    <div class="ml-8px flex items-center">
+      <img class="h-24px w-24px" src="/512.png" alt="logo">
       <div class="ml-8px font-bold">
         Map Studio
       </div>
     </div>
-    <div class="flex items-center mr-8px">
+    <div class="mr-8px flex items-center">
       <div class="ml-8px cursor-pointer" :class="globalMapDrawEnable ? 'bg-green' : ''" @click="globalHandleMapDrawToggle()">
         Draw
       </div>
       <div class="ml-8px cursor-pointer" @click="handleAbout()">
         About
       </div>
-      <div class="text-pink ml-8px font-bold cursor-pointer hover:text-pink-3" @click="gotoDonate">
+      <div class="ml-8px cursor-pointer text-pink font-bold hover:text-pink-3" @click="gotoDonate">
         Donate 💗
       </div>
     </div>
-    <div v-if="globalMapDrawEnable" class="absolute top-36px flex gap-4px right-0 left-0 justify-center">
-      <div class="bg-white rounded p-6px shadow-lg cursor-pointer" @click="globalHandleSelectDrawMode('draw_point')">
-        <div class="text-size-16px i-gis-point" :class="{ 'bg-green': globalMapDrawMode === 'draw_point' }" />
+    <div v-if="globalMapDrawEnable" class="absolute left-0 right-0 top-36px flex justify-center gap-4px">
+      <div class="cursor-pointer rounded bg-white p-6px shadow-lg" @click="globalHandleSelectDrawMode('draw_point')">
+        <div class="i-gis-point text-size-16px" :class="{ 'bg-green': globalMapDrawMode === 'draw_point' }" />
       </div>
-      <div class="bg-white rounded p-6px shadow-lg cursor-pointer" @click="globalHandleSelectDrawMode('draw_line_string')">
-        <div class="text-size-16px i-gis-polyline-pt" :class="{ 'bg-green': globalMapDrawMode === 'draw_line_string' }" />
+      <div class="cursor-pointer rounded bg-white p-6px shadow-lg" @click="globalHandleSelectDrawMode('draw_line_string')">
+        <div class="i-gis-polyline-pt text-size-16px" :class="{ 'bg-green': globalMapDrawMode === 'draw_line_string' }" />
       </div>
-      <div class="bg-white rounded p-6px shadow-lg cursor-pointer" @click="globalHandleSelectDrawMode('draw_polygon')">
-        <div class="text-size-16px i-gis-polygon-pt" :class="{ 'bg-green': globalMapDrawMode === 'draw_polygon' }" />
+      <div class="cursor-pointer rounded bg-white p-6px shadow-lg" @click="globalHandleSelectDrawMode('draw_polygon')">
+        <div class="i-gis-polygon-pt text-size-16px" :class="{ 'bg-green': globalMapDrawMode === 'draw_polygon' }" />
       </div>
     </div>
-    <ModalGpx ref="ModalGpxRef"></ModalGpx>
-    <ModalAbout ref="ModalAboutRef"></ModalAbout>
+    <ModalGpx ref="ModalGpxRef" />
+    <ModalAbout ref="ModalAboutRef" />
   </div>
 </template>

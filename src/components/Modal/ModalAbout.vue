@@ -6,7 +6,7 @@ function open() {
 }
 
 defineExpose({
-  open
+  open,
 })
 </script>
 

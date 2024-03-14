@@ -37,7 +37,7 @@ export const currentViewFlight = ref<ViewFlight | null>(null)
 export const mapViewFlightList = useStorage<ViewFlight[]>('mapViewFlightList', [])
 let viewFlightRouteMessageInstance: MessageReturn
 
-function closeExit(id: string | number) {
+function closeExit(_id: string | number) {
   isEditViewFlight.value = false
 }
 

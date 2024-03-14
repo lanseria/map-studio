@@ -79,7 +79,6 @@ watchEffect(() => {
 
 /**
  * 将点、线、面转化为geojson格式
- * @param polygon
  */
 export function pushMapDrawFeatures(feature: MyFeature) {
   const centerPoint = center(feature)

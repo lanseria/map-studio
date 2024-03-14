@@ -1,5 +1,4 @@
 import { Message } from '@arco-design/web-vue'
-import { keysIn } from 'lodash-es'
 import type { GeoJsonStormFeature, StormData } from './types'
 import { drawTyphoonLineAndPoints } from './map/mapLayer'
 
@@ -66,6 +65,6 @@ export function handleFetchStormDataUseWindy() {
   const { data, onFetchResponse } = useFetch(`https://node.windy.com/tc/storms
   `).get().json()
   onFetchResponse(() => {
-    console.log(data.value.storms)
+    console.warn(data.value.storms)
   })
 }

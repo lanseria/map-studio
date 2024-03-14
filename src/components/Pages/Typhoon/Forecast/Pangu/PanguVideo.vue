@@ -26,13 +26,13 @@ watch(() => storeMapVideoVisible.value, () => {
       视频时间线
     </template>
     <div>
-      <div class="flex justify-between items-center">
+      <div class="flex items-center justify-between">
         <div>
           是否展示图层:
         </div>
         <ASwitch v-model="storeMapVideoVisible" />
       </div>
-      <div class="flex justify-between items-center mt-10px">
+      <div class="mt-10px flex items-center justify-between">
         <div>
           控制播放:
         </div>

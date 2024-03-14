@@ -80,11 +80,11 @@ function toggleLeftSidebar() {
 </script>
 
 <template>
-  <div class="w-full h-screen relative">
-    <div ref="mapContainer" class="w-full h-full relative map-container">
+  <div class="relative h-screen w-full">
+    <div ref="mapContainer" class="map-container relative h-full w-full">
       <MapHeader />
-      <div class="bg-light-50 bg-opacity-30 transition-transform duration-500 z-1 w-300px h-full absolute flex justify-center items-center left-0" :class="`${storeMapLeftCollapsed ? 'collapsed' : ''}`">
-        <div class="w-[calc(100%-12px)] h-[calc(100%-16px)] bg-transparent rounded-lg absolute flex">
+      <div class="absolute left-0 z-1 h-full w-300px flex items-center justify-center bg-light-50 bg-opacity-30 transition-transform duration-500" :class="`${storeMapLeftCollapsed ? 'collapsed' : ''}`">
+        <div class="absolute h-[calc(100%-16px)] w-[calc(100%-12px)] flex rounded-lg bg-transparent">
           <slot />
           <div class="sidebar-btn left" @click="toggleLeftSidebar()">
             <div :class="`${storeMapLeftCollapsed ? 'i-carbon-chevron-right' : 'i-carbon-chevron-left'}`" />

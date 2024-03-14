@@ -23,7 +23,7 @@ watchEffect(() => {
       提示
     </template>
     <div>
-      <div class="flex justify-between items-center mb-10px">
+      <div class="mb-10px flex items-center justify-between">
         <div>
           可以复制此数据
         </div>
