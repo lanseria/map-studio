@@ -57,6 +57,7 @@ declare global {
   const PARKING_SPOT_CLUSTER_LAYER_NAME: typeof import('./src/composables/constant')['PARKING_SPOT_CLUSTER_LAYER_NAME']
   const PARKING_SPOT_LAYER_NAME: typeof import('./src/composables/constant')['PARKING_SPOT_LAYER_NAME']
   const PARKING_SPOT_SOURCE_NAME: typeof import('./src/composables/constant')['PARKING_SPOT_SOURCE_NAME']
+  const PARKING_SPOT_SUBMIT_LINK: typeof import('./src/composables/constant')['PARKING_SPOT_SUBMIT_LINK']
   const PointTypeEnum: typeof import('./src/composables/constant')['PointTypeEnum']
   const PointTypeEnumMap: typeof import('./src/composables/constant')['PointTypeEnumMap']
   const PolygonTypeEnum: typeof import('./src/composables/constant')['PolygonTypeEnum']
@@ -445,6 +446,7 @@ declare module 'vue' {
     readonly PARKING_SPOT_CLUSTER_LAYER_NAME: UnwrapRef<typeof import('./src/composables/constant')['PARKING_SPOT_CLUSTER_LAYER_NAME']>
     readonly PARKING_SPOT_LAYER_NAME: UnwrapRef<typeof import('./src/composables/constant')['PARKING_SPOT_LAYER_NAME']>
     readonly PARKING_SPOT_SOURCE_NAME: UnwrapRef<typeof import('./src/composables/constant')['PARKING_SPOT_SOURCE_NAME']>
+    readonly PARKING_SPOT_SUBMIT_LINK: UnwrapRef<typeof import('./src/composables/constant')['PARKING_SPOT_SUBMIT_LINK']>
     readonly PointTypeEnum: UnwrapRef<typeof import('./src/composables/constant')['PointTypeEnum']>
     readonly PointTypeEnumMap: UnwrapRef<typeof import('./src/composables/constant')['PointTypeEnumMap']>
     readonly PolygonTypeEnum: UnwrapRef<typeof import('./src/composables/constant')['PolygonTypeEnum']>
@@ -821,6 +823,7 @@ declare module '@vue/runtime-core' {
     readonly PARKING_SPOT_CLUSTER_LAYER_NAME: UnwrapRef<typeof import('./src/composables/constant')['PARKING_SPOT_CLUSTER_LAYER_NAME']>
     readonly PARKING_SPOT_LAYER_NAME: UnwrapRef<typeof import('./src/composables/constant')['PARKING_SPOT_LAYER_NAME']>
     readonly PARKING_SPOT_SOURCE_NAME: UnwrapRef<typeof import('./src/composables/constant')['PARKING_SPOT_SOURCE_NAME']>
+    readonly PARKING_SPOT_SUBMIT_LINK: UnwrapRef<typeof import('./src/composables/constant')['PARKING_SPOT_SUBMIT_LINK']>
     readonly PointTypeEnum: UnwrapRef<typeof import('./src/composables/constant')['PointTypeEnum']>
     readonly PointTypeEnumMap: UnwrapRef<typeof import('./src/composables/constant')['PointTypeEnumMap']>
     readonly PolygonTypeEnum: UnwrapRef<typeof import('./src/composables/constant')['PolygonTypeEnum']>

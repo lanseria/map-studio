@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import type { TreeNodeData } from '@arco-design/web-vue'
 import { center } from '@turf/turf'
+import type { LngLatLike } from 'mapbox-gl'
 import { fetchParkingSpot, fetchParkingSpotCount } from '~/composables/api'
 
 const treeData = ref([] as TreeNodeData[])
@@ -15,11 +16,14 @@ async function handleSelect(node: any) {
     addParkingSpotSource(PARKING_SPOT_SOURCE_NAME, data)
     addParkingSpotLayer()
     const centerPoint = center(data)
-    window.map.flyTo({
-      center: [centerPoint.geometry.coordinates[0], centerPoint.geometry.coordinates[1]],
-      zoom: 15,
-    })
+
     storeMapLeftCollapsed.value = true
+    setTimeout(() => {
+      window.map.flyTo({
+        center: centerPoint.geometry.coordinates as LngLatLike,
+        zoom: 15,
+      })
+    }, 200)
   }
 }
 onMounted(() => {

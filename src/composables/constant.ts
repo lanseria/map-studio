@@ -186,3 +186,5 @@ export const PARKING_SPOT_SOURCE_NAME = 'parking_spot_source'
 export const PARKING_SPOT_LAYER_NAME = 'parking_spot_layer'
 export const PARKING_SPOT_CLUSTER_LAYER_NAME = 'parking_spot_cluster_layer'
 export const PARKING_SPOT_CLUSTER_COUNT_LAYER_NAME = 'parking_spot_cluster_count_layer'
+
+export const PARKING_SPOT_SUBMIT_LINK = 'https://enjqkboeqf.feishu.cn/share/base/form/shrcnoe95aMXAUGejzSvvEW9O2b?prefill_%E5%AE%A1%E6%A0%B8%E7%8A%B6%E6%80%81=%E5%AE%A1%E6%A0%B8%E4%B8%AD&hide_%E5%AE%A1%E6%A0%B8%E7%8A%B6%E6%80%81=1'
