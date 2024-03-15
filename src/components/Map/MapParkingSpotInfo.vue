@@ -32,8 +32,8 @@ function handleClose() {
       </span>
       <template v-if="globalParkingSpotCurrent.properties?.isFree === '收费'">
         <span class="mx-1 inline-block align-middle">・</span>
-        <span className="inline-block align-middle">
-          {{ globalParkingSpotCurrent.properties?.freeHours }} 小时免费
+        <span className="inline-block align-middle text-green">
+          {{ globalParkingSpotCurrent.properties?.freeMinutes }} 分钟免费
         </span>
       </template>
     </p>

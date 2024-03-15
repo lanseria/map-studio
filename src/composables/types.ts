@@ -99,13 +99,12 @@ export interface ParkingSpotPointProps {
   /**
    * 前几个小时免费
    */
-  freeHours: string
+  freeMinutes: string
   /**
    * 社交链接
    */
   link: string
 }
-
 export interface ParkingSpotCurrent {
   coordinates: number[]
   properties?: ParkingSpotPointProps
