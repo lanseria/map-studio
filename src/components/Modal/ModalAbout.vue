@@ -20,13 +20,13 @@ defineExpose({
       <ATypographyText>
         技术栈
         <a
-          class="link-text"
+          class="ms-link-text"
           href="https://mapbox.com"
           target="_blank"
           rel="noreferrer"
         >@Mapbox</a>
         <a
-          class="link-text"
+          class="ms-link-text"
           href="https://vuejs.org"
           target="_blank"
           rel="noreferrer"
@@ -34,12 +34,12 @@ defineExpose({
       </ATypographyText>
       <ATypographyText>
         Made by  <a
-          class="link-text"
+          class="ms-link-text"
           href="https://github.com/lanseria"
           target="_blank"
           rel="noreferrer"
         >@Lanseria</a> <a
-          class="link-text"
+          class="ms-link-text"
           href="https://space.bilibili.com/8487409"
           target="_blank"
           rel="noreferrer"
@@ -47,24 +47,24 @@ defineExpose({
       </ATypographyText>
       <ATypographyText>
         Data from: <a
-          class="link-text"
+          class="ms-link-text"
           href="https://jihulab.com/data1355712"
           target="_blank"
           rel="noreferrer"
         >jihulab数据源</a>
         <a
-          class="link-text"
+          class="ms-link-text"
           href="https://enjqkboeqf.feishu.cn/share/base/form/shrcnoe95aMXAUGejzSvvEW9O2b"
           target="_blank"
           rel="noreferrer"
         >飞书多维表格数据源[停车位]</a>
+        <a
+          class="ms-link-text"
+          href="https://weibo.com/u/7897247016"
+          target="_blank"
+          rel="noreferrer"
+        >舟山停车[微博]</a>
       </ATypographyText>
     </ASpace>
   </AModal>
 </template>
-
-<style lang="css" scoped>
-.link-text {
-  @apply text-blue cursor-pointer mr-2 hover:text-blue-6;
-}
-</style>

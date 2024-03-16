@@ -97,7 +97,7 @@ export interface ParkingSpotPointProps {
   holiday: boolean
   marker: string
   /**
-   * 前几个小时免费
+   * 前几个分钟免费
    */
   freeMinutes: string
   /**

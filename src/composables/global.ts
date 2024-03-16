@@ -1,9 +1,9 @@
 import { cloneDeep } from 'lodash-es'
-import type { FeatureCollection } from '@turf/turf'
+import type { FeatureCollection, Point } from '@turf/turf'
 import { center } from '@turf/turf'
 import { nanoid } from 'nanoid'
 import { handleSetLineString, handleSetPoint, handleSetPolygon, reloadMapDrawLayer } from './draw/mode'
-import type { MyFeature, ParkingSpotCurrent } from './types'
+import type { MyFeature, ParkingSpotCurrent, ParkingSpotPointProps } from './types'
 
 export const globalIsMapboxLoad = ref(false)
 export const globalSettingModalVisible = ref(false)
@@ -18,7 +18,7 @@ export const globalMapDrawFeatures = ref<MyFeature[]>([])
 
 export const globalMapCenter = ref(INIT_POINT)
 
-export const globalParkingSpotGeo = ref<FeatureCollection>({
+export const globalParkingSpotGeo = ref<FeatureCollection<Point, ParkingSpotPointProps>>({
   type: 'FeatureCollection',
   features: [],
 })
