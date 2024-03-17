@@ -107,5 +107,7 @@ export interface ParkingSpotPointProps {
 }
 export interface ParkingSpotCurrent {
   coordinates: number[]
+  coordinates_GCJ02: number[]
+  coordinates_BD09: number[]
   properties?: ParkingSpotPointProps
 }

@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 function handleClose() {
-  globalParkingSpotCurrent.value.coordinates = []
   globalParkingSpotCurrent.value.properties = undefined
 }
 </script>
@@ -43,6 +42,24 @@ function handleClose() {
     <p>
       贡献💗：<a class="parking-link-btn" :href="PARKING_SPOT_SUBMIT_LINK" target="_blank">提交我知道的停车场</a>
     </p>
+    <div class="mb-2 mt-5 text-center">
+      <a
+        :href="`https://uri.amap.com/marker?position=${globalParkingSpotCurrent.coordinates_GCJ02.join(',')}&name=${globalParkingSpotCurrent.properties?.desc}`"
+        target="_blank"
+        rel="noreferrer"
+        class="mx-1 border border-gray-200 rounded px-4 py-2 text-sm text-gray-600"
+      >
+        高德地图
+      </a>
+      <a
+        :href="`http://api.map.baidu.com/marker?location=${globalParkingSpotCurrent.coordinates_BD09.slice().reverse().join(',')}&title=${globalParkingSpotCurrent.properties?.desc}&content=${AppName}&output=html`"
+        target="_blank"
+        rel="noreferrer"
+        class="mx-1 border border-gray-200 rounded px-4 py-2 text-sm text-gray-600"
+      >
+        百度地图
+      </a>
+    </div>
     <!-- <p>
       关于：<a class="parking-link-btn">提交审核流程</a>
     </p> -->

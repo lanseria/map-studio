@@ -1,6 +1,8 @@
 import dayjs from 'dayjs'
 import type { MyFeature } from './types'
 
+export const AppName = 'Map Studio'
+
 export const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN
 
 export const DEFAULT_ICONFONT_CN_URL = '//at.alicdn.com/t/c/font_3827842_wufq09bulno.js'

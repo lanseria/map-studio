@@ -25,6 +25,8 @@ export const globalParkingSpotGeo = ref<FeatureCollection<Point, ParkingSpotPoin
 
 export const globalParkingSpotCurrent = ref<ParkingSpotCurrent>({
   coordinates: [],
+  coordinates_GCJ02: [],
+  coordinates_BD09: [],
   properties: undefined,
 })
 

@@ -12,6 +12,7 @@ declare global {
   const $ref: typeof import('vue/macros')['$ref']
   const $shallowRef: typeof import('vue/macros')['$shallowRef']
   const $toRef: typeof import('vue/macros')['$toRef']
+  const AppName: typeof import('./src/composables/constant')['AppName']
   const CIRCLE_PREFIX: typeof import('./src/composables/constant')['CIRCLE_PREFIX']
   const DEFAULT_ICONFONT_CN_URL: typeof import('./src/composables/constant')['DEFAULT_ICONFONT_CN_URL']
   const DOT_IMAGE_NAME: typeof import('./src/composables/constant')['DOT_IMAGE_NAME']
@@ -411,6 +412,7 @@ declare module 'vue' {
     readonly $ref: UnwrapRef<typeof import('vue/macros')['$ref']>
     readonly $shallowRef: UnwrapRef<typeof import('vue/macros')['$shallowRef']>
     readonly $toRef: UnwrapRef<typeof import('vue/macros')['$toRef']>
+    readonly AppName: UnwrapRef<typeof import('./src/composables/constant')['AppName']>
     readonly CIRCLE_PREFIX: UnwrapRef<typeof import('./src/composables/constant')['CIRCLE_PREFIX']>
     readonly DEFAULT_ICONFONT_CN_URL: UnwrapRef<typeof import('./src/composables/constant')['DEFAULT_ICONFONT_CN_URL']>
     readonly DOT_IMAGE_NAME: UnwrapRef<typeof import('./src/composables/constant')['DOT_IMAGE_NAME']>
@@ -788,6 +790,7 @@ declare module '@vue/runtime-core' {
     readonly $ref: UnwrapRef<typeof import('vue/macros')['$ref']>
     readonly $shallowRef: UnwrapRef<typeof import('vue/macros')['$shallowRef']>
     readonly $toRef: UnwrapRef<typeof import('vue/macros')['$toRef']>
+    readonly AppName: UnwrapRef<typeof import('./src/composables/constant')['AppName']>
     readonly CIRCLE_PREFIX: UnwrapRef<typeof import('./src/composables/constant')['CIRCLE_PREFIX']>
     readonly DEFAULT_ICONFONT_CN_URL: UnwrapRef<typeof import('./src/composables/constant')['DEFAULT_ICONFONT_CN_URL']>
     readonly DOT_IMAGE_NAME: UnwrapRef<typeof import('./src/composables/constant')['DOT_IMAGE_NAME']>
