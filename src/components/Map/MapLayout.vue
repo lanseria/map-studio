@@ -29,18 +29,18 @@ onMounted(() => {
   })
   window.map = map
 
-  const draw = new MapboxDraw({
-    displayControlsDefault: false,
-    userProperties: true,
-    modes: {
-      ...MapboxDraw.modes,
-      draw_line_string: DrawLineString,
-      draw_radius: RadiusMode,
-    },
-    styles: drawStyles,
-  })
-  map.addControl(draw)
-  window.draw = draw
+  // const draw = new MapboxDraw({
+  //   displayControlsDefault: false,
+  //   userProperties: true,
+  //   modes: {
+  //     ...MapboxDraw.modes,
+  //     draw_line_string: DrawLineString,
+  //     draw_radius: RadiusMode,
+  //   },
+  //   styles: drawStyles,
+  // })
+  // map.addControl(draw)
+  // window.draw = draw
   // map.scrollZoom.setWheelZoomRate(1)
   // map.scrollZoom.setZoomRate(1)
   map.addControl(new MapboxLanguage({ defaultLanguage: 'zh-Hans' }))
@@ -54,7 +54,7 @@ onMounted(() => {
   /* Style */
   map.addControl(new StylesControl({ }), 'bottom-right')
   /* Ruler */
-  map.addControl(new RulerControl(), 'top-right')
+  // map.addControl(new RulerControl(), 'top-right')
   /* Weather */
   map.addControl(new LayersControl({ }), 'bottom-right')
 
@@ -68,11 +68,11 @@ onMounted(() => {
     mapLoad()
   })
 
-  map.on('draw.create', (e) => {
-    console.warn('[draw.create]')
-    pushMapDrawFeatures(e.features[0])
-    draw.deleteAll()
-  })
+  // map.on('draw.create', (e) => {
+  //   console.warn('[draw.create]')
+  //   pushMapDrawFeatures(e.features[0])
+  //   draw.deleteAll()
+  // })
 })
 function toggleLeftSidebar() {
   storeMapLeftCollapsed.value = !storeMapLeftCollapsed.value
@@ -121,10 +121,6 @@ function toggleLeftSidebar() {
 }
 :global(.mapbox-control button[disabled] svg) {
   fill: rgba(0, 0, 0, 0.2);
-}
-:global(.mapbox-control-styles) {
-  /* display: flex;
-  overflow: hidden; */
 }
 :global(.mapbox-control-styles button) {
   width: auto;

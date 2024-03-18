@@ -19,9 +19,9 @@ function handleAbout() {
       </div>
     </div>
     <div class="mr-8px flex items-center">
-      <div class="ml-8px cursor-pointer" :class="globalMapDrawEnable ? 'bg-green' : ''" @click="globalHandleMapDrawToggle()">
+      <!-- <div class="ml-8px cursor-pointer" :class="globalMapDrawEnable ? 'bg-green' : ''" @click="globalHandleMapDrawToggle()">
         Draw
-      </div>
+      </div> -->
       <div class="ml-8px cursor-pointer" @click="handleAbout()">
         About
       </div>
