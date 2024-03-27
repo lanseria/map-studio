@@ -53,7 +53,7 @@ onMounted(() => {
     mapboxgl,
   })
 
-  map.addControl(geocoder)
+  map.addControl(geocoder, 'bottom-left')
   //
   map.addControl(new MapboxLanguage({ defaultLanguage: 'zh-Hans' }))
 
