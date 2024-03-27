@@ -15,8 +15,8 @@ onMounted(() => {
 <template>
   <div class="w-full text-size-14px">
     <TypeLayer />
-    <DrawLayer />
-    <FeatureInfo />
+    <!-- <DrawLayer /> -->
+    <!-- <FeatureInfo /> -->
     <!-- <GpxLog /> -->
     <!-- <GpxList /> -->
   </div>

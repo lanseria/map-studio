@@ -2,16 +2,18 @@
 import type { LngLatLike } from 'mapbox-gl'
 import mapboxgl from 'mapbox-gl'
 import MapboxLanguage from '@mapbox/mapbox-gl-language'
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'
 import 'mapbox-gl/dist/mapbox-gl.css'
-import MapboxDraw from '@mapbox/mapbox-gl-draw'
+// import MapboxDraw from '@mapbox/mapbox-gl-draw'
 import ZoomControl from '~/composables/mapControl/ZoomControl/ZoomControl'
 import StylesControl from '~/composables/mapControl/StylesControl/StylesControl'
 import CompassControl from '~/composables/mapControl/CompassControl/CompassControl'
-import RulerControl from '~/composables/mapControl/RulerControl/RulerControl'
+// import RulerControl from '~/composables/mapControl/RulerControl/RulerControl'
 import LayersControl from '~/composables/mapControl/LayersControl/LayersControl'
-import DrawLineString from '~/composables/draw/linestring'
-import drawStyles from '~/composables/draw/styles'
-import RadiusMode from '~/composables/draw/RadiusMode'
+// import DrawLineString from '~/composables/draw/linestring'
+// import drawStyles from '~/composables/draw/styles'
+// import RadiusMode from '~/composables/draw/RadiusMode'
 
 mapboxgl.accessToken = MAPBOX_TOKEN
 let map: mapboxgl.Map | null = null
@@ -43,6 +45,16 @@ onMounted(() => {
   // window.draw = draw
   // map.scrollZoom.setWheelZoomRate(1)
   // map.scrollZoom.setZoomRate(1)
+  // geocoder
+  const geocoder = new MapboxGeocoder({
+    accessToken: MAPBOX_TOKEN,
+    language: 'zh-CN', // 将语言设置为中文。
+    countries: 'CN', // 将国家设置为中国。
+    mapboxgl,
+  })
+
+  map.addControl(geocoder)
+  //
   map.addControl(new MapboxLanguage({ defaultLanguage: 'zh-Hans' }))
 
   // map.addControl(new mapboxgl.NavigationControl())
