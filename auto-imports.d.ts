@@ -16,6 +16,10 @@ declare global {
   const CIRCLE_PREFIX: typeof import('./src/composables/constant')['CIRCLE_PREFIX']
   const DEFAULT_ICONFONT_CN_URL: typeof import('./src/composables/constant')['DEFAULT_ICONFONT_CN_URL']
   const DOT_IMAGE_NAME: typeof import('./src/composables/constant')['DOT_IMAGE_NAME']
+  const EARTH_QUAKE_CLUSTER_COUNT_LAYER_NAME: typeof import('./src/composables/constant')['EARTH_QUAKE_CLUSTER_COUNT_LAYER_NAME']
+  const EARTH_QUAKE_CLUSTER_LAYER_NAME: typeof import('./src/composables/constant')['EARTH_QUAKE_CLUSTER_LAYER_NAME']
+  const EARTH_QUAKE_LAYER_NAME: typeof import('./src/composables/constant')['EARTH_QUAKE_LAYER_NAME']
+  const EARTH_QUAKE_SOURCE_NAME: typeof import('./src/composables/constant')['EARTH_QUAKE_SOURCE_NAME']
   const EffectScope: typeof import('vue')['EffectScope']
   const FILL_PREFIX: typeof import('./src/composables/constant')['FILL_PREFIX']
   const GRATICULE: typeof import('./src/composables/constant')['GRATICULE']
@@ -59,6 +63,8 @@ declare global {
   const PARKING_SPOT_LAYER_NAME: typeof import('./src/composables/constant')['PARKING_SPOT_LAYER_NAME']
   const PARKING_SPOT_SOURCE_NAME: typeof import('./src/composables/constant')['PARKING_SPOT_SOURCE_NAME']
   const PARKING_SPOT_SUBMIT_LINK: typeof import('./src/composables/constant')['PARKING_SPOT_SUBMIT_LINK']
+  const PLATE_INTERFACE_LAYER_NAME: typeof import('./src/composables/constant')['PLATE_INTERFACE_LAYER_NAME']
+  const PLATE_INTERFACE_SOURCE_NAME: typeof import('./src/composables/constant')['PLATE_INTERFACE_SOURCE_NAME']
   const PointTypeEnum: typeof import('./src/composables/constant')['PointTypeEnum']
   const PointTypeEnumMap: typeof import('./src/composables/constant')['PointTypeEnumMap']
   const PolygonTypeEnum: typeof import('./src/composables/constant')['PolygonTypeEnum']
@@ -70,14 +76,20 @@ declare global {
   const WEATHER_MODEL_LIST: typeof import('./src/composables/constant')['WEATHER_MODEL_LIST']
   const WEATHER_TOKEN: typeof import('./src/composables/constant')['WEATHER_TOKEN']
   const addColorPoint: typeof import('./src/composables/map/mapPoint')['addColorPoint']
+  const addEarthQuakeLayer: typeof import('./src/composables/map/mapLayer')['addEarthQuakeLayer']
+  const addEarthQuakeSource: typeof import('./src/composables/map/mapSource')['addEarthQuakeSource']
   const addGraticuleLayer: typeof import('./src/composables/map/mapLayer')['addGraticuleLayer']
   const addGraticuleSource: typeof import('./src/composables/map/mapSource')['addGraticuleSource']
   const addParkingSpotLayer: typeof import('./src/composables/map/mapLayer')['addParkingSpotLayer']
   const addParkingSpotSource: typeof import('./src/composables/map/mapSource')['addParkingSpotSource']
+  const addPlateInterfaceLayer: typeof import('./src/composables/map/mapLayer')['addPlateInterfaceLayer']
+  const addPlateInterfaceSource: typeof import('./src/composables/map/mapSource')['addPlateInterfaceSource']
   const addSource: typeof import('./src/composables/map/mapSource')['addSource']
   const asyncComputed: typeof import('@vueuse/core')['asyncComputed']
   const autoResetRef: typeof import('@vueuse/core')['autoResetRef']
+  const clearEarthQuakeSource: typeof import('./src/composables/map/mapSource')['clearEarthQuakeSource']
   const clearParkingSpotSource: typeof import('./src/composables/map/mapSource')['clearParkingSpotSource']
+  const clearPlateInterfaceSource: typeof import('./src/composables/map/mapSource')['clearPlateInterfaceSource']
   const computed: typeof import('vue')['computed']
   const computedAsync: typeof import('@vueuse/core')['computedAsync']
   const computedEager: typeof import('@vueuse/core')['computedEager']
@@ -416,6 +428,10 @@ declare module 'vue' {
     readonly CIRCLE_PREFIX: UnwrapRef<typeof import('./src/composables/constant')['CIRCLE_PREFIX']>
     readonly DEFAULT_ICONFONT_CN_URL: UnwrapRef<typeof import('./src/composables/constant')['DEFAULT_ICONFONT_CN_URL']>
     readonly DOT_IMAGE_NAME: UnwrapRef<typeof import('./src/composables/constant')['DOT_IMAGE_NAME']>
+    readonly EARTH_QUAKE_CLUSTER_COUNT_LAYER_NAME: UnwrapRef<typeof import('./src/composables/constant')['EARTH_QUAKE_CLUSTER_COUNT_LAYER_NAME']>
+    readonly EARTH_QUAKE_CLUSTER_LAYER_NAME: UnwrapRef<typeof import('./src/composables/constant')['EARTH_QUAKE_CLUSTER_LAYER_NAME']>
+    readonly EARTH_QUAKE_LAYER_NAME: UnwrapRef<typeof import('./src/composables/constant')['EARTH_QUAKE_LAYER_NAME']>
+    readonly EARTH_QUAKE_SOURCE_NAME: UnwrapRef<typeof import('./src/composables/constant')['EARTH_QUAKE_SOURCE_NAME']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly FILL_PREFIX: UnwrapRef<typeof import('./src/composables/constant')['FILL_PREFIX']>
     readonly GRATICULE: UnwrapRef<typeof import('./src/composables/constant')['GRATICULE']>
@@ -449,6 +465,8 @@ declare module 'vue' {
     readonly PARKING_SPOT_LAYER_NAME: UnwrapRef<typeof import('./src/composables/constant')['PARKING_SPOT_LAYER_NAME']>
     readonly PARKING_SPOT_SOURCE_NAME: UnwrapRef<typeof import('./src/composables/constant')['PARKING_SPOT_SOURCE_NAME']>
     readonly PARKING_SPOT_SUBMIT_LINK: UnwrapRef<typeof import('./src/composables/constant')['PARKING_SPOT_SUBMIT_LINK']>
+    readonly PLATE_INTERFACE_LAYER_NAME: UnwrapRef<typeof import('./src/composables/constant')['PLATE_INTERFACE_LAYER_NAME']>
+    readonly PLATE_INTERFACE_SOURCE_NAME: UnwrapRef<typeof import('./src/composables/constant')['PLATE_INTERFACE_SOURCE_NAME']>
     readonly PointTypeEnum: UnwrapRef<typeof import('./src/composables/constant')['PointTypeEnum']>
     readonly PointTypeEnumMap: UnwrapRef<typeof import('./src/composables/constant')['PointTypeEnumMap']>
     readonly PolygonTypeEnum: UnwrapRef<typeof import('./src/composables/constant')['PolygonTypeEnum']>
@@ -459,13 +477,19 @@ declare module 'vue' {
     readonly WEATHER_LIST: UnwrapRef<typeof import('./src/composables/constant')['WEATHER_LIST']>
     readonly WEATHER_TOKEN: UnwrapRef<typeof import('./src/composables/constant')['WEATHER_TOKEN']>
     readonly addColorPoint: UnwrapRef<typeof import('./src/composables/map/mapPoint')['addColorPoint']>
+    readonly addEarthQuakeLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['addEarthQuakeLayer']>
+    readonly addEarthQuakeSource: UnwrapRef<typeof import('./src/composables/map/mapSource')['addEarthQuakeSource']>
     readonly addGraticuleLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['addGraticuleLayer']>
     readonly addGraticuleSource: UnwrapRef<typeof import('./src/composables/map/mapSource')['addGraticuleSource']>
     readonly addParkingSpotLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['addParkingSpotLayer']>
     readonly addParkingSpotSource: UnwrapRef<typeof import('./src/composables/map/mapSource')['addParkingSpotSource']>
+    readonly addPlateInterfaceLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['addPlateInterfaceLayer']>
+    readonly addPlateInterfaceSource: UnwrapRef<typeof import('./src/composables/map/mapSource')['addPlateInterfaceSource']>
     readonly asyncComputed: UnwrapRef<typeof import('@vueuse/core')['asyncComputed']>
     readonly autoResetRef: UnwrapRef<typeof import('@vueuse/core')['autoResetRef']>
+    readonly clearEarthQuakeSource: UnwrapRef<typeof import('./src/composables/map/mapSource')['clearEarthQuakeSource']>
     readonly clearParkingSpotSource: UnwrapRef<typeof import('./src/composables/map/mapSource')['clearParkingSpotSource']>
+    readonly clearPlateInterfaceSource: UnwrapRef<typeof import('./src/composables/map/mapSource')['clearPlateInterfaceSource']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly computedAsync: UnwrapRef<typeof import('@vueuse/core')['computedAsync']>
     readonly computedEager: UnwrapRef<typeof import('@vueuse/core')['computedEager']>
@@ -794,6 +818,10 @@ declare module '@vue/runtime-core' {
     readonly CIRCLE_PREFIX: UnwrapRef<typeof import('./src/composables/constant')['CIRCLE_PREFIX']>
     readonly DEFAULT_ICONFONT_CN_URL: UnwrapRef<typeof import('./src/composables/constant')['DEFAULT_ICONFONT_CN_URL']>
     readonly DOT_IMAGE_NAME: UnwrapRef<typeof import('./src/composables/constant')['DOT_IMAGE_NAME']>
+    readonly EARTH_QUAKE_CLUSTER_COUNT_LAYER_NAME: UnwrapRef<typeof import('./src/composables/constant')['EARTH_QUAKE_CLUSTER_COUNT_LAYER_NAME']>
+    readonly EARTH_QUAKE_CLUSTER_LAYER_NAME: UnwrapRef<typeof import('./src/composables/constant')['EARTH_QUAKE_CLUSTER_LAYER_NAME']>
+    readonly EARTH_QUAKE_LAYER_NAME: UnwrapRef<typeof import('./src/composables/constant')['EARTH_QUAKE_LAYER_NAME']>
+    readonly EARTH_QUAKE_SOURCE_NAME: UnwrapRef<typeof import('./src/composables/constant')['EARTH_QUAKE_SOURCE_NAME']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly FILL_PREFIX: UnwrapRef<typeof import('./src/composables/constant')['FILL_PREFIX']>
     readonly GRATICULE: UnwrapRef<typeof import('./src/composables/constant')['GRATICULE']>
@@ -827,6 +855,8 @@ declare module '@vue/runtime-core' {
     readonly PARKING_SPOT_LAYER_NAME: UnwrapRef<typeof import('./src/composables/constant')['PARKING_SPOT_LAYER_NAME']>
     readonly PARKING_SPOT_SOURCE_NAME: UnwrapRef<typeof import('./src/composables/constant')['PARKING_SPOT_SOURCE_NAME']>
     readonly PARKING_SPOT_SUBMIT_LINK: UnwrapRef<typeof import('./src/composables/constant')['PARKING_SPOT_SUBMIT_LINK']>
+    readonly PLATE_INTERFACE_LAYER_NAME: UnwrapRef<typeof import('./src/composables/constant')['PLATE_INTERFACE_LAYER_NAME']>
+    readonly PLATE_INTERFACE_SOURCE_NAME: UnwrapRef<typeof import('./src/composables/constant')['PLATE_INTERFACE_SOURCE_NAME']>
     readonly PointTypeEnum: UnwrapRef<typeof import('./src/composables/constant')['PointTypeEnum']>
     readonly PointTypeEnumMap: UnwrapRef<typeof import('./src/composables/constant')['PointTypeEnumMap']>
     readonly PolygonTypeEnum: UnwrapRef<typeof import('./src/composables/constant')['PolygonTypeEnum']>
@@ -837,13 +867,19 @@ declare module '@vue/runtime-core' {
     readonly WEATHER_LIST: UnwrapRef<typeof import('./src/composables/constant')['WEATHER_LIST']>
     readonly WEATHER_TOKEN: UnwrapRef<typeof import('./src/composables/constant')['WEATHER_TOKEN']>
     readonly addColorPoint: UnwrapRef<typeof import('./src/composables/map/mapPoint')['addColorPoint']>
+    readonly addEarthQuakeLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['addEarthQuakeLayer']>
+    readonly addEarthQuakeSource: UnwrapRef<typeof import('./src/composables/map/mapSource')['addEarthQuakeSource']>
     readonly addGraticuleLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['addGraticuleLayer']>
     readonly addGraticuleSource: UnwrapRef<typeof import('./src/composables/map/mapSource')['addGraticuleSource']>
     readonly addParkingSpotLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['addParkingSpotLayer']>
     readonly addParkingSpotSource: UnwrapRef<typeof import('./src/composables/map/mapSource')['addParkingSpotSource']>
+    readonly addPlateInterfaceLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['addPlateInterfaceLayer']>
+    readonly addPlateInterfaceSource: UnwrapRef<typeof import('./src/composables/map/mapSource')['addPlateInterfaceSource']>
     readonly asyncComputed: UnwrapRef<typeof import('@vueuse/core')['asyncComputed']>
     readonly autoResetRef: UnwrapRef<typeof import('@vueuse/core')['autoResetRef']>
+    readonly clearEarthQuakeSource: UnwrapRef<typeof import('./src/composables/map/mapSource')['clearEarthQuakeSource']>
     readonly clearParkingSpotSource: UnwrapRef<typeof import('./src/composables/map/mapSource')['clearParkingSpotSource']>
+    readonly clearPlateInterfaceSource: UnwrapRef<typeof import('./src/composables/map/mapSource')['clearPlateInterfaceSource']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly computedAsync: UnwrapRef<typeof import('@vueuse/core')['computedAsync']>
     readonly computedEager: UnwrapRef<typeof import('@vueuse/core')['computedEager']>

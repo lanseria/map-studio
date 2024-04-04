@@ -55,3 +55,5 @@ countObj.forEach((item) => {
     downCreateFile(url, path)
   })
 })
+// earthQuake
+await downCreateFile('https://raw.githubusercontent.com/lanseria/map-data/main/data/earth-quake/plate-boundaries-PlateInterface.geojson', 'public/earth-quake/plate-boundaries-PlateInterface.geojson')

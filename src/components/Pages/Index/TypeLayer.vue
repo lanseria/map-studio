@@ -6,6 +6,10 @@ const treeData = [
     title: '🅿️停车场',
     key: 'parking',
   },
+  {
+    title: '地震',
+    key: 'earthquake',
+  },
 ]
 function handleSelect(e: any) {
   router.push(`/${e[0]}${route.hash}`)

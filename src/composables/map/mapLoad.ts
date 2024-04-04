@@ -44,7 +44,7 @@ export function mapLoad() {
   })
   // 点击事件
   map.on('mouseup', (e) => {
-    console.log(e)
+    console.warn(e)
   })
   addMapParkingSpotLayerClickEvents()
 }

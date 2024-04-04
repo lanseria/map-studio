@@ -129,7 +129,7 @@ function createColorPoint(...color: number[]) {
 export function addColorPoint() {
   const map = window.map
   map.addImage('#50C240', createColorPoint(80, 194, 64, 255))
-  // map.addImage('#F3AE1A', createColorPoint(255, 193, 7, 255))
+  map.addImage('#F3AE1A', createColorPoint(255, 193, 7, 255))
   map.addImage('#C24740', createColorPoint(194, 71, 64, 255))
-  // map.addImage('#BEBEBE', createColorPoint(125, 125, 125, 255))
+  map.addImage('#BEBEBE', createColorPoint(125, 125, 125, 255))
 }
