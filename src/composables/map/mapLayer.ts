@@ -112,7 +112,7 @@ export function addEarthQuakeLayer() {
     source: EARTH_QUAKE_SOURCE_NAME,
     layout: {
       'icon-image': ['get', 'color'],
-      'icon-size': 0.5,
+      'icon-size': 0.3,
       'text-field': ['get', 'place'],
       'text-size': 12,
       'text-offset': [0, 1.2],
@@ -141,7 +141,7 @@ export function addPlateInterfaceLayer() {
       'line-join': 'round',
     },
     paint: {
-      'line-color': '#ff0000',
+      'line-color': ['coalesce', ['get', 'stroke'], '#ff0000'],
       'line-width': 2,
       'line-opacity': 0.8,
     },
