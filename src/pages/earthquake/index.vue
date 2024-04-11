@@ -6,8 +6,8 @@ import dayjs from 'dayjs'
 const latestEarthQuake = ref(featureCollection([]))
 const filterForm = ref({
   minmagnitude: 6,
-  starttime: '2024-03-28 00:00:00',
-  endtime: '2024-04-04 23:59:59',
+  starttime: dayjs().subtract(7, 'day').format('YYYY-MM-DD 00:00:00'),
+  endtime: dayjs().format('YYYY-MM-DD 00:00:00'),
   orderby: 'time',
 })
 const { data: plateInterfaceData, onFetchResponse } = useFetch('/earth-quake/plate-boundaries-PlateInterface.geojson').json()
