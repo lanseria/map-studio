@@ -411,6 +411,9 @@ declare global {
   // @ts-ignore
   export type { Component, ComponentPublicInstance, ComputedRef, ExtractDefaultPropTypes, ExtractPropTypes, ExtractPublicPropTypes, InjectionKey, PropType, Ref, VNode, WritableComputedRef } from 'vue'
   import('vue')
+  // @ts-ignore
+  export type { PointTypeEnum, LineStringTypeEnum, PolygonTypeEnum, PointTypeEnum, LineStringTypeEnum, PolygonTypeEnum } from './src/composables/constant'
+  import('./src/composables/constant')
 }
 // for vue template auto import
 import { UnwrapRef } from 'vue'

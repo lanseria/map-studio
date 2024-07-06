@@ -1,4 +1,4 @@
-export const storeMapStyle = useStorage('storeMapStyle', 'Streets')
+export const storeMapStyle = useStorage('storeMapStyle', 'NewStreets')
 
 export const storeMapLeftCollapsed = useStorage('storeMapLeftCollapsed', false)
 

@@ -29,7 +29,7 @@ export default class StylesControl extends Base {
       button.onClick(() => {
         if (button.isActive())
           return
-        this.map.setStyle(style.styleUrl)
+        this.map!.setStyle(style.styleUrl)
         storeMapStyle.value = style.styleName
         if (this.onChange)
           this.onChange(style)
@@ -38,12 +38,12 @@ export default class StylesControl extends Base {
       this.addButton(button)
     })
 
-    this.map.on('styledata', () => {
+    this.map!.on('styledata', () => {
       this.buttons.forEach((button) => {
         button.setActive(false)
       })
       const styleNames = this.styles.map(style => style.styleName)
-      const styleName = this.map.getStyle().name
+      const styleName = this.map!.getStyle()!.name
       if (!styleName)
         throw new Error('style must have name')
       const currentStyleIndex = styleNames.indexOf(styleName)

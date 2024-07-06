@@ -1,7 +1,7 @@
 import { cloneDeep } from 'lodash-es'
-import type { FeatureCollection, Point } from '@turf/turf'
 import { center } from '@turf/turf'
 import { nanoid } from 'nanoid'
+import type { FeatureCollection, Point } from 'geojson'
 import { handleSetLineString, handleSetPoint, handleSetPolygon, reloadMapDrawLayer } from './draw/mode'
 import type { MyFeature, ParkingSpotCurrent, ParkingSpotPointProps } from './types'
 
